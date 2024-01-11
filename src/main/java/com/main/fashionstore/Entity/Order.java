@@ -27,8 +27,7 @@ public class Order {
     @JoinColumn(name = "account_id")
     Account account;
 
-    @JsonIgnore
     @OneToOne
     @JoinColumn(name = "parent_order_id")  // Chỉ định tên cột phù hợp
-    Order parentOrder;
+    OrderDetails orderDetails;
 }

@@ -21,5 +21,5 @@ public class Brand {
 
     @JsonIgnore
     @OneToMany(mappedBy = "brand_id")
-    List<Brand> brands;
+    List<Product> products;
 }

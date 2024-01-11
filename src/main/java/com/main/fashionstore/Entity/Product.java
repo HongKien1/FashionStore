@@ -18,10 +18,6 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer product_id;
 
-    @ManyToOne
-    @JoinColumn(name = "brand_id")
-    Brand brand;
-
     String name;
 
     String describe;
@@ -35,4 +31,8 @@ public class Product {
     @ManyToOne
     @JoinColumn(name = "productType_id")
     ProductType productType;
+
+    @ManyToOne
+    @JoinColumn(name = "brand_id")
+    Brand brand;
 }

@@ -21,5 +21,5 @@ public class Color {
 
     @JsonIgnore
     @OneToMany(mappedBy = "color_id")
-    List<Color> colors;
+    List<ProductDetails> colors;
 }

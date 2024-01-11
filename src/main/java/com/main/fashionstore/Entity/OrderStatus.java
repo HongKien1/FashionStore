@@ -20,14 +20,9 @@ public class OrderStatus {
 
     String orderStatus_name;
 
-    // Nếu quan hệ @OneToMany là với chính nó, hãy chú ý để tránh vòng lặp vô hạn
-    @JsonIgnore
-    @OneToMany(mappedBy = "parentOrderStatus")
-    List<OrderStatus> childOrderStatus;
-
-    @ManyToOne
+    @OneToMany
     @JoinColumn(name = "parent_orderstatus_id")
-    OrderStatus parentOrderStatus;
+    OrderDetails orderDetails;
 
     // Getter và setter cho childOrderStatus và parentOrderStatus
 }
