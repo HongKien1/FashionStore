@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
@@ -13,31 +14,31 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ProductDetails {
+public class ProductDetails implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer productdetails_id;
 
+    Double price;
     Integer quantity;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "productDetail")
+    List<OrderDetails> orderDetails;
 
     @ManyToOne
     @JoinColumn(name = "product_id")
-    Product product_id;
+    Product product;
 
     @ManyToOne
     @JoinColumn(name = "color_id")
     Color color;
 
     @ManyToOne
-    @JoinColumn(name = "Size_id")
+    @JoinColumn(name = "size_id")
     Size size;
 
-
     @JsonIgnore
-    @OneToMany(mappedBy = "productdetails_id")
-    List<OrderDetails> orderDetails;
-
-    @JsonIgnore
-    @OneToMany(mappedBy = "productcartdetails_id")
+    @OneToMany(mappedBy = "productdetails")
     List<CartDetails> cartDetails;
 }

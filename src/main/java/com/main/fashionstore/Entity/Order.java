@@ -6,29 +6,31 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
+import java.util.List;
+
 @Entity
 @Table(name = "order_table")  // Thay đổi tên bảng để tránh từ khóa "order"
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Order {
+public class Order implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer order_id;
 
     Integer quantity;
-    double total;
+    Double total;
     String name;
     String address;
     Number phonenumber;
     String note;
 
-    @ManyToOne
-    @JoinColumn(name = "account_id")
-    Account account;
-
     @JsonIgnore
-    @OneToOne
-    @JoinColumn(name = "parent_order_id")  // Chỉ định tên cột phù hợp
-    Order parentOrder;
+    @OneToMany(mappedBy = "order")
+    List<OrderDetails> orderDetails;
+
+    @ManyToOne
+    @JoinColumn(name = "account")
+    Account account;
 }
