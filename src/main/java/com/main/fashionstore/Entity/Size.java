@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
@@ -13,13 +14,13 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Size {
+public class Size implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer size_id;
     String size_name;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "size_id")
-    List<Size> sizes;
+    @OneToMany(mappedBy = "size")
+    List<ProductDetails> productDetails;
 }

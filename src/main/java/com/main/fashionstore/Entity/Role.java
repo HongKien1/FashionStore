@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
@@ -13,13 +14,13 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Role {
+public class Role implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer role_id;
     String role_name;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "role_id")
-    List<Role> roles;
+    @OneToMany(mappedBy ="role")
+    List<Account> accounts;
 }
