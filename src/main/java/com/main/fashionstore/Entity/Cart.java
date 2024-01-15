@@ -20,7 +20,6 @@ public class Cart implements Serializable {
     Integer cart_id;
 
     @JsonIgnore
-    @JoinColumn(name = "account_id")
     @OneToOne(mappedBy = "cart")
     Account account;
 }
