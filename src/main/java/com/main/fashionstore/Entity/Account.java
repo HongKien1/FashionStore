@@ -7,12 +7,15 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.repository.cdi.Eager;
 
+import java.io.Serializable;
+import java.util.List;
+
 @Entity
 @Table(name = "account")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Account {
+public class Account implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer account_id;
@@ -25,8 +28,13 @@ public class Account {
 
     @ManyToOne
     @JoinColumn(name = "role_id")
-    Role roles;
+    Role role;
 
-    @OneToOne(mappedBy = "account")
+    @JsonIgnore
+    @OneToMany(mappedBy = "account")
+    List<Order> orders;
+
+    @OneToOne
+    @JoinColumn(name = "cart_id")
     Cart cart;
 }

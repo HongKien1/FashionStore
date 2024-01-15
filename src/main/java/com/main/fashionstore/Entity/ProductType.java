@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
@@ -13,21 +14,18 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ProductType {
+public class ProductType implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer productType_id;
 
     String productType_name;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "productType_id")
-    List<ProductType> productTypes;
-
     @ManyToOne
-    @JoinColumn(name = "parent_productType_id")
-    ProductType parentProductType;
+    @JoinColumn(name = "category_id")
+    Category category_id;
 
-    @Column(insertable=false, updatable=false)
-    Integer parent_productType_id; // Chỉ ánh xạ, không tham gia vào quá trình insert hoặc update
+    @JsonIgnore
+    @OneToMany(mappedBy = "productType")
+    List<Product> products;
 }

@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
@@ -13,7 +14,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Product {
+public class Product implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer product_id;
@@ -24,10 +25,6 @@ public class Product {
 
     String image;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "product_id")
-    List<Product> products;
-
     @ManyToOne
     @JoinColumn(name = "productType_id")
     ProductType productType;
@@ -35,4 +32,8 @@ public class Product {
     @ManyToOne
     @JoinColumn(name = "brand_id")
     Brand brand;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "product")
+    List<ProductDetails> productsDetails;
 }

@@ -5,25 +5,27 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
+
 @Entity
 @Table(name = "orderdetail")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class OrderDetails {
+public class OrderDetails implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer orderdetail_id;
 
     @ManyToOne
-    @JoinColumn(name = "productdetails_id")
-    ProductDetails productdetails_id;
+    @JoinColumn(name = "orderstatus_id")
+    OrderStatus orderstatus;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "order_id")
     Order order;
 
     @ManyToOne
-    @JoinColumn(name = "orderstatus_id")
-    OrderStatus orderStatus;
+    @JoinColumn(name = "productDetails")
+    ProductDetails productDetail;
 }

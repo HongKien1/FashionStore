@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
@@ -13,16 +14,14 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class OrderStatus {
+public class OrderStatus implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer orderStatus_id;
 
     String orderStatus_name;
 
-    @OneToMany
-    @JoinColumn(name = "parent_orderstatus_id")
-    OrderDetails orderDetails;
-
-    // Getter và setter cho childOrderStatus và parentOrderStatus
+    @JsonIgnore
+    @OneToMany(mappedBy = "orderstatus")
+    List<OrderDetails> orderDetails;
 }
