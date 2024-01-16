@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <!-- Meta Data -->
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -63,7 +62,6 @@
     <link rel="stylesheet" type="text/css" href="/user/css/main.css">
 
 </head>
-
 <body class="animsition">
 <header class="header-v4">
     <div th:replace="~{/user/components/header}"></div>
@@ -73,31 +71,36 @@
 <div th:replace="~{/user/components/cart}"></div>
 <div th:replace="~{/user/components/miniCart}"></div>
 
-
 <section class="contact-area">
     <div class="container-fluid custom-container">
         <div class="section-heading pb-30">
-            <h3>ĐĂNG <span>NHẬP</span></h3>
+            <h3> XÁC <span> NHẬN OTP </span></h3>
+
         </div>
         <div class="row justify-content-center">
             <div class="col-sm-9 col-md-8 col-lg-6 col-xl-4">
                 <div class="contact-form login-form">
+
                     <form action="#">
                         <div class="row">
-                            <div class="col-xl-12">
-                                <input type="text" placeholder="Email*">
-                            </div>
-                            <div class="col-xl-12">
-                                <input type="text" placeholder="Mật khẩu*">
 
-                            </div>
                             <div class="col-xl-12">
-                                <input type="submit" value="ĐĂNG NHẬP">
+                                <h4> Vui lòng nhập mã OTP đã gửi qua tin nhắn SMS đến số điện thoại 000000000</h4>
                                 <br>
-
-                                <a href="/forgot" class="">Quên mật khẩu?</a>
+                                <input type="text" placeholder="Nhập mã OTP*">
+                            </div>
+                            <!--                            <div class="col-xl-12">-->
+                            <!--                                <input type="text" placeholder="Password*">-->
+                            <!--                            </div>-->
+                            <div class="col-xl-12">
+                                <input type="submit" value=" Xác nhận">
+                                <br>
+                                <h5> Chưa nhận được mã? Gửi lại (50s) </h5>
 
                             </div>
+
+
+
                         </div>
                     </form>
                 </div>
@@ -109,16 +112,7 @@
 </section>
 <!-- /.contact-area end -->
 
-<section class="login-now">
-    <div class="container-fluid custom-container">
-        <div class="col-12">
-            <span>Không có tài khoản</span>
-            <a href="/create" class="btn-two">ĐĂNG KÝ</a>
-        </div>
-        <!-- /.col-12 -->
-    </div>
-    <!-- /.container-fluid -->
-</section>
+
 <!-- /.login-now -->
 
 <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="dependencies/jquery/jquery.min.js"></script>
@@ -140,7 +134,6 @@
 
 <!-- Site Scripts -->
 <script src="/login/assets/js/app.js"></script>
-
 
 <!--===============================================================================================-->
 <script src="/user/vendor/jquery/jquery-3.2.1.min.js"></script>

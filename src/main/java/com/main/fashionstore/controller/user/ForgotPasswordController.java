@@ -12,4 +12,16 @@ public class ForgotPasswordController {
     public String loginForm() {
         return "user/forgot-password";
     }
+
+    @GetMapping("nhapotp")
+
+    public String nhapMa() {
+        return "user/nhapotp";
+    }
+    @GetMapping("nhapmkhau")
+
+    public String nhapMatkhau() {
+        return "user/nhaplaimatkhau";
+    }
+
 }
