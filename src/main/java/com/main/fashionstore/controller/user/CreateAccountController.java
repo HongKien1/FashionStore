@@ -5,10 +5,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("contact")
-public class  ContactController {
+
+@RequestMapping("create")
+public class CreateAccountController {
     @GetMapping("")
-    public String index() {
-        return "user/contact";
+    public String loginForm() {
+        return "user/create-account";
     }
 }
