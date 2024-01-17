@@ -1,4 +1,4 @@
-package com.main.fashionstore.controller.user;
+package com.main.fashionstore.Controller.user;
 
 
 import org.springframework.stereotype.Controller;

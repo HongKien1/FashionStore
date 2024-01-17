@@ -1,4 +1,4 @@
-package com.main.fashionstore.controller.admin;
+package com.main.fashionstore.Controller.admin;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

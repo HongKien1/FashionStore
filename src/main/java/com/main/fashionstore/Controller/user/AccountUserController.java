@@ -1,14 +1,14 @@
-package com.main.fashionstore.controller.user;
+package com.main.fashionstore.Controller.user;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("cart")
-public class CartController {
+@RequestMapping("account")
+public class AccountUserController {
     @GetMapping("")
     public String index() {
-        return "user/shoping-cart";
+        return "user/account";
     }
 }
