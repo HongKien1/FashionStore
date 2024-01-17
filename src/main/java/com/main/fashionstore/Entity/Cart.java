@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 
 
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name = "cart")
@@ -19,7 +20,12 @@ public class Cart implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer cart_id;
 
-    @JsonIgnore
-    @OneToOne(mappedBy = "cart")
+
+    @OneToOne
+    @JoinColumn(name = "account_id")
     Account account;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "cart")
+    List<CartDetails> cartDetails;
 }

@@ -34,7 +34,8 @@ public class Account implements Serializable {
     @OneToMany(mappedBy = "account")
     List<Order> orders;
 
-    @OneToOne
-    @JoinColumn(name = "cart_id")
+    @JsonIgnore
+    @OneToOne(mappedBy = "account")
     Cart cart;
+
 }
