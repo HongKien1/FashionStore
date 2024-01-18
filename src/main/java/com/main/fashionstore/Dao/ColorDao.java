@@ -1,4 +1,7 @@
 package com.main.fashionstore.Dao;
 
-public class ColorDao {
+import com.main.fashionstore.Entity.Color;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface ColorDao extends JpaRepository<Color, Integer> {
 }

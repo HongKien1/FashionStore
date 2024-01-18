@@ -1,4 +1,7 @@
 package com.main.fashionstore.Dao;
 
-public class CategoryDao {
+import com.main.fashionstore.Entity.Category;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface CategoryDao extends JpaRepository<Category, Integer> {
 }

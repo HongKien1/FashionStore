@@ -80,20 +80,20 @@
 					<div class="menu-desktop">
 						<ul class="main-menu">
 							<li>
-								<a href="index.html">Home</a>
+								<a href="index.jsp">Home</a>
 								<ul class="sub-menu">
-									<li><a href="index.html">Homepage 1</a></li>
+									<li><a href="index.jsp">Homepage 1</a></li>
 									<li><a href="home-02.html">Homepage 2</a></li>
 									<li><a href="home-03.html">Homepage 3</a></li>
 								</ul>
 							</li>
 
 							<li>
-								<a href="product.html">Shop</a>
+								<a href="product.jsp">Shop</a>
 							</li>
 
 							<li class="label1" data-label1="hot">
-								<a href="shoping-cart.html">Features</a>
+								<a href="shoping-cart.jsp">Features</a>
 							</li>
 
 							<li class="active-menu">
@@ -101,11 +101,11 @@
 							</li>
 
 							<li>
-								<a href="orderDetail.html">About</a>
+								<a href="orderDetail.jsp">About</a>
 							</li>
 
 							<li>
-								<a href="contact.html">Contact</a>
+								<a href="contact.jsp">Contact</a>
 							</li>
 						</ul>
 					</div>	
@@ -132,7 +132,7 @@
 		<div class="wrap-header-mobile">
 			<!-- Logo moblie -->		
 			<div class="logo-mobile">
-				<a href="index.html"><img src="images/icons/logo-01.png" alt="IMG-LOGO"></a>
+				<a href="index.jsp"><img src="images/icons/logo-01.png" alt="IMG-LOGO"></a>
 			</div>
 
 			<!-- Icon header -->
@@ -191,9 +191,9 @@
 
 			<ul class="main-menu-m">
 				<li>
-					<a href="index.html">Home</a>
+					<a href="index.jsp">Home</a>
 					<ul class="sub-menu-m">
-						<li><a href="index.html">Homepage 1</a></li>
+						<li><a href="index.jsp">Homepage 1</a></li>
 						<li><a href="home-02.html">Homepage 2</a></li>
 						<li><a href="home-03.html">Homepage 3</a></li>
 					</ul>
@@ -203,11 +203,11 @@
 				</li>
 
 				<li>
-					<a href="product.html">Shop</a>
+					<a href="product.jsp">Shop</a>
 				</li>
 
 				<li>
-					<a href="shoping-cart.html" class="label1 rs1" data-label1="hot">Features</a>
+					<a href="shoping-cart.jsp" class="label1 rs1" data-label1="hot">Features</a>
 				</li>
 
 				<li>
@@ -215,11 +215,11 @@
 				</li>
 
 				<li>
-					<a href="orderDetail.html">About</a>
+					<a href="orderDetail.jsp">About</a>
 				</li>
 
 				<li>
-					<a href="contact.html">Contact</a>
+					<a href="contact.jsp">Contact</a>
 				</li>
 			</ul>
 		</div>
@@ -313,11 +313,11 @@
 					</div>
 
 					<div class="header-cart-buttons flex-w w-full">
-						<a href="shoping-cart.html" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">
+						<a href="shoping-cart.jsp" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">
 							View Cart
 						</a>
 
-						<a href="shoping-cart.html" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">
+						<a href="shoping-cart.jsp" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">
 							Check Out
 						</a>
 					</div>
@@ -343,7 +343,7 @@
 					<div class="p-r-45 p-r-0-lg">
 						<!-- item blog -->
 						<div class="p-b-63">
-							<a href="blog-detail.html" class="hov-img0 how-pos5-parent">
+							<a href="blog-detail.jsp" class="hov-img0 how-pos5-parent">
 								<img src="images/blog-04.jpg" alt="IMG-BLOG">
 
 								<div class="flex-col-c-m size-123 bg9 how-pos5">
@@ -359,7 +359,7 @@
 
 							<div class="p-t-32">
 								<h4 class="p-b-15">
-									<a href="blog-detail.html" class="ltext-108 cl2 hov-cl1 trans-04">
+									<a href="blog-detail.jsp" class="ltext-108 cl2 hov-cl1 trans-04">
 										8 Inspiring Ways to Wear Dresses in the Winter
 									</a>
 								</h4>
@@ -385,7 +385,7 @@
 										</span>
 									</span>
 
-									<a href="blog-detail.html" class="stext-101 cl2 hov-cl1 trans-04 m-tb-10">
+									<a href="blog-detail.jsp" class="stext-101 cl2 hov-cl1 trans-04 m-tb-10">
 										Continue Reading
 
 										<i class="fa fa-long-arrow-right m-l-9"></i>
@@ -396,7 +396,7 @@
 
 						<!-- item blog -->
 						<div class="p-b-63">
-							<a href="blog-detail.html" class="hov-img0 how-pos5-parent">
+							<a href="blog-detail.jsp" class="hov-img0 how-pos5-parent">
 								<img src="images/blog-05.jpg" alt="IMG-BLOG">
 
 								<div class="flex-col-c-m size-123 bg9 how-pos5">
@@ -412,7 +412,7 @@
 
 							<div class="p-t-32">
 								<h4 class="p-b-15">
-									<a href="blog-detail.html" class="ltext-108 cl2 hov-cl1 trans-04">
+									<a href="blog-detail.jsp" class="ltext-108 cl2 hov-cl1 trans-04">
 										The Great Big List of Men’s Gifts for the Holidays 
 									</a>
 								</h4>
@@ -438,7 +438,7 @@
 										</span>
 									</span>
 
-									<a href="blog-detail.html" class="stext-101 cl2 hov-cl1 trans-04 m-tb-10">
+									<a href="blog-detail.jsp" class="stext-101 cl2 hov-cl1 trans-04 m-tb-10">
 										Continue Reading
 
 										<i class="fa fa-long-arrow-right m-l-9"></i>
@@ -449,7 +449,7 @@
 
 						<!-- item blog -->
 						<div class="p-b-63">
-							<a href="blog-detail.html" class="hov-img0 how-pos5-parent">
+							<a href="blog-detail.jsp" class="hov-img0 how-pos5-parent">
 								<img src="images/blog-06.jpg" alt="IMG-BLOG">
 
 								<div class="flex-col-c-m size-123 bg9 how-pos5">
@@ -465,7 +465,7 @@
 
 							<div class="p-t-32">
 								<h4 class="p-b-15">
-									<a href="blog-detail.html" class="ltext-108 cl2 hov-cl1 trans-04">
+									<a href="blog-detail.jsp" class="ltext-108 cl2 hov-cl1 trans-04">
 										5 Winter-to-Spring Fashion Trends to Try Now
 									</a>
 								</h4>
@@ -491,7 +491,7 @@
 										</span>
 									</span>
 
-									<a href="blog-detail.html" class="stext-101 cl2 hov-cl1 trans-04 m-tb-10">
+									<a href="blog-detail.jsp" class="stext-101 cl2 hov-cl1 trans-04 m-tb-10">
 										Continue Reading
 
 										<i class="fa fa-long-arrow-right m-l-9"></i>

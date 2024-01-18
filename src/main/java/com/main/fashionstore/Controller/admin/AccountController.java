@@ -19,6 +19,6 @@ public class AccountController {
 
     @GetMapping("/updateAccount")
     public String update() {
-        return "admin/account-update";
+        return "account-update";
     }
 }

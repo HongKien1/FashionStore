@@ -1,4 +1,7 @@
 package com.main.fashionstore.Dao;
 
-public class OrderDao {
+import com.main.fashionstore.Entity.Order;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface OrderDao extends JpaRepository<Order, Integer>  {
 }
