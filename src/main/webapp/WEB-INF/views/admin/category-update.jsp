@@ -107,9 +107,15 @@
                                 </div>
                             </div>
 
-                            <div class="mt-3">
-                                <button type="submit" class="btn btn-warning m-2">Cập nhât</button>
-                                <button type="reset" class="btn btn-outline-secondary m-2">Cancel</button>
+                            <div class="row mt-3 ">
+                                <div class="mt-3 col-md-6 d-flex justify-content-start">
+                                    <button type="submit" class="btn btn-warning m-2">Cập nhât</button>
+                                    <button type="reset" class="btn btn-outline-secondary m-2">Cancel</button>
+                                </div>
+
+                                <div class="mt-3 col-md-6 d-flex justify-content-end">
+                                    <a href="/admin/category" class="btn btn-outline-danger m-2">Trở vê</a>
+                                </div>
                             </div>
                         </form>
                         <div class="text-success" ></div>

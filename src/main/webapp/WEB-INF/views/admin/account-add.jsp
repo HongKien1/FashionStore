@@ -12,7 +12,7 @@
 * Copyright ThemeSelection (https://themeselection.com)
 
 =========================================================
- -->
+-->
 <!-- beautify ignore:start -->
 <html
         lang="en"
@@ -72,13 +72,13 @@
 <div class="layout-wrapper layout-content-navbar">
     <div class="layout-container">
         <!-- Menu -->
-        <%@include file="../admin/components/menu.jsp"%>
+        <%@include file="../admin/components/menu.jsp" %>
         <!-- / Menu -->
 
         <!-- Layout container -->
         <div class="layout-page">
             <!-- Navbar -->
-            <%@include file="../admin/components/nav.jsp"%>
+            <%@include file="../admin/components/nav.jsp" %>
             <!-- / Navbar -->
 
             <!-- Content wrapper -->
@@ -88,39 +88,10 @@
                 <div class="card m-3">
                     <h5 class="card-header">Quản lý tài khoản</h5>
                     <!-- Account -->
-                    <div class="card-body">
-                        <div class="d-flex align-items-start align-items-sm-center gap-4">
-                            <img
-                                    src="/admin/assets/img/avatars/1.png"
-                                    alt="user-avatar"
-                                    class="d-block rounded"
-                                    height="100"
-                                    width="100"
-                                    id="uploadedAvatar"
-                            />
-                            <div class="button-wrapper">
-                                <label for="upload" class="btn btn-info me-2 mb-4" tabindex="0">
-                                    <span class="d-none d-sm-block">Upload new photo</span>
-                                    <i class="bx bx-upload d-block d-sm-none"></i>
-                                    <input
-                                            type="file"
-                                            id="upload"
-                                            class="account-file-input"
-                                            hidden
-                                            accept="image/png, image/jpeg"
-                                    />
-                                </label>
-                                <button type="button" class="btn btn-outline-secondary account-image-reset mb-4">
-                                    <i class="bx bx-reset d-block d-sm-none"></i>
-                                    <span class="d-none d-sm-block">Reset</span>
-                                </button>
 
-                            </div>
-                        </div>
-                    </div>
-                    <hr class="my-0" />
+                    <hr class="my-0"/>
                     <div class="card-body">
-                        <form  method="POST" >
+                        <form method="POST">
                             <div class="row">
 
                                 <div class="mb-3">
@@ -136,7 +107,42 @@
                                     <span class="text-danger"></span>
 
                                 </div>
+                                <div class="mb-3">
+                                    <label for="fullname" class="form-label">Họ và tên</label>
+                                    <input
+                                            class="form-control"
+                                            type="text"
+                                            id="fullname"
+                                            name="fullname"
+                                            value="HK"
+                                            placeholder="Dương Thị Hồng Kiền"
+                                    />
+                                    <span class="text-danger"></span>
+                                </div>
+                                <div class="col-md">
+                                    <small class="fw-semibold d-block">Giới tính</small>
+                                    <div class="form-check form-check-inline mt-1 mb-2">
+                                        <input
+                                                class="form-check-input"
+                                                type="radio"
+                                                name="activated"
+                                                id="gender"
+                                                value="true"
+                                        />
+                                        <label class="form-check-label" for="inlineRadio1">Nam</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input
+                                                class="form-check-input"
+                                                type="radio"
+                                                name="activated"
+                                                id="gender2"
+                                                value="false"
+                                        />
+                                        <label class="form-check-label" for="inlineRadio2">Nữ</label>
+                                    </div>
 
+                                </div>
 
 
                                 <div class="mb-3">
@@ -149,31 +155,13 @@
                                             value="hongkien@gmail.com"
                                             placeholder="hongkien@gmail.com"
                                     />
-                                    <span class="text-danger" ></span>
+                                    <span class="text-danger"></span>
 
-                                </div>
-                                <div class="mb-3">
-                                    <label for="fullname" class="form-label">Full Name</label>
-                                    <input
-                                            class="form-control"
-                                            type="text"
-                                            id="fullname"
-                                            name="fullname"
-                                            value="HK"
-                                            placeholder="Dương Thị Hồng Kiền"
-                                    />
-                                    <span class="text-danger" ></span>
-                                </div>
-
-                                <div class="mb-3">
-                                    <label for="Password" class="form-label">Password</label>
-                                    <input type="password" class="form-control" id="password" name="password" placeholder="Password" />
-                                    <span class="text-danger" ></span>
                                 </div>
 
                             </div>
                             <div class="col-md">
-                                <small class="text-light fw-semibold d-block">Role</small>
+                                <small class=" fw-semibold d-block">Role</small>
                                 <div class="form-check form-check-inline mt-3">
                                     <input
                                             class="form-check-input"
@@ -196,18 +184,23 @@
                                 </div>
 
                             </div>
+                            <div class="row mt-3 ">
+                                <div class="mt-3 col-md-6 d-flex justify-content-start">
+                                    <button type="submit" class="btn btn-info m-2">Thêm</button>
+                                    <button type="reset" class="btn btn-outline-secondary m-2">Cancel</button>
+                                </div>
 
-                            <div class="mt-3">
-                                <button type="submit" class="btn btn-info m-2">Thêm</button>
-                                <button type="reset" class="btn btn-outline-secondary m-2">Cancel</button>
+                                <div class="mt-3 col-md-6 d-flex justify-content-end">
+                                    <a href="/admin/account" class="btn btn-outline-danger m-2">Trở vê</a>
+                                </div>
                             </div>
                         </form>
-                        <div class="text-success" ></div>
+                        <div class="text-success"></div>
                         <!--  start table-->
                     </div>
 
-                        <!--  end table-->
-                    </div>
+                    <!--  end table-->
+                </div>
                 <!-- / Content -->
 
 

@@ -90,10 +90,10 @@
                     <div class="card-body">
 
                         <div class="table-responsive mt-5">
-                            <a href="/admin/category/addCategory">
+                            <a href="/admin/size/addSize">
                                 <button type="submit" class="btn btn-info float-end" style="margin-right: 70px">Thêm</button>
                             </a>
-                            <h5 class="fw-bold py-3 mb-4">Danh sách danh mục</h5>
+                            <h5 class="fw-bold py-3 mb-4">Danh sách size</h5>
 <!--                            <div class="alert alert-success" role="alert"></div>-->
 <!--                            <div class="alert alert-success" role="alert"></div>-->
 <!--                            <div  class="alert alert-danger" role="alert"></div>-->
@@ -101,18 +101,18 @@
                             <table class="table">
                                 <thead>
                                 <tr>
-                                    <th>Mã danh mục</th>
-                                    <th>Tên danh mục</th>
+                                    <th>Mã size</th>
+                                    <th>Tên size</th>
                                     <th></th>
                                 </tr>
                                 </thead>
-                                <tbody class="table-border-bottom-0 ml-3">
+                                <tbody class="table-border-bottom-0">
                                 <tr >
                                     <td>1</td>
-                                    <td>Áo</td>
+                                    <td>S</td>
 
-                                    <td class="d-flex justify-content-end" style="margin-right:40px ">
-                                        <a href="/admin/category/updateCategory">
+                                    <td  class="d-flex justify-content-end" style="margin-right:40px ">
+                                        <a href="/admin/size/updateSize">
                                             <button type="submit" class="btn btn-warning m-2">Cập nhật</button>
                                         </a>
                                         <button class="btn btn-danger m-2 h-25">

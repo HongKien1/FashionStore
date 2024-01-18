@@ -53,9 +53,33 @@
             </a>
         </li>
         <li class="menu-item">
+            <a href="/admin/brand" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-user-circle"></i>
+                <div data-i18n="Analytics">Quản lí thương hiệu</div>
+            </a>
+        </li>
+        <li class="menu-item">
+            <a href="/admin/size" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-user-circle"></i>
+                <div data-i18n="Analytics">Quản lí kích cỡ</div>
+            </a>
+        </li>
+        <li class="menu-item">
+            <a href="/admin/color" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-user-circle"></i>
+                <div data-i18n="Analytics">Quản lí màu</div>
+            </a>
+        </li>
+        <li class="menu-item">
             <a href="/admin/Product" class="menu-link">
                 <i class="menu-icon tf-icons  bx bxl-product-hunt"></i>
                 <div data-i18n="Analytics">Quản lí sản phẩm</div>
+            </a>
+        </li>
+        <li class="menu-item">
+            <a href="/admin/productDetail" class="menu-link">
+                <i class="menu-icon tf-icons  bx bxl-product-hunt"></i>
+                <div data-i18n="Analytics">Quản lí sản phẩm chi tiết</div>
             </a>
         </li>
         <li class="menu-item">

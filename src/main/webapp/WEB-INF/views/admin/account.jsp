@@ -91,7 +91,10 @@
                     <div class="card-body">
 
                         <div class="table-responsive mt-5">
-                            <h5 class="fw-bold py-3 mb-4">Danh sách tài khoản</h5>
+                            <a href="/admin/account/addAccount">
+                                <button type="submit" class="btn btn-info float-end" style="margin-right: 70px">Thêm</button>
+                            </a>
+                            <h5 class="card-title fw-semi-bold mb-4 mt-2 ms-4 text-start">Danh sách tài khoản</h5>
 <!--                            <div class="alert alert-success" role="alert"></div>-->
 <!--                            <div class="alert alert-success" role="alert"></div>-->
 <!--                            <div  class="alert alert-danger" role="alert"></div>-->
@@ -99,20 +102,20 @@
                             <table class="table">
                                 <thead>
                                 <tr>
-                                    <th>ID</th>
+                                    <th>Mã tài khoản</th>
                                     <th>Username</th>
-                                    <th>FullName</th>
-                                    <th>Gender</th>
+                                    <th>Họ và tên</th>
+                                    <th>Giới tính</th>
                                     <th>Email</th>
-                                    <th>Role</th>
+                                    <th>Vai trò</th>
                                     <th></th>
                                 </tr>
                                 </thead>
                                 <tbody class="table-border-bottom-0">
                                 <tr >
-                                    <td 01></td>
+                                    <td >01</td>
                                     <td>hongkien</td>
-                                    <td >Hồng Kiển</td>
+                                    <td >Hồng Kiền</td>
                                     <td >Nữ</td>
                                     <td >hongkien@gmail.com</td>
                                     <td ><span >Admin</span></td>
@@ -126,9 +129,7 @@
 
                                     </td>
                                 </tr>
-                                <a href="/admin/account/addAccount">
-                                    <button type="submit" class="btn btn-info m-2 " >Thêm</button>
-                                </a>
+
 
                                 </tbody>
                             </table>

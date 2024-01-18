@@ -90,6 +90,9 @@
                     <div class="card-body">
 
                         <div class="table-responsive mt-5">
+                            <a href="/admin/productType/addProductType">
+                                <button type="submit" class="btn btn-info float-end" style="margin-right: 70px">Thêm</button>
+                            </a>
                             <h5 class="fw-bold py-3 mb-4">Danh sách loại sản phẩm</h5>
 <!--                            <div class="alert alert-success" role="alert"></div>-->
 <!--                            <div class="alert alert-success" role="alert"></div>-->
@@ -98,7 +101,7 @@
                             <table class="table">
                                 <thead>
                                 <tr>
-                                    <th>ID</th>
+                                    <th>Mã loại</th>
                                     <th>Tên loại</th>
                                     <th>Danh muc</th>
                                     <th></th>
@@ -106,23 +109,21 @@
                                 </thead>
                                 <tbody class="table-border-bottom-0">
                                 <tr >
-                                    <td 01></td>
+                                    <td >01</td>
                                     <td>Áo sơ mi</td>
-                                    <td >Aos</td>
+                                    <td >Áo</td>
 
-                                    <td>
+                                    <td  class="d-flex justify-content-end" style="margin-right:40px ">
                                         <a href="/admin/productType/updateProductType">
                                             <button type="submit" class="btn btn-warning m-2">Cập nhật</button>
                                         </a>
-                                        <button class="btn btn-danger ms-2">
+                                        <button class="btn btn-danger m-2 h-25">
                                             Xoá
                                         </button>
 
                                     </td>
                                 </tr>
-                                <a href="/admin/productType/addProductType">
-                                    <button type="submit" class="btn btn-info m-2">Thêm</button>
-                                </a>
+
 
                                 </tbody>
                             </table>
