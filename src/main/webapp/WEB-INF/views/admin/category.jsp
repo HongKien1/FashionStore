@@ -70,15 +70,14 @@
 <div class="layout-wrapper layout-content-navbar">
     <div class="layout-container">
         <!-- Menu -->
-        <div th:replace="~{/admin/components/menu}"></div>
-
+        <%@include file="../admin/components/menu.jsp"%>
         <!-- / Menu -->
 
         <!-- Layout container -->
         <div class="layout-page">
             <!-- Navbar -->
-            <div th:replace="~{/admin/components/nav}"></div>
 
+            <%@include file="../admin/components/nav.jsp"%>
             <!-- / Navbar -->
 
             <!-- Content wrapper -->

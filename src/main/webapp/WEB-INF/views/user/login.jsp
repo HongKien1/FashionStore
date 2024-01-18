@@ -66,12 +66,12 @@
 
 <body class="animsition">
 <header class="header-v4">
-    <div th:replace="~{/user/components/header}"></div>
+    <%@include file="../user/components/header.jsp"%>
 </header>
 
 <!-- Cart -->
-<div th:replace="~{/user/components/cart}"></div>
-<div th:replace="~{/user/components/miniCart}"></div>
+<%@include file="../user/components/cart.jsp"%>
+<%@include file="../user/components/miniCart.jsp"%>
 
 
 <section class="contact-area">
@@ -120,6 +120,7 @@
     <!-- /.container-fluid -->
 </section>
 <!-- /.login-now -->
+<%@include file="../user/components/footer.jsp"%>
 
 <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="dependencies/jquery/jquery.min.js"></script>
 <script src="/login/dependencies/popper.js/popper.min.js"></script>

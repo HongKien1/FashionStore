@@ -64,12 +64,12 @@
 </head>
 <body class="animsition">
 <header class="header-v4">
-    <div th:replace="~{/user/components/header}"></div>
+    <%@include file="../user/components/header.jsp"%>
 </header>
 
 <!-- Cart -->
-<div th:replace="~{/user/components/cart}"></div>
-<div th:replace="~{/user/components/miniCart}"></div>
+<%@include file="../user/components/cart.jsp"%>
+<%@include file="../user/components/miniCart.jsp"%>
 
 
 
@@ -103,7 +103,7 @@
 </section>
 <!-- /.contact-area end -->
 
-
+<%@include file="../user/components/footer.jsp"%>
 <!-- /.login-now -->
 
 <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="dependencies/jquery/jquery.min.js"></script>

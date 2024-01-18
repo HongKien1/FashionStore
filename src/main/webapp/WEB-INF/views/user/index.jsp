@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+		 pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,10 +42,10 @@
 
 	<!-- Header -->
 	<header class="header-v2">
-		<div th:replace="~{/user/components/header}"></div>
+		<%@include file="../user/components/header.jsp"%>
 	</header>
 	<!-- Cart -->
-	<div th:replace="~{/user/components/miniCart}"></div>
+	<%@include file="../user/components/miniCart.jsp"%>
 
 
 
@@ -218,13 +221,13 @@
 				</h3>
 			</div>
 
-			<div th:replace="~{/user/components/product}"></div>
+			<%@include file="../user/components/product.jsp"%>
 		</div>
 	</section>
 
 
 	<!-- Footer -->
-	<div th:replace="~{/user/components/footer}"></div>
+	<%@include file="../user/components/footer.jsp"%>
 
 
 	<!-- Back to top -->

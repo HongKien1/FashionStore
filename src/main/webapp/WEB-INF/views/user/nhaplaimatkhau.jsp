@@ -62,12 +62,12 @@
 </head>
 <body class="animsition">
 <header class="header-v4">
-    <div th:replace="~{/user/components/header}"></div>
+    <%@include file="../user/components/header.jsp"%>
 </header>
 
 <!-- Cart -->
-<div th:replace="~{/user/components/cart}"></div>
-<div th:replace="~{/user/components/miniCart}"></div>
+<%@include file="../user/components/cart.jsp"%>
+<%@include file="../user/components/miniCart.jsp"%>
 
 <section class="contact-area">
     <div class="container-fluid custom-container">
@@ -99,7 +99,7 @@
 </section>
 <!-- /.contact-area end -->
 
-
+<%@include file="../user/components/footer.jsp"%>
 
 <!-- /.login-now -->
 

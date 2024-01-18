@@ -39,12 +39,12 @@
 	
 	<!-- Header -->
 	<header class="header-v4">
-		<div th:replace="~{/user/components/header}"></div>
+		<%@include file="../user/components/header.jsp"%>
 	</header>
 
 	<!-- Cart -->
-	<div th:replace="~{/user/components/cart}"></div>
-	<div th:replace="~{/user/components/miniCart}"></div>
+	<%@include file="../user/components/cart.jsp"%>
+	<%@include file="../user/components/miniCart.jsp"%>
 
 	<!-- breadcrumb -->
 	<div class="container">
@@ -234,7 +234,7 @@
 		
 
 	<!-- Footer -->
-	<div th:replace="~{/user/components/footer}"></div>
+	<%@include file="../user/components/footer.jsp"%>
 
 
 	<!-- Back to top -->

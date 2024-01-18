@@ -39,21 +39,19 @@
 	
 	<!-- Header -->
 	<header class="header-v4">
-		<div th:replace="~{/user/components/header}"></div>
+		<%@include file="../user/components/header.jsp"%>
 	</header>
 
 	<!-- Cart -->
 
-	<div th:replace="~{/user/components/miniCart}"></div>
+	<%@include file="../user/components/miniCart.jsp"%>
 	
 	<!-- Product -->
-	<div th:replace="~{/user/components/product}"></div>
-		
+	<%@include file="../user/components/product.jsp"%>
 
 	<!-- Footer -->
 
-	<div th:replace="~{/user/components/footer}"></div>
-
+	<%@include file="../user/components/footer.jsp"%>
 
 	<!-- Back to top -->
 	<div class="btn-back-to-top" id="myBtn">

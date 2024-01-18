@@ -70,14 +70,14 @@
 <div class="layout-wrapper layout-content-navbar">
     <div class="layout-container">
         <!-- Menu -->
-        <div th:replace="~{/admin/components/menu}"></div>
+        <%@include file="../admin/components/menu.jsp"%>
 
         <!-- / Menu -->
 
         <!-- Layout container -->
         <div class="layout-page">
             <!-- Navbar -->
-            <div th:replace="~{/admin/components/nav}"></div>
+            <%@include file="../admin/components/nav.jsp"%>
 
             <!-- / Navbar -->
 
@@ -102,7 +102,6 @@
                                     <th>FullName</th>
                                     <th>Gender</th>
                                     <th>Email</th>
-                                    <th>Password</th>
                                     <th>Role</th>
                                     <th></th>
                                 </tr>
@@ -114,7 +113,6 @@
                                     <td >Hồng Kiển</td>
                                     <td >Nữ</td>
                                     <td >hongkien@gmail.com</td>
-                                    <td >123123</td>
                                     <td ><span >Admin</span></td>
                                     <td>
                                         <a href="/admin/account/updateAccount">
@@ -127,7 +125,7 @@
                                     </td>
                                 </tr>
                                 <a href="/admin/account/addAccount">
-                                    <button type="submit" class="btn btn-info m-2">Thêm</button>
+                                    <button type="submit" class="btn btn-info m-2 " >Thêm</button>
                                 </a>
 
                                 </tbody>
