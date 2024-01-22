@@ -2,9 +2,8 @@ package com.main.fashionstore.Entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.hibernate.annotations.Nationalized;
 
 import java.io.Serializable;
 import java.util.List;
@@ -19,10 +18,13 @@ public class Product implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer product_id;
 
+    @Nationalized
     String name;
 
+    @Nationalized
     String describe;
 
+    @Nationalized
     String image;
 
     @ManyToOne

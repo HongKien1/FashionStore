@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 
 <!-- =========================================================
@@ -90,64 +91,99 @@
                     <h5 class="card-header"> Thêm sản phẩm</h5>
 
                     <div class="card-body">
-                        <form method="POST">
                             <div class="row g-0">
                                 <div class="col-md-4">
                                     <img class="card-img card-img-left" src="/user/images/product-01.jpg"
                                          alt="Card image"/>
                                 </div>
+
                                 <div class="col-md-7" style="margin-left: 40px" >
-
+                                  <form:form action="/admin/Product/addProduct" modelAttribute="product" enctype="multipart/form-data">
                                     <div class="mb-3">
-                                        <label for="username" class="form-label">Tên sản phẩm</label>
-                                        <input
+                                        <label for="id" class="form-label">Mã sản phẩm</label>
+                                        <form:input
                                                 class="form-control"
                                                 type="text"
-                                                id="username"
-                                                name="username"
-                                                value="áo sơ mi"
+                                                id="id"
+                                                path="product_id"
+                                                placeholder="id product"
+                                        />
+                                        <span class="text-danger"></span>
+
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="name" class="form-label">Tên sản phẩm</label>
+                                        <form:input
+                                                class="form-control"
+                                                type="text"
+                                                id="name"
+                                                path="name"
+                                                placeholder="name product"
+                                        />
+                                        <span class="text-danger"></span>
+
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="image" class="form-label">Ảnh sản phẩm</label>
+                                        <input
+                                                class="form-control"
+                                                type="file"
+                                                id="image"
+                                                name="image"
+                                                accept="images/*"
                                                 autofocus
                                         />
                                         <span class="text-danger"></span>
 
                                     </div>
 
-
                                     <div class="mb-3">
-                                        <label for="username" class="form-label">Trạng thái</label>
-                                        <input
+                                        <label for="describe" class="form-label">Mô tả</label>
+                                        <form:input
                                                 class="form-control"
                                                 type="text"
-                                                id="de"
-                                                name="username"
-                                                value="áo sơ mi"
-                                                autofocus
+                                                id="describe"
+                                                path="describe"
+                                                placeholder="describe"
                                         />
+
                                         <span class="text-danger"></span>
 
                                     </div>
+
+                                      <div class="mt-3">
+                                          <label class="form-label">Thương hiệu</label>
+                                          <select class="form-select" id="brand" name="brand.brand_id" required>
+                                              <c:forEach var="brand" items="${brands}">
+                                                  <option value="${brand.brand_id}">${brand.brand_name}</option>
+                                              </c:forEach>
+                                          </select>
+                                      </div>
                                     <div class="mt-3">
-                                        <label class="form-label">Loại</label>
-                                        <select class="form-select">
-                                            <option>Áo sơ mi</option>
-                                            <option>Áo thun</option>
+                                        <label class="form-label">Loại sản phẩm</label>
+                                        <select class="form-select" id="productType" name="productType.productType_id" required>
+                                            <c:forEach var="type" items="${productTypes}">
+                                                <option value="${type.productType_id}">${type.productType_name}</option>
+                                            </c:forEach>
                                         </select>
                                     </div>
 
-
+                                      <div class="mt-3 col-md-6 d-flex justify-content-start">
+                                          <button type="submit" class="btn btn-info m-2">Thêm</button>
+                                          <button type="reset" class="btn btn-outline-secondary m-2">Cancel</button>
+                                      </div>
+                                  </form:form>
                                 </div>
+
                             </div>
                             <div class="row mt-3 ">
-                                <div class="mt-3 col-md-6 d-flex justify-content-start">
-                                    <button type="submit" class="btn btn-info m-2">Thêm</button>
-                                    <button type="reset" class="btn btn-outline-secondary m-2">Cancel</button>
-                                </div>
-
                                 <div class="mt-3 col-md-6 d-flex justify-content-end">
                                     <a href="/admin/Product" class="btn btn-outline-danger m-2">Trở vê</a>
                                 </div>
                             </div>
-                        </form>
+
                         <div class="text-success"></div>
                         <!--  start table-->
                     </div>

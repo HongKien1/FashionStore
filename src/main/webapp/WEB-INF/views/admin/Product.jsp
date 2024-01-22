@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
 <!DOCTYPE html>
@@ -104,30 +105,34 @@
                                     <th>Mã sản phẩm</th>
                                     <th>Tên sản phẩm</th>
                                     <th>Loại sản phẩm</th>
+                                    <th>Thương hiệu</th>
                                     <th>Hình ảnh</th>
                                     <th>Mô tả</th>
                                     <th></th>
                                 </tr>
                                 </thead>
                                 <tbody class="table-border-bottom-0">
-                                <tr >
-                                    <td >01</td>
-                                    <td>Áo sơ mi</td>
-                                    <td >Áo sơ mi</td>
-                                    <td></td>
-                                    <td>Đây là cái màu trắng</td>
 
-                                    <td>
-                                        <a href="/admin/Product/updateProduct">
-                                            <button type="submit" class="btn btn-warning m-2">Cập nhật</button>
-                                        </a>
-                                        <button class="btn btn-danger ms-2">
-                                            Xoá
-                                        </button>
+                                    <c:forEach var="product" items="${products}">
+                                        <tr >
+                                            <td >${product.product_id}</td>
+                                            <td >${product.name}</td>
+                                            <td >${product.brand.brand_id}</td>
+                                            <td >${product.productType.productType_id}</td>
+                                            <td >${product.image}</td>
+                                            <td >${product.describe}</td>
+                                            <td>
+                                                <a href="/admin/Product/updateProduct">
+                                                    <button type="submit" class="btn btn-warning m-2">Cập nhật</button>
+                                                </a>
+                                                <a href="/deleteProduct/${product.product_id}" onclick="return confirm('Bạn có chắc chắn muốn xóa sản phẩm này?')">
+                                                    <button type="submit" class="btn btn-danger m-2">Xóa</button>
+                                                </a>
 
-                                    </td>
-                                </tr>
 
+                                            </td>
+                                        </tr>
+                                    </c:forEach>
 
                                 </tbody>
                             </table>

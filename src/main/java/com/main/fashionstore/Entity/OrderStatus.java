@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Nationalized;
 
 import java.io.Serializable;
 import java.util.List;
@@ -19,6 +20,7 @@ public class OrderStatus implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer orderStatus_id;
 
+    @Nationalized
     String orderStatus_name;
 
     @JsonIgnore

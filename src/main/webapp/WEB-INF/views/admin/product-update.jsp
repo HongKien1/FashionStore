@@ -88,64 +88,100 @@
 
                 <div class="card mb-4">
                     <h5 class="card-header">Cập nhật sản phẩm</h5>
-                    
+
                     <div class="card-body">
                         <form method="POST">
-                            <div class="row">
-                                <div class="row g-0">
-                                    <div class="col-md-4">
-                                        <img class="card-img card-img-left" src="/user/images/product-01.jpg"
-                                             alt="Card image"/>
-                                    </div>
-                                    <div class="col-md-7" style="margin-left: 40px">
-
-                                        <div class="mb-3">
-                                            <label for="username" class="form-label">Tên sản phẩm</label>
-                                            <input
-                                                    class="form-control"
-                                                    type="text"
-                                                    id="username"
-                                                    name="username"
-                                                    value="áo sơ mi"
-                                                    autofocus
-                                            />
-                                            <span class="text-danger"></span>
-
-                                        </div>
-
-                                        <div class="mb-3">
-                                            <label for="username" class="form-label">Trạng thái</label>
-                                            <input
-                                                    class="form-control"
-                                                    type="text"
-                                                    id="de"
-                                                    name="username"
-                                                    value="áo sơ mi"
-                                                    autofocus
-                                            />
-                                            <span class="text-danger"></span>
-
-                                        </div>
-                                        <div class="mt-3">
-                                            <label class="form-label">Loại</label>
-                                            <select class="form-select">
-                                                <option>Áo sơ mi</option>
-                                                <option>Áo thun</option>
-                                            </select>
-                                        </div>
-
-
-                                    </div>
+                            <div class="row g-0">
+                                <div class="col-md-4">
+                                    <img class="card-img card-img-left" src="/user/images/product-01.jpg"
+                                         alt="Card image"/>
                                 </div>
-                                <div class="row mt-3 ">
-                                    <div class="mt-3 col-md-6 d-flex justify-content-start">
-                                        <button type="submit" class="btn btn-warning m-2">Cập nhât</button>
-                                        <button type="reset" class="btn btn-outline-secondary m-2">Cancel</button>
+                                <div class="col-md-7" style="margin-left: 40px" >
+
+                                    <div class="mb-3">
+                                        <label for="id" class="form-label">Mã sản phẩm</label>
+                                        <input
+                                                class="form-control"
+                                                type="text"
+                                                id="id"
+                                                name="id"
+                                                placeholder="id product"
+                                                autofocus
+                                        />
+                                        <span class="text-danger"></span>
+
                                     </div>
 
-                                    <div class="mt-3 col-md-6 d-flex justify-content-end">
-                                        <a href="/admin/Product" class="btn btn-outline-danger m-2">Trở vê</a>
+                                    <div class="mb-3">
+                                        <label for="name" class="form-label">Tên sản phẩm</label>
+                                        <input
+                                                class="form-control"
+                                                type="text"
+                                                id="name"
+                                                name="name"
+                                                placeholder="name product"
+                                                autofocus
+                                        />
+                                        <span class="text-danger"></span>
+
                                     </div>
+
+                                    <div class="mb-3">
+                                        <label for="image" class="form-label">Ảnh sản phẩm</label>
+                                        <input
+                                                class="form-control"
+                                                type="file"
+                                                id="image"
+                                                name="image"
+                                                value="áo sơ mi"
+                                                autofocus
+                                        />
+                                        <span class="text-danger"></span>
+
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="describe" class="form-label">Mô tả</label>
+                                        <input
+                                                class="form-control"
+                                                type="text"
+                                                id="describe"
+                                                name="describe"
+                                                value=""
+                                                placeholder="describe"
+                                                autofocus
+                                        />
+                                        <span class="text-danger"></span>
+
+                                    </div>
+
+                                    <div class="mt-3">
+                                        <label class="form-label">Thương hiệu</label>
+                                        <select class="form-select">
+                                            <option>Adidas</option>
+                                            <option>Gucci</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="mt-3">
+                                        <label class="form-label">Loại</label>
+                                        <select class="form-select">
+                                            <option>Áo sơ mi</option>
+                                            <option>Áo thun</option>
+                                        </select>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                            <div class="row mt-3 ">
+                                <div class="mt-3 col-md-6 d-flex justify-content-start">
+                                    <button type="submit" class="btn btn-warning m-2">Cập nhật</button>
+                                    <button type="reset" class="btn btn-outline-secondary m-2">Cancel</button>
+                                </div>
+
+                                <div class="mt-3 col-md-6 d-flex justify-content-end">
+                                    <a href="/admin/Product" class="btn btn-outline-danger m-2">Trở vê</a>
                                 </div>
                             </div>
                         </form>

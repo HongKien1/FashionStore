@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Nationalized;
 
 import java.io.Serializable;
 import java.util.List;
@@ -19,10 +20,16 @@ public class Account implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer account_id;
 
+    @Nationalized
     String username;
+
+    @Nationalized
     String fullname;
+
     Boolean gender;
+
     String email;
+
     String password;
 
     @ManyToOne
