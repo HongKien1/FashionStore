@@ -1,5 +1,6 @@
 package com.main.fashionstore.Controller.admin;
 
+import com.main.fashionstore.Dto.ProductDto;
 import com.main.fashionstore.Entity.Product;
 import com.main.fashionstore.Service.BrandService;
 import com.main.fashionstore.Service.ProductService;
@@ -49,30 +50,34 @@ public class Product_AdminController {
     }
 
     @PostMapping("/addProduct")
-    public String addProduct(@ModelAttribute Product product, @RequestParam("image") MultipartFile img)
+    public String addProduct(@ModelAttribute("product") ProductDto productDto, @RequestParam("image") MultipartFile img)
             throws IllegalStateException, IOException {
-        // Lưu trữ file vào thư mục images nếu có file được chọn
+
+        Product product = new Product();
+
+        // Rest of your code
         if (!img.isEmpty()) {
             String filename = img.getOriginalFilename();
-            // Kiểm tra và tạo thư mục images nếu nó không tồn tại
             File uploadFolder = new File(app.getRealPath("/images/"));
             if (!uploadFolder.exists()) {
                 uploadFolder.mkdirs();
             }
-            // Tạo file trong thư mục images
             File destFile = new File(uploadFolder, filename);
-            // Lưu trữ file vào thư mục đã xác định
             img.transferTo(destFile);
-            // Lưu tên file vào trường image của đối tượng Product
-            product.setImage(filename);
+
+            product.setProduct_id(productDto.getProduct_id());
+            product.setName(productDto.getName());
+            product.setDescribe(productDto.getDescribe());
+            product.setProductType(productDto.getProductType());
+            product.setBrand(productDto.getBrand());
+
+            product.setImage(filename); // Set the image property with the filename
         }
-        // Lưu thông tin sản phẩm vào cơ sở dữ liệu
+
         productService.saveProduct(product);
 
-        return "redirect:/admin/product-add";
+        return "redirect:/admin/Product";
     }
-
-
 
     @GetMapping("/updateProduct")
     public String update() {
@@ -82,6 +87,7 @@ public class Product_AdminController {
     @GetMapping("/deleteProduct/{productId}")
     public String deleteProduct(@PathVariable Integer productId) {
         productService.deleteProduct(productId);
-        return "redirect:admin/Product";
+        return "redirect:/admin/Product"; // Chuyển hướng sau khi xóa
     }
+
 }

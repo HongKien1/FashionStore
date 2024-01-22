@@ -125,7 +125,8 @@
                                                 <a href="/admin/Product/updateProduct">
                                                     <button type="submit" class="btn btn-warning m-2">Cập nhật</button>
                                                 </a>
-                                                <a href="/deleteProduct/${product.product_id}" onclick="return confirm('Bạn có chắc chắn muốn xóa sản phẩm này?')">
+
+                                                <a href="/admin/Product/deleteProduct/${product.product_id}"onclick="return confirm('Bạn có chắc chắn muốn xóa sản phẩm này?')">
                                                     <button type="submit" class="btn btn-danger m-2">Xóa</button>
                                                 </a>
 

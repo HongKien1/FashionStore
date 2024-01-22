@@ -132,8 +132,6 @@
                                                 type="file"
                                                 id="image"
                                                 name="image"
-                                                accept="images/*"
-                                                autofocus
                                         />
                                         <span class="text-danger"></span>
 

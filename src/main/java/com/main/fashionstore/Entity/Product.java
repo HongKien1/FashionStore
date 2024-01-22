@@ -24,7 +24,6 @@ public class Product implements Serializable {
     @Nationalized
     String describe;
 
-    @Nationalized
     String image;
 
     @ManyToOne
