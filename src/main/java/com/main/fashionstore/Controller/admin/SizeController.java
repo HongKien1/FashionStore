@@ -5,20 +5,20 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("admin/account")
-public class AccountController {
+@RequestMapping("admin/size")
+public class SizeController {
     @GetMapping("")
     public String index() {
-        return "admin/account";
+        return "admin/size";
     }
 
-    @GetMapping("/addAccount")
+    @GetMapping("/addSize")
     public String add() {
-        return "admin/account-add";
+        return "admin/size-add";
     }
 
-    @GetMapping("/updateAccount")
+    @GetMapping("/updateSize")
     public String update() {
-        return "admin/account-update";
+        return "admin/size-update";
     }
 }

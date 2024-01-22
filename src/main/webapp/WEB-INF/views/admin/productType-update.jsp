@@ -94,7 +94,7 @@
                             <div class="row">
                                 <div class="row">
 
-                                    <div class="mb-3">tui
+                                    <div class="mb-3">
                                         <label for="username" class="form-label">Tên loại</label>
                                         <input
                                                 class="form-control"
@@ -117,10 +117,15 @@
 
 
                                 </div>
+                                <div class="row mt-3 ">
+                                    <div class="mt-3 col-md-6 d-flex justify-content-start">
+                                        <button type="submit" class="btn btn-warning m-2">Cập nhât</button>
+                                        <button type="reset" class="btn btn-outline-secondary m-2">Cancel</button>
+                                    </div>
 
-                                <div class="mt-3">
-                                    <button type="submit" class="btn btn-warning m-2">Cập nhât</button>
-                                    <button type="reset" class="btn btn-outline-secondary m-2">Cancel</button>
+                                    <div class="mt-3 col-md-6 d-flex justify-content-end">
+                                        <a href="/admin/productType" class="btn btn-outline-danger m-2">Trở vê</a>
+                                    </div>
                                 </div>
                             </div>
                         </form>

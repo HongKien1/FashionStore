@@ -90,6 +90,9 @@
                     <div class="card-body">
 
                         <div class="table-responsive mt-5">
+                            <a href="/admin/Product/addProduct">
+                                <button type="submit" class="btn btn-info float-end" style="margin-right: 40px">Thêm</button>
+                            </a>
                             <h5 class="fw-bold py-3 mb-4">Danh sách sản phẩm</h5>
 <!--                            <div class="alert alert-success" role="alert"></div>-->
 <!--                            <div class="alert alert-success" role="alert"></div>-->
@@ -98,22 +101,21 @@
                             <table class="table">
                                 <thead>
                                 <tr>
-                                    <th>ID</th>
+                                    <th>Mã sản phẩm</th>
                                     <th>Tên sản phẩm</th>
-                                    <th>Loại</th>
+                                    <th>Loại sản phẩm</th>
                                     <th>Hình ảnh</th>
-                                    <th>Thương hiệu</th>
-                                    <th>Trạng thái</th>
+                                    <th>Mô tả</th>
                                     <th></th>
                                 </tr>
                                 </thead>
                                 <tbody class="table-border-bottom-0">
                                 <tr >
-                                    <td 01></td>
+                                    <td >01</td>
                                     <td>Áo sơ mi</td>
-                                    <td ></td>
-                                    <td >Nocturnal</td>
-                                    <td ></td>
+                                    <td >Áo sơ mi</td>
+                                    <td></td>
+                                    <td>Đây là cái màu trắng</td>
 
                                     <td>
                                         <a href="/admin/Product/updateProduct">
@@ -125,9 +127,7 @@
 
                                     </td>
                                 </tr>
-                                <a href="/admin/Product/addProduct">
-                                    <button type="submit" class="btn btn-info m-2">Thêm</button>
-                                </a>
+
 
                                 </tbody>
                             </table>

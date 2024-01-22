@@ -111,10 +111,36 @@
                                         <span class="text-danger"></span>
 
                                     </div>
-
+                                    <div class="mt-3">
+                                        <label  class="form-label">Kích cỡ</label>
+                                        <select class="form-select" >
+                                            <option>S</option>
+                                            <option>M</option>
+                                        </select>
+                                    </div>
+                                    <div class="mt-3">
+                                        <label  class="form-label">Màu</label>
+                                        <select class="form-select" >
+                                            <option>Trắng</option>
+                                            <option>Xanh</option>
+                                        </select>
+                                    </div>
 
                                     <div class="mb-3">
-                                        <label for="username" class="form-label">Trạng thái</label>
+                                        <label for="username" class="form-label">Giá</label>
+                                        <input
+                                                class="form-control"
+                                                type="number"
+                                                id="brand"
+                                                name="username"
+                                                value="áo sơ mi"
+                                                autofocus
+                                        />
+                                        <span class="text-danger"></span>
+
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="username" class="form-label">Mô tả</label>
                                         <input
                                                 class="form-control"
                                                 type="text"

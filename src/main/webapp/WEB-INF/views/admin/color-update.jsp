@@ -15,12 +15,12 @@
  -->
 <!-- beautify ignore:start -->
 <html xmlns:th="http://www.thymeleaf.org"
-      lang="en"
-      class="light-style layout-menu-fixed"
-      dir="ltr"
-      data-theme="theme-default"
-      data-assets-path="/assets/"
-      data-template="vertical-menu-template-free"
+        lang="en"
+        class="light-style layout-menu-fixed"
+        dir="ltr"
+        data-theme="theme-default"
+        data-assets-path="/assets/"
+        data-template="vertical-menu-template-free"
 >
 <head>
     <meta charset="utf-8"/>
@@ -29,7 +29,7 @@
             content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Thêm tài khoản</title>
+    <title>Thêm màu</title>
 
     <meta name="description" content=""/>
 
@@ -79,81 +79,53 @@
         <div class="layout-page">
             <!-- Navbar -->
 
-            <%@include file="../admin/components/nav.jsp"%>
-            <!-- / Navbar -->
+            <%@include file="../admin/components/nav.jsp"%><!-- / Navbar -->
 
             <!-- Content wrapper -->
             <div class="content-wrapper">
                 <!-- Content -->
 
                 <div class="card m-3">
-                    <h5 class="card-header"> Thêm sản phẩm</h5>
+                    <h5 class="card-header">Cập nhât màu</h5>
+                    <!-- Account -->
 
+                    <hr class="my-0" />
                     <div class="card-body">
-                        <form method="POST">
-                            <div class="row g-0">
-                                <div class="col-md-4">
-                                    <img class="card-img card-img-left" src="/user/images/product-01.jpg"
-                                         alt="Card image"/>
-                                </div>
-                                <div class="col-md-7" style="margin-left: 40px" >
-
-                                    <div class="mb-3">
-                                        <label for="username" class="form-label">Tên sản phẩm</label>
-                                        <input
-                                                class="form-control"
-                                                type="text"
-                                                id="username"
-                                                name="username"
-                                                value="áo sơ mi"
-                                                autofocus
-                                        />
-                                        <span class="text-danger"></span>
-
-                                    </div>
+                        <form  method="POST" >
+                            <div class="row">
 
 
-                                    <div class="mb-3">
-                                        <label for="username" class="form-label">Trạng thái</label>
-                                        <input
-                                                class="form-control"
-                                                type="text"
-                                                id="de"
-                                                name="username"
-                                                value="áo sơ mi"
-                                                autofocus
-                                        />
-                                        <span class="text-danger"></span>
-
-                                    </div>
-                                    <div class="mt-3">
-                                        <label class="form-label">Loại</label>
-                                        <select class="form-select">
-                                            <option>Áo sơ mi</option>
-                                            <option>Áo thun</option>
-                                        </select>
-                                    </div>
-
-
+                                <div class="mb-3">
+                                    <label for="fullname" class="form-label">Tên màu</label>
+                                    <input
+                                            class="form-control"
+                                            type="text"
+                                            id="fullname"
+                                            name="fullname"
+                                            value=""
+                                            placeholder="Trắng"
+                                    />
+                                    <span class="text-danger" ></span>
                                 </div>
                             </div>
+
                             <div class="row mt-3 ">
                                 <div class="mt-3 col-md-6 d-flex justify-content-start">
-                                    <button type="submit" class="btn btn-info m-2">Thêm</button>
+                                    <button type="submit" class="btn btn-warning m-2">Cập nhât</button>
                                     <button type="reset" class="btn btn-outline-secondary m-2">Cancel</button>
                                 </div>
 
                                 <div class="mt-3 col-md-6 d-flex justify-content-end">
-                                    <a href="/admin/Product" class="btn btn-outline-danger m-2">Trở vê</a>
+                                    <a href="/admin/color" class="btn btn-outline-danger m-2">Trở vê</a>
                                 </div>
                             </div>
                         </form>
-                        <div class="text-success"></div>
+                        <div class="text-success" ></div>
                         <!--  start table-->
                     </div>
 
-                    <!--  end table-->
-                </div>
+                        <!--  end table-->
+                    </div>
                 <!-- / Content -->
 
 

@@ -97,7 +97,7 @@
                                         <img class="card-img card-img-left" src="/user/images/product-01.jpg"
                                              alt="Card image"/>
                                     </div>
-                                    <div class="col-md-8">
+                                    <div class="col-md-7" style="margin-left: 40px">
 
                                         <div class="mb-3">
                                             <label for="username" class="form-label">Tên sản phẩm</label>
@@ -113,19 +113,6 @@
 
                                         </div>
 
-                                        <div class="mb-3">
-                                            <label for="username" class="form-label">Thương hiệu</label>
-                                            <input
-                                                    class="form-control"
-                                                    type="text"
-                                                    id="brand"
-                                                    name="username"
-                                                    value="áo sơ mi"
-                                                    autofocus
-                                            />
-                                            <span class="text-danger"></span>
-
-                                        </div>
                                         <div class="mb-3">
                                             <label for="username" class="form-label">Trạng thái</label>
                                             <input
@@ -150,10 +137,15 @@
 
                                     </div>
                                 </div>
+                                <div class="row mt-3 ">
+                                    <div class="mt-3 col-md-6 d-flex justify-content-start">
+                                        <button type="submit" class="btn btn-warning m-2">Cập nhât</button>
+                                        <button type="reset" class="btn btn-outline-secondary m-2">Cancel</button>
+                                    </div>
 
-                                <div class="mt-3">
-                                    <button type="submit" class="btn btn-warning m-2">Cập nhât</button>
-                                    <button type="reset" class="btn btn-outline-secondary m-2">Cancel</button>
+                                    <div class="mt-3 col-md-6 d-flex justify-content-end">
+                                        <a href="/admin/Product" class="btn btn-outline-danger m-2">Trở vê</a>
+                                    </div>
                                 </div>
                             </div>
                         </form>
