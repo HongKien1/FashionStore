@@ -6,6 +6,7 @@ import com.main.fashionstore.Service.BrandService;
 import com.main.fashionstore.Service.ProductService;
 import com.main.fashionstore.Service.ProductTypeService;
 import jakarta.servlet.ServletContext;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,6 +20,9 @@ import java.util.List;
 @Controller
 @RequestMapping("admin/Product")
 public class Product_AdminController {
+
+    @Autowired
+    HttpServletRequest request;
 
     @Autowired
     ProductService productService;
@@ -79,15 +83,58 @@ public class Product_AdminController {
         return "redirect:/admin/Product";
     }
 
-    @GetMapping("/updateProduct")
-    public String update() {
+    @GetMapping("/updateProduct/{productId}")
+    public String updateProduct(@PathVariable Integer productId, Model model) {
+        // Lấy thông tin sản phẩm cần cập nhật từ cơ sở dữ liệu
+        Product product = productService.getProductById(productId);
+
+        // Truyền thông tin sản phẩm và các danh sách cần thiết (productTypes, brands) vào model
+        model.addAttribute("product", product);
+        model.addAttribute("productTypes", productTypeService.getAllProductTypes());
+        model.addAttribute("brands", brandService.getAllBrands());
+
         return "admin/product-update";
     }
 
+    @PostMapping("/updateProduct/{productId}")
+    public String updateProduct(@PathVariable Integer productId, @ModelAttribute("product") ProductDto productDto,
+                                @RequestParam(value = "image", required = false) MultipartFile img)
+            throws IllegalStateException, IOException {
+
+        // Lấy thông tin sản phẩm cần cập nhật từ cơ sở dữ liệu
+        Product productToUpdate = productService.getProductById(productId);
+
+        // Cập nhật thông tin sản phẩm từ DTO
+        productToUpdate.setName(productDto.getName());
+        productToUpdate.setDescribe(productDto.getDescribe());
+        productToUpdate.setProductType(productDto.getProductType());
+        productToUpdate.setBrand(productDto.getBrand());
+
+        // Nếu người dùng tải lên một hình ảnh mới, cập nhật hình ảnh
+        if (img != null && !img.isEmpty()) {
+            String filename = img.getOriginalFilename();
+            File uploadFolder = new File(app.getRealPath("/images/"));
+            if (!uploadFolder.exists()) {
+                uploadFolder.mkdirs();
+            }
+            File destFile = new File(uploadFolder, filename);
+            img.transferTo(destFile);
+            productToUpdate.setImage(filename);
+        }
+
+        // Lưu sản phẩm đã cập nhật vào cơ sở dữ liệu
+        productService.saveProduct(productToUpdate);
+
+        return "redirect:/admin/Product";
+    }
+
+
+
+    // xóa sp
     @GetMapping("/deleteProduct/{productId}")
     public String deleteProduct(@PathVariable Integer productId) {
         productService.deleteProduct(productId);
-        return "redirect:/admin/Product"; // Chuyển hướng sau khi xóa
+        return "redirect:/admin/Product";
     }
 
 }

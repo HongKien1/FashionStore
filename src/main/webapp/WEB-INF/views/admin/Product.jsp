@@ -89,7 +89,7 @@
 
                 <div class="card m-3 ">
                     <div class="card-body">
-
+                        <h3>${message}</h3>
                         <div class="table-responsive mt-5">
                             <a href="/admin/Product/addProduct">
                                 <button type="submit" class="btn btn-info float-end" style="margin-right: 40px">Thêm</button>
@@ -102,7 +102,7 @@
                             <table class="table">
                                 <thead>
                                 <tr>
-                                    <th>Mã sản phẩm</th>
+                                    <th>STT</th>
                                     <th>Tên sản phẩm</th>
                                     <th>Loại sản phẩm</th>
                                     <th>Thương hiệu</th>
@@ -113,27 +113,26 @@
                                 </thead>
                                 <tbody class="table-border-bottom-0">
 
-                                    <c:forEach var="product" items="${products}">
-                                        <tr >
-                                            <td >${product.product_id}</td>
-                                            <td >${product.name}</td>
-                                            <td >${product.brand.brand_id}</td>
-                                            <td >${product.productType.productType_id}</td>
-                                            <td >${product.image}</td>
-                                            <td >${product.describe}</td>
-                                            <td>
-                                                <a href="/admin/Product/updateProduct">
-                                                    <button type="submit" class="btn btn-warning m-2">Cập nhật</button>
-                                                </a>
+                                <c:forEach var="product" items="${products}" varStatus="loop">
+                                    <tr>
+                                        <td>${loop.index + 1}</td> <!-- Số thứ tự tăng dần -->
+                                        <td>${product.name}</td>
+                                        <td>${product.brand.brand_name}</td>
+                                        <td>${product.productType.productType_name}</td>
+                                        <td>${product.image}</td>
+                                        <td>${product.describe}</td>
+                                        <td>
+                                            <a href="/admin/Product/updateProduct/${product.product_id}">
+                                                <button type="submit" class="btn btn-warning m-2">Cập nhật</button>
+                                            </a>
 
-                                                <a href="/admin/Product/deleteProduct/${product.product_id}"onclick="return confirm('Bạn có chắc chắn muốn xóa sản phẩm này?')">
-                                                    <button type="submit" class="btn btn-danger m-2">Xóa</button>
-                                                </a>
+                                            <a href="/admin/Product/deleteProduct/${product.product_id}" onclick="return confirm('Bạn có chắc chắn muốn xóa sản phẩm này?')">
+                                                <button type="submit" class="btn btn-danger m-2">Xóa</button>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </c:forEach>
 
-
-                                            </td>
-                                        </tr>
-                                    </c:forEach>
 
                                 </tbody>
                             </table>

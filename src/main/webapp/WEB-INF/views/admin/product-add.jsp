@@ -99,18 +99,7 @@
 
                                 <div class="col-md-7" style="margin-left: 40px" >
                                   <form:form action="/admin/Product/addProduct" modelAttribute="product" enctype="multipart/form-data">
-                                    <div class="mb-3">
-                                        <label for="id" class="form-label">Mã sản phẩm</label>
-                                        <form:input
-                                                class="form-control"
-                                                type="text"
-                                                id="id"
-                                                path="product_id"
-                                                placeholder="id product"
-                                        />
-                                        <span class="text-danger"></span>
 
-                                    </div>
 
                                     <div class="mb-3">
                                         <label for="name" class="form-label">Tên sản phẩm</label>
@@ -170,7 +159,7 @@
 
                                       <div class="mt-3 col-md-6 d-flex justify-content-start">
                                           <button type="submit" class="btn btn-info m-2">Thêm</button>
-                                          <button type="reset" class="btn btn-outline-secondary m-2">Cancel</button>
+                                          <button type="reset" class="btn btn-outline-secondary m-2">Reset</button>
                                       </div>
                                   </form:form>
                                 </div>

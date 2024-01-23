@@ -20,9 +20,12 @@ public class ProductService {
     }
 
     // tìm sản phẩm có hay khng
-    public Optional<Product> getProductById(Integer productId) {
-        return productDao.findById(productId);
+    public Product getProductById(Integer productId) {
+        Optional<Product> optionalProduct = productDao.findById(productId);
+        // Kiểm tra xem có sản phẩm trong Optional không, nếu không thì trả về null hoặc một giá trị mặc định khác
+        return optionalProduct.orElse(null);
     }
+
 
     // thêm hoặc lưu sản phẩm
     public Product saveProduct(Product product) {
