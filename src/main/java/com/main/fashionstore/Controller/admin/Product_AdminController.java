@@ -54,33 +54,47 @@ public class Product_AdminController {
     }
 
     @PostMapping("/addProduct")
-    public String addProduct(@ModelAttribute("product") ProductDto productDto, @RequestParam("image") MultipartFile img)
+    public String addProduct(@ModelAttribute("product") ProductDto productDto,
+                             @RequestParam("image") MultipartFile img,
+                             Model model)
             throws IllegalStateException, IOException {
 
-        Product product = new Product();
+        try {
+            Product product = new Product();
 
-        // Rest of your code
-        if (!img.isEmpty()) {
-            String filename = img.getOriginalFilename();
-            File uploadFolder = new File(app.getRealPath("/images/"));
-            if (!uploadFolder.exists()) {
-                uploadFolder.mkdirs();
+            // Rest of your code
+            if (!img.isEmpty()) {
+                String filename = img.getOriginalFilename();
+                File uploadFolder = new File(app.getRealPath("/images/"));
+                if (!uploadFolder.exists()) {
+                    uploadFolder.mkdirs();
+                }
+                File destFile = new File(uploadFolder, filename);
+                img.transferTo(destFile);
+
+                product.setProduct_id(productDto.getProduct_id());
+                product.setName(productDto.getName());
+                product.setDescribe(productDto.getDescribe());
+                product.setProductType(productDto.getProductType());
+                product.setBrand(productDto.getBrand());
+
+                product.setImage(filename); // Set the image property with the filename
+
+                productService.saveProduct(product);
+
+                // Thông báo thành công
+                model.addAttribute("successMessage", "Thêm sản phẩm thành công!");
+            } else {
+                // Thông báo thất bại nếu không có hình ảnh
+                model.addAttribute("errorMessage", "Thêm sản phẩm thất bại. Vui lòng chọn hình ảnh.");
             }
-            File destFile = new File(uploadFolder, filename);
-            img.transferTo(destFile);
-
-            product.setProduct_id(productDto.getProduct_id());
-            product.setName(productDto.getName());
-            product.setDescribe(productDto.getDescribe());
-            product.setProductType(productDto.getProductType());
-            product.setBrand(productDto.getBrand());
-
-            product.setImage(filename); // Set the image property with the filename
+        } catch (Exception e) {
+            // Thông báo thất bại nếu có lỗi xảy ra
+            model.addAttribute("errorMessage", "Thêm sản phẩm thất bại. Vui lòng thử lại.");
+            e.printStackTrace(); // Ghi log lỗi để phân tích thêm
         }
 
-        productService.saveProduct(product);
-
-        return "redirect:/admin/Product";
+        return "admin/product-add";
     }
 
     @GetMapping("/updateProduct/{productId}")
