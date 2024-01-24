@@ -1,5 +1,6 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!DOCTYPE html>
 
 <!-- =========================================================
@@ -87,7 +88,25 @@
                 <!-- Content -->
 
                 <div class="card m-3 ">
+
                     <div class="card-body">
+
+                        <!-- Hiển thị thông báo thành công -->
+                        <c:if test="${not empty successMessage}">
+                            <div class="alert alert-success">
+                                <p>${successMessage}</p>
+                            </div>
+                        </c:if>
+
+                        <!-- Hiển thị thông báo lỗi -->
+                        <c:if test="${not empty errorMessage}">
+                            <div class="alert alert-danger">
+                                <p>${errorMessage}</p>
+                            </div>
+                        </c:if>
+
+
+                        <!-- Rest of your JSP content -->
 
                         <div class="table-responsive mt-5">
                             <a href="/admin/Product/addProduct">
@@ -101,32 +120,36 @@
                             <table class="table">
                                 <thead>
                                 <tr>
-                                    <th>Mã sản phẩm</th>
+                                    <th>STT</th>
                                     <th>Tên sản phẩm</th>
                                     <th>Loại sản phẩm</th>
+                                    <th>Thương hiệu</th>
                                     <th>Hình ảnh</th>
                                     <th>Mô tả</th>
                                     <th></th>
                                 </tr>
                                 </thead>
                                 <tbody class="table-border-bottom-0">
-                                <tr >
-                                    <td >01</td>
-                                    <td>Áo sơ mi</td>
-                                    <td >Áo sơ mi</td>
-                                    <td></td>
-                                    <td>Đây là cái màu trắng</td>
 
-                                    <td>
-                                        <a href="/admin/Product/updateProduct">
-                                            <button type="submit" class="btn btn-warning m-2">Cập nhật</button>
-                                        </a>
-                                        <button class="btn btn-danger ms-2">
-                                            Xoá
-                                        </button>
+                                <c:forEach var="product" items="${products}" varStatus="loop">
+                                    <tr>
+                                        <td>${loop.index + 1}</td> <!-- Số thứ tự tăng dần -->
+                                        <td>${product.name}</td>
+                                        <td>${product.brand.brand_name}</td>
+                                        <td>${product.productType.productType_name}</td>
+                                        <td>${product.image}</td>
+                                        <td>${product.describe}</td>
+                                        <td>
+                                            <a href="/admin/Product/updateProduct/${product.product_id}">
+                                                <button type="submit" class="btn btn-warning m-2">Cập nhật</button>
+                                            </a>
 
-                                    </td>
-                                </tr>
+                                            <a href="/admin/Product/deleteProduct/${product.product_id}" onclick="return confirm('Bạn có chắc chắn muốn xóa sản phẩm này?')">
+                                                <button type="submit" class="btn btn-danger m-2">Xóa</button>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </c:forEach>
 
 
                                 </tbody>

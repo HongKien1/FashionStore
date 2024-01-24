@@ -5,12 +5,13 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Nationalized;
 
 import java.io.Serializable;
 import java.util.List;
 
 @Entity
-@Table(name = "order_table")  // Thay đổi tên bảng để tránh từ khóa "order"
+@Table(name = "orders")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -20,10 +21,18 @@ public class Order implements Serializable {
     Integer order_id;
 
     Integer quantity;
+
     Double total;
+
+    @Nationalized
     String name;
+
+    @Nationalized
     String address;
+
     Number phonenumber;
+
+    @Nationalized
     String note;
 
     @JsonIgnore
