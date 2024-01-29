@@ -220,7 +220,7 @@
 				</h3>
 			</div>
 
-			<%@include file="../user/components/product.jsp"%>
+			<%@include file="product.jsp"%>
 		</div>
 	</section>
 
