@@ -91,18 +91,18 @@
 
                     <hr class="my-0" />
                     <div class="card-body">
-                        <form  method="POST" >
+                        <form  method="POST" action="/admin/color/updateColor/${color.color_id}">
                             <div class="row">
 
 
                                 <div class="mb-3">
-                                    <label for="fullname" class="form-label">Tên màu</label>
+                                    <label for="color" class="form-label">Tên màu</label>
                                     <input
                                             class="form-control"
                                             type="text"
-                                            id="fullname"
-                                            name="fullname"
-                                            value=""
+                                            id="color"
+                                            name="color"
+                                            value="${color.color}"
                                             placeholder="Trắng"
                                     />
                                     <span class="text-danger" ></span>
