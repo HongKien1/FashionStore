@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 
 <!-- =========================================================
@@ -66,7 +67,12 @@
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="/admin/assets/js/config.js"></script>
 </head>
-
+<style>
+    .mgs{
+        color: red;
+        font-style:italic
+    }
+</style>
 <body>
 <!-- Layout wrapper -->
 <div class="layout-wrapper layout-content-navbar">
@@ -91,21 +97,22 @@
 
                     <hr class="my-0" />
                     <div class="card-body">
-                        <form  method="POST" >
+                        <form:form action="/admin/category/addCategory" modelAttribute="category" >
                             <div class="row">
 
-
                                 <div class="mb-3">
-                                    <label for="fullname" class="form-label">Name</label>
+                                    <label for="category_name" class="form-label">Tên danh muc </label>
                                     <input
                                             class="form-control"
                                             type="text"
-                                            id="fullname"
-                                            name="fullname"
+                                            id="category_name"
+                                            name="category_name"
                                             value=""
                                             placeholder="Áo"
+                                            oninput="error()"
                                     />
-                                    <span class="text-danger" ></span>
+
+                                    <span class="text-danger" id="category_name_error"><form:errors path="category_name" cssClass="mgs"/></span>
                                 </div>
                             </div>
 
@@ -119,7 +126,7 @@
                                     <a href="/admin/category" class="btn btn-outline-danger m-2">Trở vê</a>
                                 </div>
                             </div>
-                        </form>
+                        </form:form>
                         <div class="text-success" ></div>
                         <!--  start table-->
                     </div>
@@ -163,5 +170,16 @@
 
 <!-- Place this tag in your head or just before your close body tag. -->
 <script async defer src="https://buttons.github.io/buttons.js"></script>
+<script>
+    var category_name = document.getElementById("category_name")
+    var category_name_error = document.getElementById("category_name_error")
+   function error(){
+        console.log(category_name.value)
+        if (category_name.value !== null){
+            category_name_error.innerText = "";
+        }
+
+    }
+</script>
 </body>
 </html>

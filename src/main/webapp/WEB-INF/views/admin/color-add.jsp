@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 
 <!-- =========================================================
@@ -66,7 +67,12 @@
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="/admin/assets/js/config.js"></script>
 </head>
-
+<style>
+    .mgs{
+        color: red;
+        font-style:italic
+    }
+</style>
 <body>
 <!-- Layout wrapper -->
 <div class="layout-wrapper layout-content-navbar">
@@ -91,7 +97,7 @@
 
                     <hr class="my-0" />
                     <div class="card-body">
-                        <form  method="POST" >
+                        <form:form method="post" action="/admin/color/addColor" modelAttribute="color" >
                             <div class="row">
 
 
@@ -101,11 +107,10 @@
                                             class="form-control"
                                             type="text"
                                             id="fullname"
-                                            name="fullname"
-                                            value=""
+                                            name="color"
                                             placeholder="Trắng"
                                     />
-                                    <span class="text-danger" ></span>
+                                    <span class="text-danger" ><form:errors path="color" cssClass="mgs"/></span>
                                 </div>
                             </div>
 
@@ -119,7 +124,7 @@
                                     <a href="/admin/color" class="btn btn-outline-danger m-2">Trở vê</a>
                                 </div>
                             </div>
-                        </form>
+                        </form:form>
                         <div class="text-success" ></div>
                         <!--  start table-->
                     </div>

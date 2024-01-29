@@ -84,13 +84,15 @@
         <div class="row justify-content-center">
             <div class="col-sm-9 col-md-8 col-lg-6 col-xl-4">
                 <div class="contact-form login-form">
-                    <form action="#">
+                    <form action="/account/login" method="post">
                         <div class="row">
                             <div class="col-xl-12">
-                                <input type="text" placeholder="Email*">
+                                <input type="text" name="username" placeholder="Username*">
+                                <span class="text-danger">${error}</span>
                             </div>
+
                             <div class="col-xl-12">
-                                <input type="text" placeholder="Mật khẩu*">
+                                <input type="password" name="password" placeholder="Mật khẩu*">
 
                             </div>
                             <div class="col-xl-12">
@@ -247,5 +249,9 @@
 <!--===============================================================================================-->
 <script src="/user/js/main.js"></script>
 
+<script>
+
+
+</script>
 </body>
 </html>
