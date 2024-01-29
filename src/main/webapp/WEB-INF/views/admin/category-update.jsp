@@ -90,17 +90,17 @@
                     <h5 class="card-header">Cập nhật danh mục </h5>
 
                     <div class="card-body">
-                        <form  method="POST" >
+                        <form  method="POST" action="/admin/category/updateCategory/${category.category_id}">
                             <div class="row">
 
                                 <div class="mb-3">
-                                    <label for="fullname" class="form-label">Name</label>
+                                    <label for="category_name" class="form-label">Tên danh mục</label>
                                     <input
                                             class="form-control"
                                             type="text"
-                                            id="fullname"
-                                            name="fullname"
-                                            value=""
+                                            id="category_name"
+                                            name="category_name"
+                                            value="${category.category_name}"
                                             placeholder="Áo"
                                     />
                                     <span class="text-danger" ></span>
