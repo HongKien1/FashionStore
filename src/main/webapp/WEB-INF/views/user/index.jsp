@@ -226,7 +226,7 @@
 
 
 	<!-- Footer -->
-	<%@include file="../user/components/footer.jsp"%>
+		<%@include file="../user/components/footer.jsp"%>
 
 
 	<!-- Back to top -->

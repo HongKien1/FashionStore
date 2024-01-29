@@ -1,2 +1,8 @@
-package com.main.fashionstore.Service;public class ProductDetailsService {
+package com.main.fashionstore.Service;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class ProductDetailsService {
+
 }

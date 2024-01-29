@@ -120,6 +120,12 @@
                                         </div>
 
                                         <div class="mb-3">
+                                            <label for="price" class="form-label">Giá</label>
+                                            <input class="form-control" type="number" id="price" name="price" value="${product.price}" placeholder="describe" autofocus />
+                                            <span class="text-danger"></span>
+                                        </div>
+
+                                        <div class="mb-3">
                                             <label for="describe" class="form-label">Mô tả</label>
                                             <input class="form-control" type="text" id="describe" name="describe" value="${product.describe}" placeholder="describe" autofocus />
                                             <span class="text-danger"></span>

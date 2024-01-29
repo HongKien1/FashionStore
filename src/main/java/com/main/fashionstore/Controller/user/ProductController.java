@@ -9,6 +9,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class ProductController {
     @GetMapping("")
     public String index() {
-        return "user/product";
+        return "user/components/product";
+    }
+
+    @GetMapping("/details")
+    public String showDetails(){
+        return "user/product-detail";
     }
 }

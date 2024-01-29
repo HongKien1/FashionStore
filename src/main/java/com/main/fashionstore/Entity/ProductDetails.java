@@ -19,7 +19,7 @@ public class ProductDetails implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer productdetails_id;
 
-    Double price;
+
     Integer quantity;
 
     @JsonIgnore

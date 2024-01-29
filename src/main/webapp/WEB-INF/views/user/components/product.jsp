@@ -1,5 +1,44 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Home</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="/user/images/icons/favicon.png"/>
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/user/vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/user/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/user/fonts/iconic/css/material-design-iconic-font.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/user/fonts/linearicons-v1.0.0/icon-font.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/user/vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/user/vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/user/vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/user/vendor/daterangepicker/daterangepicker.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/user/vendor/slick/slick.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/user/vendor/MagnificPopup/magnific-popup.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/user/vendor/perfect-scrollbar/perfect-scrollbar.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/user/css/util.css">
+    <link rel="stylesheet" type="text/css" href="/user/css/main.css">
+    <!--===============================================================================================-->
+</head>
+<body class="animsition">
 <div class="bg0 m-t-23 p-b-140">
     <div class="container">
         <div class="flex-w flex-sb-m p-b-52">
@@ -211,10 +250,11 @@
             <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
                 <!-- Block2 -->
                 <div class="block2">
+                    <c:forEach var="product" items="${products}">
                     <div class="block2-pic hov-img0">
-                        <img src="/user/images/product-01.jpg" alt="IMG-PRODUCT">
+                        <img src="/images/${product.image}" alt="IMG-PRODUCT">
 
-                        <a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
+                        <a href="product/details" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 ">
                             Xem chi tết
                         </a>
                     </div>
@@ -222,12 +262,12 @@
                     <div class="block2-txt flex-w flex-t p-t-14">
                         <div class="block2-txt-child1 flex-col-l ">
                             <a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-                                Esprit Ruffle Shirt
+                               ${product.name}
                             </a>
 
                             <span class="stext-105 cl3">
-									200.000VNĐ
-								</span>
+
+                            </span>
                         </div>
 
                         <div class="block2-txt-child2 flex-r p-t-3">
@@ -237,495 +277,11 @@
                             </a>
                         </div>
                     </div>
+                    </c:forEach>
                 </div>
             </div>
-
-            <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
-                <!-- Block2 -->
-                <div class="block2">
-                    <div class="block2-pic hov-img0">
-                        <img src="/user/images/product-02.jpg" alt="IMG-PRODUCT">
-
-                        <a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-                            Xem chi tết
-                        </a>
-                    </div>
-
-                    <div class="block2-txt flex-w flex-t p-t-14">
-                        <div class="block2-txt-child1 flex-col-l ">
-                            <a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-                                Herschel supply
-                            </a>
-
-                            <span class="stext-105 cl3">
-									200.000VNĐ
-								</span>
-                        </div>
-
-                        <div class="block2-txt-child2 flex-r p-t-3">
-                            <a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-                                <img class="icon-heart1 dis-block trans-04" src="/user/images/icons/icon-heart-01.png" alt="ICON">
-                                <img class="icon-heart2 dis-block trans-04 ab-t-l" src="/user/images/icons/icon-heart-02.png" alt="ICON">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item men">
-                <!-- Block2 -->
-                <div class="block2">
-                    <div class="block2-pic hov-img0">
-                        <img src="/user/images/product-03.jpg" alt="IMG-PRODUCT">
-
-                        <a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-                            Xem chi tết
-                        </a>
-                    </div>
-
-                    <div class="block2-txt flex-w flex-t p-t-14">
-                        <div class="block2-txt-child1 flex-col-l ">
-                            <a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-                                Only Check Trouser
-                            </a>
-
-                            <span class="stext-105 cl3">
-									200.000VNĐ
-								</span>
-                        </div>
-
-                        <div class="block2-txt-child2 flex-r p-t-3">
-                            <a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-                                <img class="icon-heart1 dis-block trans-04" src="/user/images/icons/icon-heart-01.png" alt="ICON">
-                                <img class="icon-heart2 dis-block trans-04 ab-t-l" src="/user/images/icons/icon-heart-02.png" alt="ICON">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
-                <!-- Block2 -->
-                <div class="block2">
-                    <div class="block2-pic hov-img0">
-                        <img src="/user/images/product-04.jpg" alt="IMG-PRODUCT">
-
-                        <a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-                            Xem chi tết
-                        </a>
-                    </div>
-
-                    <div class="block2-txt flex-w flex-t p-t-14">
-                        <div class="block2-txt-child1 flex-col-l ">
-                            <a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-                                Classic Trench Coat
-                            </a>
-
-                            <span class="stext-105 cl3">
-									200.000VNĐ
-								</span>
-                        </div>
-
-                        <div class="block2-txt-child2 flex-r p-t-3">
-                            <a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-                                <img class="icon-heart1 dis-block trans-04" src="/user/images/icons/icon-heart-01.png" alt="ICON">
-                                <img class="icon-heart2 dis-block trans-04 ab-t-l" src="/user/images/icons/icon-heart-02.png" alt="ICON">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
-                <!-- Block2 -->
-                <div class="block2">
-                    <div class="block2-pic hov-img0">
-                        <img src="/user/images/product-05.jpg" alt="IMG-PRODUCT">
-
-                        <a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-                            Xem chi tết
-                        </a>
-                    </div>
-
-                    <div class="block2-txt flex-w flex-t p-t-14">
-                        <div class="block2-txt-child1 flex-col-l ">
-                            <a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-                                Front Pocket Jumper
-                            </a>
-
-                            <span class="stext-105 cl3">
-									200.000VNĐ
-								</span>
-                        </div>
-
-                        <div class="block2-txt-child2 flex-r p-t-3">
-                            <a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-                                <img class="icon-heart1 dis-block trans-04" src="/user/images/icons/icon-heart-01.png" alt="ICON">
-                                <img class="icon-heart2 dis-block trans-04 ab-t-l" src="/user/images/icons/icon-heart-02.png" alt="ICON">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item watches">
-                <!-- Block2 -->
-                <div class="block2">
-                    <div class="block2-pic hov-img0">
-                        <img src="/user/images/product-06.jpg" alt="IMG-PRODUCT">
-
-                        <a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-                            Xem chi tết
-                        </a>
-                    </div>
-
-                    <div class="block2-txt flex-w flex-t p-t-14">
-                        <div class="block2-txt-child1 flex-col-l ">
-                            <a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-                                Vintage Inspired Classic
-                            </a>
-
-                            <span class="stext-105 cl3">
-									200.000VNĐ
-								</span>
-                        </div>
-
-                        <div class="block2-txt-child2 flex-r p-t-3">
-                            <a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-                                <img class="icon-heart1 dis-block trans-04" src="/user/images/icons/icon-heart-01.png" alt="ICON">
-                                <img class="icon-heart2 dis-block trans-04 ab-t-l" src="/user/images/icons/icon-heart-02.png" alt="ICON">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
-                <!-- Block2 -->
-                <div class="block2">
-                    <div class="block2-pic hov-img0">
-                        <img src="/user/images/product-07.jpg" alt="IMG-PRODUCT">
-
-                        <a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-                            Xem chi tết
-                        </a>
-                    </div>
-
-                    <div class="block2-txt flex-w flex-t p-t-14">
-                        <div class="block2-txt-child1 flex-col-l ">
-                            <a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-                                Shirt in Stretch Cotton
-                            </a>
-
-                            <span class="stext-105 cl3">
-									$52.66
-								</span>
-                        </div>
-
-                        <div class="block2-txt-child2 flex-r p-t-3">
-                            <a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-                                <img class="icon-heart1 dis-block trans-04" src="/user/images/icons/icon-heart-01.png" alt="ICON">
-                                <img class="icon-heart2 dis-block trans-04 ab-t-l" src="/user/images/icons/icon-heart-02.png" alt="ICON">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
-                <!-- Block2 -->
-                <div class="block2">
-                    <div class="block2-pic hov-img0">
-                        <img src="/user/images/product-08.jpg" alt="IMG-PRODUCT">
-
-                        <a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-                            Xem chi tết
-                        </a>
-                    </div>
-
-                    <div class="block2-txt flex-w flex-t p-t-14">
-                        <div class="block2-txt-child1 flex-col-l ">
-                            <a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-                                Pieces Metallic Printed
-                            </a>
-
-                            <span class="stext-105 cl3">
-								200.000VNĐ
-								</span>
-                        </div>
-
-                        <div class="block2-txt-child2 flex-r p-t-3">
-                            <a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-                                <img class="icon-heart1 dis-block trans-04" src="/user/images/icons/icon-heart-01.png" alt="ICON">
-                                <img class="icon-heart2 dis-block trans-04 ab-t-l" src="/user/images/icons/icon-heart-02.png" alt="ICON">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item shoes">
-                <!-- Block2 -->
-                <div class="block2">
-                    <div class="block2-pic hov-img0">
-                        <img src="/user/images/product-09.jpg" alt="IMG-PRODUCT">
-
-                        <a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-                            Xem chi tết
-                        </a>
-                    </div>
-
-                    <div class="block2-txt flex-w flex-t p-t-14">
-                        <div class="block2-txt-child1 flex-col-l ">
-                            <a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-                                Converse All Star Hi Plimsolls
-                            </a>
-
-                            <span class="stext-105 cl3">
-									200.000VNĐ
-								</span>
-                        </div>
-
-                        <div class="block2-txt-child2 flex-r p-t-3">
-                            <a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-                                <img class="icon-heart1 dis-block trans-04" src="/user/images/icons/icon-heart-01.png" alt="ICON">
-                                <img class="icon-heart2 dis-block trans-04 ab-t-l" src="/user/images/icons/icon-heart-02.png" alt="ICON">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
-                <!-- Block2 -->
-                <div class="block2">
-                    <div class="block2-pic hov-img0">
-                        <img src="/user/images/product-10.jpg" alt="IMG-PRODUCT">
-
-                        <a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-                            Xem chi tết
-                        </a>
-                    </div>
-
-                    <div class="block2-txt flex-w flex-t p-t-14">
-                        <div class="block2-txt-child1 flex-col-l ">
-                            <a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-                                Femme T-Shirt In Stripe
-                            </a>
-
-                            <span class="stext-105 cl3">
-									200.000VNĐ
-								</span>
-                        </div>
-
-                        <div class="block2-txt-child2 flex-r p-t-3">
-                            <a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-                                <img class="icon-heart1 dis-block trans-04" src="/user/images/icons/icon-heart-01.png" alt="ICON">
-                                <img class="icon-heart2 dis-block trans-04 ab-t-l" src="/user/images/icons/icon-heart-02.png" alt="ICON">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item men">
-                <!-- Block2 -->
-                <div class="block2">
-                    <div class="block2-pic hov-img0">
-                        <img src="/user/images/product-11.jpg" alt="IMG-PRODUCT">
-
-                        <a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-                            Xem chi tết
-                        </a>
-                    </div>
-
-                    <div class="block2-txt flex-w flex-t p-t-14">
-                        <div class="block2-txt-child1 flex-col-l ">
-                            <a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-                                Herschel supply
-                            </a>
-
-                            <span class="stext-105 cl3">
-									200.000VNĐ
-								</span>
-                        </div>
-
-                        <div class="block2-txt-child2 flex-r p-t-3">
-                            <a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-                                <img class="icon-heart1 dis-block trans-04" src="/user/images/icons/icon-heart-01.png" alt="ICON">
-                                <img class="icon-heart2 dis-block trans-04 ab-t-l" src="/user/images/icons/icon-heart-02.png" alt="ICON">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item men">
-                <!-- Block2 -->
-                <div class="block2">
-                    <div class="block2-pic hov-img0">
-                        <img src="/user/images/product-12.jpg" alt="IMG-PRODUCT">
-
-                        <a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-                            Xem chi tết
-                        </a>
-                    </div>
-
-                    <div class="block2-txt flex-w flex-t p-t-14">
-                        <div class="block2-txt-child1 flex-col-l ">
-                            <a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-                                Herschel supply
-                            </a>
-
-                            <span class="stext-105 cl3">
-									200.000VNĐ
-								</span>
-                        </div>
-
-                        <div class="block2-txt-child2 flex-r p-t-3">
-                            <a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-                                <img class="icon-heart1 dis-block trans-04" src="/user/images/icons/icon-heart-01.png" alt="ICON">
-                                <img class="icon-heart2 dis-block trans-04 ab-t-l" src="/user/images/icons/icon-heart-02.png" alt="ICON">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
-                <!-- Block2 -->
-                <div class="block2">
-                    <div class="block2-pic hov-img0">
-                        <img src="/user/images/product-13.jpg" alt="IMG-PRODUCT">
-
-                        <a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-                            Xem chi tết
-                        </a>
-                    </div>
-
-                    <div class="block2-txt flex-w flex-t p-t-14">
-                        <div class="block2-txt-child1 flex-col-l ">
-                            <a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-                                T-Shirt with Sleeve
-                            </a>
-
-                            <span class="stext-105 cl3">
-									200.000VNĐ
-								</span>
-                        </div>
-
-                        <div class="block2-txt-child2 flex-r p-t-3">
-                            <a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-                                <img class="icon-heart1 dis-block trans-04" src="/user/images/icons/icon-heart-01.png" alt="ICON">
-                                <img class="icon-heart2 dis-block trans-04 ab-t-l" src="/user/images/icons/icon-heart-02.png" alt="ICON">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
-                <!-- Block2 -->
-                <div class="block2">
-                    <div class="block2-pic hov-img0">
-                        <img src="/user/images/product-14.jpg" alt="IMG-PRODUCT">
-
-                        <a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-                            Xem chi tết
-                        </a>
-                    </div>
-
-                    <div class="block2-txt flex-w flex-t p-t-14">
-                        <div class="block2-txt-child1 flex-col-l ">
-                            <a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-                                Pretty Little Thing
-                            </a>
-
-                            <span class="stext-105 cl3">
-									200.000VNĐ
-								</span>
-                        </div>
-
-                        <div class="block2-txt-child2 flex-r p-t-3">
-                            <a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-                                <img class="icon-heart1 dis-block trans-04" src="/user/images/icons/icon-heart-01.png" alt="ICON">
-                                <img class="icon-heart2 dis-block trans-04 ab-t-l" src="/user/images/icons/icon-heart-02.png" alt="ICON">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item watches">
-                <!-- Block2 -->
-                <div class="block2">
-                    <div class="block2-pic hov-img0">
-                        <img src="/user/images/product-15.jpg" alt="IMG-PRODUCT">
-
-                        <a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-                            Xem chi tết
-                        </a>
-                    </div>
-
-                    <div class="block2-txt flex-w flex-t p-t-14">
-                        <div class="block2-txt-child1 flex-col-l ">
-                            <a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-                                Mini Silver Mesh Watch
-                            </a>
-
-                            <span class="stext-105 cl3">
-									200.000VNĐ
-								</span>
-                        </div>
-
-                        <div class="block2-txt-child2 flex-r p-t-3">
-                            <a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-                                <img class="icon-heart1 dis-block trans-04" src="/user/images/icons/icon-heart-01.png" alt="ICON">
-                                <img class="icon-heart2 dis-block trans-04 ab-t-l" src="/user/images/icons/icon-heart-02.png" alt="ICON">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
-                <!-- Block2 -->
-                <div class="block2">
-                    <div class="block2-pic hov-img0">
-                        <img src="/user/images/product-16.jpg" alt="IMG-PRODUCT">
-
-                        <a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-                            Xem chi tết
-                        </a>
-                    </div>
-
-                    <div class="block2-txt flex-w flex-t p-t-14">
-                        <div class="block2-txt-child1 flex-col-l ">
-                            <a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-                                Square Neck Back
-                            </a>
-
-                            <span class="stext-105 cl3">
-									200.000VNĐ
-								</span>
-                        </div>
-
-                        <div class="block2-txt-child2 flex-r p-t-3">
-                            <a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-                                <img class="icon-heart1 dis-block trans-04" src="/user/images/icons/icon-heart-01.png" alt="ICON">
-                                <img class="icon-heart2 dis-block trans-04 ab-t-l" src="/user/images/icons/icon-heart-02.png" alt="ICON">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Load more -->
-        <div class="flex-c-m flex-w w-full p-t-45">
-            <a href="#" class="flex-c-m stext-101 cl5 size-103 bg2 bor1 hov-btn1 p-lr-15 trans-04">
-                Xem thêm
-            </a>
         </div>
     </div>
 </div>
+</body>
+</html>
