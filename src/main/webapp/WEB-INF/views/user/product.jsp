@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Home</title>
+    <title>Product</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
@@ -39,16 +39,8 @@
     <!--===============================================================================================-->
 </head>
 
-
-<!-- Cart -->
-
-
-
-
-
-<!-- Footer -->
-
 <body class="animsition">
+
 <div class="bg0 m-t-23 p-b-140">
     <div class="container">
         <div class="flex-w flex-sb-m p-b-52">
@@ -101,7 +93,7 @@
                         <div class="block2-pic hov-img0">
                             <img src="/images/${product.image}" alt="IMG-PRODUCT">
 
-                            <a href="product/details" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 ">
+                            <a href="/product/details/${product.product_id}" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 ">
                                 Xem chi tết
                             </a>
                         </div>
@@ -113,7 +105,7 @@
                                 </a>
 
                                 <span class="stext-105 cl3">
-
+                                    ${product.price}
                                 </span>
                             </div>
 
