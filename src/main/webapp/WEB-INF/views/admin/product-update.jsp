@@ -154,7 +154,7 @@
                                         <div class="row mt-3 ">
                                             <div class="mt-3 col-md-6 d-flex justify-content-start">
                                                 <button type="submit" class="btn btn-warning m-2">Cập nhật</button>
-                                                <button type="reset" class="btn btn-outline-secondary m-2">Reset</button>
+                                                <button type="reset" class="btn btn-outline-secondary m-2">làm mới</button>
                                             </div>
 
                                             <div class="mt-3 col-md-6 d-flex justify-content-end">

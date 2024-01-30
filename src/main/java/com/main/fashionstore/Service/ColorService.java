@@ -15,7 +15,6 @@ public class ColorService {
     ColorDao colorDao;
 
     public List<Color> findAll() {
-
         return colorDao.findAll();
     }
      public Color saveColor(Color color){
