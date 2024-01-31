@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 
 <!-- =========================================================
@@ -96,16 +97,17 @@
 
 
                                 <div class="mb-3">
-                                    <label for="fullname" class="form-label">Tên size</label>
+                                    <label for="size_name" class="form-label">Tên size</label>
                                     <input
                                             class="form-control"
                                             type="text"
-                                            id="fullname"
-                                            name="fullname"
+                                            id="size_name"
+                                            name="size_name"
                                             value=""
                                             placeholder="S"
+                                            oninput="error()"
                                     />
-                                    <span class="text-danger" ></span>
+                                    <span class="text-danger" id="size_name_error"><form:errors path="size_name" cssClass="mgs"/></span>
                                 </div>
                             </div>
                             <div class="row mt-3 ">
@@ -162,5 +164,16 @@
 
 <!-- Place this tag in your head or just before your close body tag. -->
 <script async defer src="https://buttons.github.io/buttons.js"></script>
+<script>
+    var category_name = document.getElementById("size_name")
+    var category_name_error = document.getElementById("size_name_error")
+    function error(){
+        console.log(category_name.value)
+        if (category_name.value !== null){
+            category_name_error.innerText = "";
+        }
+
+    }
+</script>
 </body>
 </html>

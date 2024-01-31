@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 
 <!-- =========================================================
@@ -90,17 +91,17 @@
                     <h5 class="card-header">Cập nhật size  </h5>
 
                     <div class="card-body">
-                        <form  method="POST" >
+                        <form  method="POST" action="/admin/size/updateSize/${size.size_id}" >
                             <div class="row">
 
                                 <div class="mb-3">
-                                    <label for="fullname" class="form-label">Tên size</label>
+                                    <label for="size_name" class="form-label">Tên size</label>
                                     <input
                                             class="form-control"
                                             type="text"
-                                            id="fullname"
-                                            name="fullname"
-                                            value=""
+                                            id="size_name"
+                                            name="size_name"
+                                            value="${size.size_name}"
                                             placeholder="S"
                                     />
                                     <span class="text-danger" ></span>
