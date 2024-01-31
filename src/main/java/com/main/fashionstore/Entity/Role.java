@@ -20,7 +20,8 @@ public class Role implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer role_id;
 
-    @Nationalized
+    @Basic
+    @Column(name = "role_name")
     String role_name;
 
     @JsonIgnore
