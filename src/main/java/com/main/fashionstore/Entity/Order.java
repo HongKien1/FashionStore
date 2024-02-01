@@ -1,6 +1,7 @@
 package com.main.fashionstore.Entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.main.fashionstore.Service.ProductTypeService;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -41,5 +42,5 @@ public class Order implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "account")
-    Account account;
+    ProductTypeService.Account account;
 }

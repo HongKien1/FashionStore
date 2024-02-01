@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -64,7 +66,7 @@
 </head>
 <body class="animsition">
 <header class="header-v4">
-    <div th:replace="~{/user/components/header}"></div>
+    <%@include file="../user/components/header.jsp"%>
 </header>
 
 <!-- Cart -->
@@ -82,25 +84,37 @@
         <div class="row justify-content-center">
             <div class="col-sm-9 col-md-8 col-lg-6 col-xl-4">
                 <div class="contact-form login-form">
-                    <form action="#">
+                    <form action="/create/account" modelAttribute="account" method="post">
                         <div class="row">
                             <div class="col-xl-12">
-                                <input type="text" placeholder="Tên*">
+                                <input type="text" name="fullname" placeholder="Tên*" required>
                             </div>
                             <div class="col-xl-12">
-                                <input type="text" placeholder="Họ*">
+                                <input type="text" name="email" placeholder="Email*" required>
                             </div>
                             <div class="col-xl-12">
-                                <input type="text" placeholder="Email*">
+                                <input type="text" name="username" placeholder="Tên đăng nhập*" required>
                             </div>
                             <div class="col-xl-12">
-                                <input type="text" placeholder="Mật khẩu*">
+                                <input type="text"name="password" placeholder="Mật khẩu*" required>
+                            </div>
+                            <div class="col-xl-12">
+                                <div class="form-group">
+                                    <select class="form-control" id="gender" name="gender" required>
+                                        <option value="" disabled selected>-- Chọn giới tính --</option>
+                                        <option value="true">Nam</option>
+                                        <option value="false">Nữ</option>
+                                    </select>
+                                </div>
+
                             </div>
                             <div class="col-xl-12">
                                 <input type="submit" value="ĐĂNG KÝ">
+                                <span style="color: #00ad5f">${message}</span>
                             </div>
                         </div>
                     </form>
+                    
                 </div>
             </div>
         </div>
@@ -117,7 +131,7 @@
             <div class="container-fluid custom-container">
                 <div class="col-12">
                     <span>Đã có tài khoản</span>
-                    <a href="/login" class="btn-two">Đăng nhập ngay bây giờ</a>
+                    <a href="/account/login" class="btn-two">Đăng nhập ngay bây giờ</a>
                 </div>
                 <!-- /.col-12 -->
             </div>
@@ -125,6 +139,8 @@
         </section>
 
 
+<div th:replace="~{/user/components/footer}"></div>
+<%@include file="../user/components/footer.jsp"%>
 
 <!-- /.login-now -->
 <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="dependencies/jquery/jquery.min.js"></script>

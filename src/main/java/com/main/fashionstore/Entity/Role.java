@@ -1,6 +1,7 @@
 package com.main.fashionstore.Entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.main.fashionstore.Service.ProductTypeService;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -25,5 +26,5 @@ public class Role implements Serializable {
 
     @JsonIgnore
     @OneToMany(mappedBy ="role")
-    List<Account> accounts;
+    List<ProductTypeService.Account> accounts;
 }

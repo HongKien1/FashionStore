@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -64,7 +66,7 @@
 </head>
 <body class="animsition">
 <header class="header-v4">
-    <div th:replace="~{/user/components/header}"></div>
+    <%@include file="../user/components/header.jsp"%>
 </header>
 
 <!-- Cart -->
@@ -81,21 +83,20 @@
             <div class="col-sm-9 col-md-8 col-lg-6 col-xl-4">
                 <div class="contact-form login-form">
 
-                    <form action="#">
+                    <form action="/confirmOtp" method="post">
                         <div class="row">
 
                             <div class="col-xl-12">
-                                <h4> Vui lòng nhập mã OTP đã gửi qua tin nhắn SMS đến số điện thoại 000000000</h4>
+                                <h4> OTP đã được gửi đến mail của bạn</h4>
                                 <br>
-                                <input type="text" placeholder="Nhập mã OTP*">
+                                <span style="color: red">${error}</span>
+                                <input type="text" name="otp" placeholder="Nhập mã OTP*">
+                                <input type="hidden" name="email" value="${email}" placeholder="Email">
+
                             </div>
-                            <!--                            <div class="col-xl-12">-->
-                            <!--                                <input type="text" placeholder="Password*">-->
-                            <!--                            </div>-->
                             <div class="col-xl-12">
                                 <input type="submit" value=" Xác nhận">
                                 <br>
-                                <h5> Chưa nhận được mã? Gửi lại (50s) </h5>
 
                             </div>
 
@@ -112,7 +113,8 @@
 </section>
 <!-- /.contact-area end -->
 
-
+<div th:replace="~{/user/components/footer}"></div>
+<%@include file="../user/components/footer.jsp"%>
 <!-- /.login-now -->
 
 <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="dependencies/jquery/jquery.min.js"></script>

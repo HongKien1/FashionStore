@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -62,7 +64,7 @@
 </head>
 <body class="animsition">
 <header class="header-v4">
-    <div th:replace="~{/user/components/header}"></div>
+    <%@include file="../user/components/header.jsp"%>
 </header>
 
 <!-- Cart -->
@@ -77,16 +79,20 @@
         <div class="row justify-content-center">
             <div class="col-sm-9 col-md-8 col-lg-6 col-xl-4">
                 <div class="contact-form login-form">
-                    <form action="#">
+                    <form action="nhapmkhau" method="post">
                         <div class="row">
                             <div class="col-xl-12">
-                                <input type="text" placeholder="Mật khẩu">
+                                <input type="hidden" name="email" value="${email}" placeholder="Email">
+                                <input name="newPassword" type="text" placeholder="Mật khẩu">
                             </div>
                             <div class="col-xl-12">
-                                <input type="text" placeholder="Nhập lại mật khẩu">
+                                <input name="confirmPassword" type="text" placeholder="Nhập lại mật khẩu">
                             </div>
                             <div class="col-xl-12">
                                 <input type="submit" value="XÁC NHẬN">
+                                <span style="color: #00ad5f">${message}</span>
+                                <span style="color: red">${error}</span>
+
                             </div>
                         </div>
                     </form>
@@ -99,7 +105,8 @@
 </section>
 <!-- /.contact-area end -->
 
-
+<div th:replace="~{/user/components/footer}"></div>
+<%@include file="../user/components/footer.jsp"%>
 
 <!-- /.login-now -->
 

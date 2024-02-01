@@ -21,7 +21,7 @@
                         Help & FAQs
                     </a>
 
-                    <a href="/login" class="flex-c-m trans-04 p-lr-25">
+                    <a href="/account/login" class="flex-c-m trans-04 p-lr-25">
                         Tài khoản                    </a>
 
                     <a href="#" class="flex-c-m trans-04 p-lr-25">

@@ -1,6 +1,7 @@
 package com.main.fashionstore.Entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.main.fashionstore.Service.ProductTypeService;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -23,7 +24,7 @@ public class Cart implements Serializable {
 
     @OneToOne
     @JoinColumn(name = "account_id")
-    Account account;
+    ProductTypeService.Account account;
 
     @JsonIgnore
     @OneToMany(mappedBy = "cart")
