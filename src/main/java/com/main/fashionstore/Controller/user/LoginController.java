@@ -42,7 +42,7 @@ public class LoginController {
             session.setAttribute("accountLogin", username);
             return "user/index";
         }else{
-            redirectAttributes.addFlashAttribute("error", "Tài khoản khng ồn tia");
+            redirectAttributes.addFlashAttribute("error", "Tài khoản không tồn tại");
             return "user/login";
         }
 

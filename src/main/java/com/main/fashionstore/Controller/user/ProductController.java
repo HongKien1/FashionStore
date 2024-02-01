@@ -1,19 +1,27 @@
 package com.main.fashionstore.Controller.user;
 
 import com.main.fashionstore.Dao.CategoryDao;
-import com.main.fashionstore.Dao.ProductDao;
 import com.main.fashionstore.Dao.ProductDetailsDao;
-import com.main.fashionstore.Entity.Category;
+import com.main.fashionstore.Entity.Account;
+import com.main.fashionstore.Entity.Cart;
+import com.main.fashionstore.Entity.CartDetails;
 import com.main.fashionstore.Entity.Product;
 import com.main.fashionstore.Entity.ProductDetails;
+import com.main.fashionstore.Service.CartDetailsService;
+import com.main.fashionstore.Service.CartService;
+import com.main.fashionstore.Service.ParamService;
 import com.main.fashionstore.Service.ProductDetailsService;
 import com.main.fashionstore.Service.ProductService;
+import com.main.fashionstore.Service.SessionService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.ArrayList;
@@ -37,6 +45,18 @@ public class ProductController {
     @Autowired
     ProductDetailsDao productDetailsDao;
 
+    @Autowired
+    CartService cartService;
+
+    @Autowired
+    ParamService paramService;
+    
+    @Autowired
+    SessionService sessionService;
+
+    @Autowired
+    CartDetailsService cartDetailsService;
+
     @GetMapping("")
     public String index(Model model) {
         List<Product> products = productService.getAllProducts();
@@ -44,15 +64,25 @@ public class ProductController {
         return "user/product";
     }
 
-    @GetMapping("/details/{id}")
-    public String detail(@PathVariable("id") Integer id, Model model) {
-       model.addAttribute("categories", categoryDao.findAll());
+    @RequestMapping("/details/{id}")
+    public String detail(@PathVariable(name = "id", required = false) Integer Proid, Model model) {
+
+         // Kiểm tra xem Proid có null hoặc nhỏ hơn hoặc bằng 0 không
+    if (Proid == null || Proid <= 0) {
+        // Xử lý trường hợp khi Proid không phải là một số nguyên hợp lệ
+        // Bạn có thể chuyển hướng đến một trang lỗi hoặc cung cấp giá trị mặc định
+        // Ví dụ, bạn có thể đặt Proid thành một giá trị mặc định như 1
+        Proid = 1;
+    }
+
+
+    //    model.addAttribute("categories", categoryDao.findAll());
        int count = 1;
        List<Map<String, Object>> colors = new ArrayList<>();
        List<Map<String, Object>> sizes = new ArrayList<>();
-       for (ProductDetails productDetail : productDetailsService.findByProductId(id)) {
+       for (ProductDetails productDetail : productDetailsService.findByProductId(Proid)) {
            if (count == 1) {
-               model.addAttribute("detail_id", productDetail.getProduct().getProduct_id());
+               model.addAttribute("pro_id", productDetail.getProduct().getProduct_id());
                model.addAttribute("detail_image", productDetail.getProduct().getImage());
                model.addAttribute("detail_name", productDetail.getProduct().getName());
                model.addAttribute("detail_price", productDetail.getProduct().getPrice());
@@ -86,4 +116,56 @@ public class ProductController {
 //        model.addAttribute("cartCount", cartDetailService.countCartDetail(getCartCount()));
         return "user/product-detail";
     }
+
+    @PostMapping("/addToCart")
+    public String detailAdd(Model model) {
+        Integer size = paramService.getInt("size", 0);
+        Integer color = paramService.getInt("color", 0);
+        Integer pID = paramService.getInt("productId", 0);
+
+        System.out.println(size);
+        Double total = null;
+        Integer qty = paramService.getInt("qty", 1);
+
+        Account user = sessionService.get("accountLogin");
+        Cart cart= cartService.findCartIdByAccountId(user.getAccount_id());
+        System.out.println("productDID " + pID + "size " + size + "color " + color + "Qty " + qty);
+        ProductDetails productD = productDetailsService.findProductDetailsIdByColorSizeProductId(size, color, pID);
+        if (productD != null) {
+            System.out.println("productID " + pID + "SL proD " + productD.getQuantity() + "size " + size + "color "
+                    + color + "Qty " + qty);
+
+            // tìm CartDetailEntity
+            CartDetails cartDetailEntity = cartDetailsService
+                    .findCartDetailIdByCartIdAndProductDetailId(productD.getProductdetails_id(),
+                            cart.getCart_id());
+
+            if (cartDetailEntity != null) {
+                // Nếu CartDetailEntity tồn tại, hãy cập nhật số lượng của nó
+                cartDetailEntity.setQuantity(cartDetailEntity.getQuantity() + qty);
+                cartDetailsService.updateCartDetails(cartDetailEntity);
+
+                // In thông tin cập nhật để xác minh
+                System.out.println("Updated CartDetail ID: " + cartDetailEntity.getCartdetails_id());
+                System.out.println("Updated Quantity: " + cartDetailEntity.getQuantity());
+
+            } else {
+                // Nếu CartDetailEntity không tồn tại, hãy tạo một cái mới
+                total = productD.getProduct().getPrice() * qty;
+                cartDetailEntity = new CartDetails(100, qty,total, productD, cart);
+                cartDetailsService.addToCart(cartDetailEntity);
+            }
+        }
+        return "redirect:/user/detail";
+    }
+
+    public Integer getCartCount() {
+        Cart cart = new Cart();
+        if (sessionService.get("accountLogin") != null) {
+            Account user = sessionService.get("accountLogin");
+            cart = cartService.findCartIdByAccountId(user.getAccount_id());
+        }
+        return cart.getCart_id();
+    }
+
 }
