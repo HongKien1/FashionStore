@@ -2,6 +2,7 @@ package com.main.fashionstore.Entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,7 +21,9 @@ public class Brand implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer brand_id;
 
-    @Nationalized
+    @NotBlank(message = "Vui lòng nhập tên thương hiệu ")
+    @Basic
+    @Column(name = "brand_name")
     String brand_name;
 
     @JsonIgnore

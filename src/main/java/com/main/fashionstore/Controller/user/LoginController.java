@@ -6,7 +6,6 @@ import com.main.fashionstore.Entity.Account;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,10 +24,11 @@ public class LoginController {
     @Autowired
     private HttpSession session;
 
-        @GetMapping("login")
-        public String loginForm() {
-            return "user/login";
-        }
+
+    @GetMapping("login")
+    public String loginForm() {
+        return "user/login";
+    }
 
     @PostMapping("login")
     public String login(@RequestParam("username") String username,
@@ -37,16 +37,43 @@ public class LoginController {
 
         boolean exitByUserName = accountDao.existsByUsernameAndPassword(username, password);
 
-        if(exitByUserName){
-            // save account in session when login success
-            session.setAttribute("accountLogin", username);
-            return "user/index";
-        }else{
-            redirectAttributes.addFlashAttribute("error", "Tài khoản không tồn tại");
-            return "user/login";
+        if (exitByUserName) {
+            // Lấy thông tin tài khoản từ cơ sở dữ liệu
+            Optional<Account> account = accountDao.findByUsername(username);
+
+            if (account.isPresent()) {
+                int role = account.get().getRole().getRole_id();
+
+                // Lưu role vào session
+                session.setAttribute("role", role);
+                session.setAttribute("account", account);
+
+                if (role == 1) {
+                    // Nếu role là 1 (admin), chuyển hướng đến trang admin
+                    return "redirect:/admin";
+                } else{
+                    // Nếu role là 2 (user), chuyển hướng đến trang user
+                    return "redirect:/index";
+                }
+            }
         }
 
+        // Xử lý trường hợp đăng nhập không thành công
+        redirectAttributes.addFlashAttribute("error", "Tài khoản không hợp lệ");
+        return "redirect:/account/login";
     }
+
+    @GetMapping("logout")
+    public String logout() {
+        // Xóa thông tin người dùng khỏi session
+        session.removeAttribute("username");
+        session.removeAttribute("role");
+
+        // Chuyển hướng về trang đăng nhập
+        return "redirect:/account/login";
     }
+
+
+}
 
 

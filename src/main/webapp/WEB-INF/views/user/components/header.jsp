@@ -22,7 +22,7 @@
                     </a>
 
                     <a href="/login" class="flex-c-m trans-04 p-lr-25">
-                        Tài khoản                    </a>
+                        Tài khoản </a>
 
                     <a href="#" class="flex-c-m trans-04 p-lr-25">
                         Tiếng Việt
@@ -70,11 +70,11 @@
                             <a href="/index">Liên hệ</a>
                         </li>
                         <li class="active-menu">
-                            <a href="/account/login">Tài khoản</a>
+                            <a href="">Tài khoản</a>
                             <ul class="sub-menu">
                                 <li><a href="/account">Thông tin cá nhân</a></li>
                                 <li><a href="/history">Lịch sử mua hàng</a></li>
-                                <li><a href="">Đăng xuất</a></li>
+                                <li><a href="#" onclick="confirmLogout()">Đăng xuất</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -86,11 +86,13 @@
                         <i class="zmdi zmdi-search"></i>
                     </div>
 
-                    <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="2">
+                    <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart"
+                         data-notify="2">
                         <i class="zmdi zmdi-shopping-cart"></i>
                     </div>
 
-                    <a href="#" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti" data-notify="0">
+                    <a href="#" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti"
+                       data-notify="0">
                         <i class="zmdi zmdi-favorite-outline"></i>
                     </a>
                 </div>
@@ -111,11 +113,13 @@
                 <i class="zmdi zmdi-search"></i>
             </div>
 
-            <div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti js-show-cart" data-notify="2">
+            <div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti js-show-cart"
+                 data-notify="2">
                 <i class="zmdi zmdi-shopping-cart"></i>
             </div>
 
-            <a href="#" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti" data-notify="0">
+            <a href="#" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti"
+               data-notify="0">
                 <i class="zmdi zmdi-favorite-outline"></i>
             </a>
         </div>
@@ -130,57 +134,7 @@
 
 
     <!-- Menu Mobile -->
-    <div class="menu-mobile">
-        <ul class="topbar-mobile">
-            <li>
-                <div class="left-top-bar">
-                    Miễn phí giao hàng  từ đơn 0Đ
-                </div>
-            </li>
 
-            <li>
-                <div class="right-top-bar flex-w h-full">
-                    <a href="#" class="flex-c-m p-lr-10 trans-04">
-                        Help & FAQs
-                    </a>
-
-                    <a href="#" class="flex-c-m p-lr-10 trans-04">
-                         Tài khoản
-                    </a>
-
-                    <a href="#" class="flex-c-m p-lr-10 trans-04">
-                        Tếng Việt
-                    </a>
-
-                </div>
-            </li>
-        </ul>
-
-        <ul class="main-menu-m">
-            <li>
-                <a href="/index">Trang chủ</a>
-            </li>
-            <li>
-                <a href="/product">Sản phẩm</a>
-            </li>
-
-            <li>
-                <a href="/cart" class="label1 rs1" data-label1="hot">Giỏ hàng</a>
-            </li>
-
-            <li>
-                <a href="/index">Bài viết</a>
-            </li>
-
-            <li>
-                <a href="/index">Giới thiệu</a>
-            </li>
-
-            <li>
-                <a href="/contact">Liên hệ</a>
-            </li>
-        </ul>
-    </div>
 
     <!-- Modal Search -->
     <div class="modal-search-header flex-c-m trans-04 js-hide-modal-search">
@@ -198,5 +152,26 @@
         </div>
     </div>
 </header>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<script>
+    function confirmLogout() {
+        Swal.fire({
+            title: 'Cảnh báo!',
+            text: 'Bạn có chắc muốn đăng xuất không?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Đồng ý',
+            cancelButtonText: 'Hủy'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Chuyển hướng đến trang xác nhận đăng xuất
+                window.location.href = '/account/logout';
+            }
+        });
+    }
+</script>
+
 </body>
 </html>

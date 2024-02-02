@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -61,25 +61,46 @@
 				<div class="flex-w flex-tr">
 					<div class="size-210 bor10 p-lr-70 p-t-55 p-b-70 p-lr-15-lg w-full-md mx-auto">
 						<form>
-							<h4 class="mtext-105 cl2 txt-center text-uppercase p-b-30">
-								<b>Thông tin tài khoản</b>
+							<h4 class="mtext-105 cl2 txt-center p-b-30">
+								Thông tin tài khoản
 							</h4>
 							<div class="mb-4">
-								<p><b>Họ và tên: </b>${account.fullname}</p>
-							</div>
-<%--							<div class="mb-4">--%>
-<%--								<p><b>Mật khẩu: </b>${account.password}</p>--%>
-<%--							</div>--%>
-							<div class="mb-4">
-								<p><b>Username: </b>${account.username}</p>
-							</div>
-							<div class="mb-4 d-flex flex-column">
-								<p><b>Giới tính: </b>${account.gender ? 'Nam' : 'Nữ'}</p>
+								<label for="fullname" class="form-label">Họ và tên <span style="color: red">*</span></label>
+								<input type="text" class="form-control" id="fullname" name="fullname" value="${account.fullname}" aria-describedby="emailHelp" required>
 							</div>
 							<div class="mb-4">
-								<p><b>Email: </b>${account.email}</p>
+								<label for="username" class="form-label">Username <span style="color: red">*</span></label>
+								<input type="text" class="form-control" id="username" name="username" value="${account.username}" aria-describedby="emailHelp" required>
 							</div>
-							<a href="/account/edit" type="submit" class="btn btn-outline-secondary">Cập nhật thông tin</a>
+
+							<div class="mb-2 d-flex flex-column">
+								<label class="form-label mb-2">Giới tính <span style="color: red">*</span></label>
+								<div style="margin: 16px" class="row">
+									<div class="col-3">
+										<div class="form-check ">
+											<input class="form-check-input" type="radio" name="gender"
+												   id="flexRadioDefault1" ${account.gender == 'Nam' ? 'checked' : ''}  required>
+											<label class="form-check-label" for="flexRadioDefault1">
+												Nam
+											</label>
+										</div>
+									</div>
+									<div class=" col-9">
+										<div class="form-check">
+											<input class="form-check-input" type="radio" name="gender"
+												   id="flexRadioDefault2" ${account.gender == 'Nữ' ? 'checked' : ''} checked required>
+											<label class="form-check-label" for="flexRadioDefault2">
+												Nữ
+											</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="mb-4">
+								<label for="email" class="form-label">Email <span style="color: red">*</span></label>
+								<input type="email" class="form-control" id="email" name="email" value="${account.email}" aria-describedby="emailHelp" required>
+							</div>
+							<button type="submit" class="btn btn-secondary">Cập nhật</button>
 						</form>
 					</div>
 				</div>

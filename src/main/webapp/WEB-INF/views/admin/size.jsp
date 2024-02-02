@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 
 <!-- =========================================================
@@ -107,22 +108,24 @@
                                 </tr>
                                 </thead>
                                 <tbody class="table-border-bottom-0">
+                                <c:forEach var="size" items="${sizes}">
                                 <tr >
-                                    <td>1</td>
-                                    <td>S</td>
+                                    <td>${size.size_id}</td>
+                                    <td>${size.size_name}</td>
 
                                     <td  class="d-flex justify-content-end" style="margin-right:40px ">
-                                        <a href="/admin/size/updateSize">
+                                        <a href="/admin/size/updateSize/${size.size_id}">
                                             <button type="submit" class="btn btn-warning m-2">Cập nhật</button>
                                         </a>
-                                        <button class="btn btn-danger m-2 h-25">
+                                        <button class="btn btn-danger m-2 h-25"
+                                                onclick="confirmDelete(${size.size_id})">
                                             Xoá
                                         </button>
 
                                     </td>
                                 </tr>
 
-
+                                </c:forEach>
                                 </tbody>
                             </table>
                         </div>
@@ -165,6 +168,7 @@
 
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         function confirmDelete(productId) {
             Swal.fire({
@@ -178,7 +182,7 @@
                 cancelButtonText: 'Hủy'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    window.location.href = '/admin/account/delete/' + productId;
+                    window.location.href = '/admin/size/deleteSize/' + productId;
                 }
             })
         }

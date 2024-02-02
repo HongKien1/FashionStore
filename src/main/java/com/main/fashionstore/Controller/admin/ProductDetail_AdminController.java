@@ -40,7 +40,7 @@ public class ProductDetail_AdminController {
         model.addAttribute("productDetailList", new ProductDetails());
         model.addAttribute("products", productService.getAllProducts());
         model.addAttribute("colors", colorService.findAll());
-        model.addAttribute("sizes", sizeService.getAllSizes());
+        model.addAttribute("sizes", sizeService.getAllSize());
         return "admin/productDetail-add";
     }
 
@@ -57,7 +57,7 @@ public class ProductDetail_AdminController {
         model.addAttribute("productDetails", productDetails);
         model.addAttribute("products", productService.getAllProducts());
         model.addAttribute("colors", colorService.findAll());
-        model.addAttribute("sizes", sizeService.getAllSizes());
+        model.addAttribute("sizes", sizeService.getAllSize());
         return "admin/productDetail-update";
     }
 

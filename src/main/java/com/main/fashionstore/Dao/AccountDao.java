@@ -11,4 +11,10 @@ public interface AccountDao extends JpaRepository<Account, Integer> {
     Optional<Account> findByUsername(String username);
 
     boolean existsByUsernameAndPassword (String username, String password);
+
+    // Phương thức để lấy thông tin tài khoản theo ID
+    Optional<Account> findById(int accountId);
+
+    // Phương thức để cập nhật thông tin tài khoản
+    Account save(Account account);
 }
