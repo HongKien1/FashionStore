@@ -1,5 +1,6 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!DOCTYPE html>
 
 <!-- =========================================================
@@ -90,7 +91,7 @@
                     <div class="card-body">
 
                         <div class="table-responsive mt-5">
-                            <a href="/admin/Product/addProduct">
+                            <a href="/admin/productDetail/addProduct">
                                 <button type="submit" class="btn btn-info float-end" style="margin-right: 40px">Thêm</button>
                             </a>
                             <h5 class="fw-bold py-3 mb-4">Danh sách sản phẩm chi tiết</h5>
@@ -101,37 +102,34 @@
                             <table class="table">
                                 <thead>
                                 <tr>
-                                    <th>Mã SP chi tiết</th>
-                                    <th>Tên SP chi tiết</th>
-                                    <th>Hình ảnh</th>
+                                    <th>STT</th>
+                                    <th>Tên Sản Phẩm </th>
                                     <th>Màu</th>
                                     <th>Size</th>
-                                    <th>Giá</th>
-                                    <th>Mô tả</th>
+                                    <th>Số lượng</th>
                                     <th></th>
                                 </tr>
                                 </thead>
                                 <tbody class="table-border-bottom-0">
-                                <tr >
-                                    <td >01</td>
-                                    <td>Áo sơ mi</td>
-                                    <td ></td>
-                                    <td>Trắng</td>
-                                    <td >S</td>
-                                    <td>180.000 VNĐ</td>
-                                    <td>Đây là cái màu trắng</td>
+                                <c:forEach var="productDetail" items="${productDetailList}" varStatus="loop">
+                                    <tr>
+                                        <td>${loop.index + 1}</td>
+                                        <td>${productDetail.product.name}</td>
+                                        <td>${productDetail.color.color}</td>
+                                        <td>${productDetail.size.size_name}</td>
+                                        <td>${productDetail.quantity}</td>
+                                        <td></td>
+                                        <td>
+                                            <a href="/admin/productDetail/updateProduct/${productDetail.productdetails_id}">
+                                                <button type="submit" class="btn btn-warning m-2">Cập nhật</button>
+                                            </a>
 
-                                    <td>
-                                        <a href="/admin/Product/updateProduct">
-                                            <button type="submit" class="btn btn-warning m-2">Cập nhật</button>
-                                        </a>
-                                        <button class="btn btn-danger ms-2">
-                                            Xoá
-                                        </button>
-
-                                    </td>
-                                </tr>
-
+                                            <a href="/admin/productDetail/deleteProduct/${productDetail.productdetails_id}" onclick="return confirm('Bạn có chắc chắn muốn xóa sản phẩm này?')">
+                                                <button type="submit" class="btn btn-danger m-2">Xóa</button>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </c:forEach>
 
                                 </tbody>
                             </table>

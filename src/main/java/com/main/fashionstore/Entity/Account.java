@@ -26,10 +26,12 @@ public class Account implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer account_id;
 
-    @Nationalized
+    @Basic
+    @Column(name = "username")
     String username;
 
-    @Nationalized
+    @Basic
+    @Column(name = "fullname")
     String fullname;
 
     Boolean gender;

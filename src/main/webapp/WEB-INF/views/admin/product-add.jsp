@@ -126,6 +126,20 @@
 
                                     </div>
 
+                                      <div class="mb-3">
+                                          <label for="price" class="form-label">Giá</label>
+                                          <form:input
+                                                  class="form-control"
+                                                  type="number"
+                                                  id="price"
+                                                  path="price"
+                                                  placeholder="price"
+                                          />
+
+                                          <span class="text-danger"></span>
+
+                                      </div>
+
                                     <div class="mb-3">
                                         <label for="describe" class="form-label">Mô tả</label>
                                         <form:input
@@ -163,7 +177,6 @@
                                       </div>
                                   </form:form>
                                 </div>
-
                             </div>
                             <div class="row mt-3 ">
                                 <div class="mt-3 col-md-6 d-flex justify-content-end">

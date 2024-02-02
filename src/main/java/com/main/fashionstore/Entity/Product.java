@@ -21,6 +21,8 @@ public class Product implements Serializable {
     @Nationalized
     String name;
 
+    Double price;
+
     @Nationalized
     String describe;
 

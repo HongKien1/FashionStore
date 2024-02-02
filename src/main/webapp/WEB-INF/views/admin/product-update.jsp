@@ -120,6 +120,12 @@
                                         </div>
 
                                         <div class="mb-3">
+                                            <label for="price" class="form-label">Giá</label>
+                                            <input class="form-control" type="number" id="price" name="price" value="${product.price}" placeholder="describe" autofocus />
+                                            <span class="text-danger"></span>
+                                        </div>
+
+                                        <div class="mb-3">
                                             <label for="describe" class="form-label">Mô tả</label>
                                             <input class="form-control" type="text" id="describe" name="describe" value="${product.describe}" placeholder="describe" autofocus />
                                             <span class="text-danger"></span>
@@ -148,7 +154,7 @@
                                         <div class="row mt-3 ">
                                             <div class="mt-3 col-md-6 d-flex justify-content-start">
                                                 <button type="submit" class="btn btn-warning m-2">Cập nhật</button>
-                                                <button type="reset" class="btn btn-outline-secondary m-2">Reset</button>
+                                                <button type="reset" class="btn btn-outline-secondary m-2">làm mới</button>
                                             </div>
 
                                             <div class="mt-3 col-md-6 d-flex justify-content-end">

@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 
@@ -29,7 +31,7 @@
             content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Thêm tài khoản</title>
+    <title>Thêm sản phẩm chi tiết</title>
 
     <meta name="description" content=""/>
 
@@ -90,90 +92,67 @@
                     <h5 class="card-header"> Thêm sản phẩm</h5>
 
                     <div class="card-body">
-                        <form method="POST">
                             <div class="row g-0">
                                 <div class="col-md-4">
                                     <img class="card-img card-img-left" src="/user/images/product-01.jpg"
                                          alt="Card image"/>
                                 </div>
                                 <div class="col-md-7" style="margin-left: 40px" >
+                                    <form:form action="/admin/productDetail/addProduct" method="post" modelAttribute="productDetails">
 
-                                    <div class="mb-3">
-                                        <label for="username" class="form-label">Tên sản phẩm</label>
-                                        <input
-                                                class="form-control"
-                                                type="text"
-                                                id="username"
-                                                name="username"
-                                                value="áo sơ mi"
-                                                autofocus
-                                        />
-                                        <span class="text-danger"></span>
+                                        <div class="mt-3">
+                                            <label  class="form-label">Tên sản phẩm</label>
+                                            <select class="form-select" id="product" name="product.product_id" required>
+                                                <c:forEach var="product" items="${products}">
+                                                    <option value="${product.product_id}">${product.name}</option>
+                                                </c:forEach>
+                                            </select>
+                                        </div>
 
-                                    </div>
-                                    <div class="mt-3">
-                                        <label  class="form-label">Kích cỡ</label>
-                                        <select class="form-select" >
-                                            <option>S</option>
-                                            <option>M</option>
-                                        </select>
-                                    </div>
-                                    <div class="mt-3">
-                                        <label  class="form-label">Màu</label>
-                                        <select class="form-select" >
-                                            <option>Trắng</option>
-                                            <option>Xanh</option>
-                                        </select>
-                                    </div>
+                                        <div class="mt-3">
+                                            <label  class="form-label">Màu</label>
+                                            <select class="form-select" id="color" name="color.color_id" required>
+                                                <c:forEach var="color" items="${colors}">
+                                                    <option value="${color.color_id}">${color.color}</option>
+                                                </c:forEach>
+                                            </select>
+                                        </div>
 
-                                    <div class="mb-3">
-                                        <label for="username" class="form-label">Giá</label>
-                                        <input
-                                                class="form-control"
-                                                type="number"
-                                                id="brand"
-                                                name="username"
-                                                value="áo sơ mi"
-                                                autofocus
-                                        />
-                                        <span class="text-danger"></span>
+                                        <div class="mt-3">
+                                            <label  class="form-label">Size</label>
+                                            <select class="form-select" id="size" name="size.size_id" required>
+                                                <c:forEach var="size" items="${sizes}">
+                                                    <option value="${size.size_id}">${size.size_name}</option>
+                                                </c:forEach>
+                                            </select>
+                                        </div>
 
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="username" class="form-label">Mô tả</label>
-                                        <input
-                                                class="form-control"
-                                                type="text"
-                                                id="de"
-                                                name="username"
-                                                value="áo sơ mi"
-                                                autofocus
-                                        />
-                                        <span class="text-danger"></span>
+                                        <div class="mb-3">
+                                            <label class="form-label">Số lượng</label>
+                                            <input
+                                                    class="form-control"
+                                                    type="number"
+                                                    id="quantity"
+                                                    name="quantity"
+                                                    placeholder="quantity"
+                                            />
+                                            <span class="text-danger"></span>
+                                        </div>
 
-                                    </div>
-                                    <div class="mt-3">
-                                        <label class="form-label">Loại</label>
-                                        <select class="form-select">
-                                            <option>Áo sơ mi</option>
-                                            <option>Áo thun</option>
-                                        </select>
-                                    </div>
-
-
+                                        <div class="mt-3 col-md-6 d-flex justify-content-start">
+                                            <button type="submit" class="btn btn-info m-2">Thêm</button>
+                                            <button type="reset" class="btn btn-outline-secondary m-2">Làm mới</button>
+                                        </div>
+                                    </form:form>
                                 </div>
                             </div>
-                            <div class="row mt-3 ">
-                                <div class="mt-3 col-md-6 d-flex justify-content-start">
-                                    <button type="submit" class="btn btn-info m-2">Thêm</button>
-                                    <button type="reset" class="btn btn-outline-secondary m-2">Cancel</button>
-                                </div>
+                                <div class="row mt-3 ">
 
-                                <div class="mt-3 col-md-6 d-flex justify-content-end">
-                                    <a href="/admin/Product" class="btn btn-outline-danger m-2">Trở vê</a>
+
+                                    <div class="mt-3 col-md-6 d-flex justify-content-end">
+                                        <a href="/admin/Product" class="btn btn-outline-danger m-2">Trở vê</a>
+                                    </div>
                                 </div>
-                            </div>
-                        </form>
                         <div class="text-success"></div>
                         <!--  start table-->
                     </div>

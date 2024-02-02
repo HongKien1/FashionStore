@@ -74,6 +74,7 @@ public class Product_AdminController {
 
                 product.setProduct_id(productDto.getProduct_id());
                 product.setName(productDto.getName());
+                product.setPrice(productDto.getPrice());
                 product.setDescribe(productDto.getDescribe());
                 product.setProductType(productDto.getProductType());
                 product.setBrand(productDto.getBrand());
@@ -120,6 +121,7 @@ public class Product_AdminController {
 
         // Cập nhật thông tin sản phẩm từ DTO
         productToUpdate.setName(productDto.getName());
+        productToUpdate.setPrice(productDto.getPrice());
         productToUpdate.setDescribe(productDto.getDescribe());
         productToUpdate.setProductType(productDto.getProductType());
         productToUpdate.setBrand(productDto.getBrand());

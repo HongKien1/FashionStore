@@ -21,10 +21,11 @@ public class LoginController {
     @Autowired
     private HttpSession session;
 
-        @GetMapping("login")
-        public String loginForm() {
-            return "user/login";
-        }
+
+    @GetMapping("login")
+    public String loginForm() {
+        return "user/login";
+    }
 
     @PostMapping("login")
     public String login(@RequestParam("username") String username,
@@ -33,16 +34,32 @@ public class LoginController {
 
         boolean exitByUserName = accountDao.existsByUsernameAndPassword(username, password);
 
-        if(exitByUserName){
-            // save account in session when login success
-            session.setAttribute("accountLogin", username);
-            return "user/index";
-        }else{
-            redirectAttributes.addFlashAttribute("error", "Tài khoản khng ồn tia");
-            return "user/login";
+        if (exitByUserName) {
+            // Lấy thông tin tài khoản từ cơ sở dữ liệu
+            Optional<Account> account = accountDao.findByUsername(username);
+
+            if (account.isPresent()) {
+                int role = account.get().getRole().getRole_id();
+
+                // Lưu role vào session
+                session.setAttribute("role", role);
+
+                if (role == 1) {
+                    // Nếu role là 1 (admin), chuyển hướng đến trang admin
+                    return "redirect:/admin";
+                } else{
+                    // Nếu role là 2 (user), chuyển hướng đến trang user
+                    return "redirect:/index";
+                }
+            }
         }
 
+        // Xử lý trường hợp đăng nhập không thành công
+        redirectAttributes.addFlashAttribute("error", "Tài khoản không hợp lệ");
+        return "redirect:/account/login";
     }
-    }
+
+
+}
 
 
