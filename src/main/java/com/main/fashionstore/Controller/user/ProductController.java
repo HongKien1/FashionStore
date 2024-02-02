@@ -65,16 +65,7 @@ public class ProductController {
     }
 
     @RequestMapping("/details/{id}")
-    public String detail(@PathVariable(name = "id", required = false) Integer Proid, Model model) {
-
-         // Kiểm tra xem Proid có null hoặc nhỏ hơn hoặc bằng 0 không
-    if (Proid == null || Proid <= 0) {
-        // Xử lý trường hợp khi Proid không phải là một số nguyên hợp lệ
-        // Bạn có thể chuyển hướng đến một trang lỗi hoặc cung cấp giá trị mặc định
-        // Ví dụ, bạn có thể đặt Proid thành một giá trị mặc định như 1
-        Proid = 1;
-    }
-
+    public String detail(@PathVariable("id") Integer Proid, Model model) {
 
     //    model.addAttribute("categories", categoryDao.findAll());
        int count = 1;
