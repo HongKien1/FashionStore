@@ -52,7 +52,8 @@ public class ProductController {
     ParamService paramService;
     
     @Autowired
-    SessionService sessionService;
+    SessionService
+            sessionService;
 
     @Autowired
     CartDetailsService cartDetailsService;

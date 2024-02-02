@@ -67,7 +67,7 @@
                                     </div>
                                 </div>
                                 <div class="flex-grow-1">
-                                    <span class="fw-semibold d-block">John Doe</span>
+                                    <span class="fw-semibold d-block">Hồng Kiền</span>
                                     <small class="text-muted">Admin</small>
                                 </div>
                             </div>
@@ -79,13 +79,13 @@
                     <li>
                         <a class="dropdown-item" href="#">
                             <i class="bx bx-user me-2"></i>
-                            <span class="align-middle">My Profile</span>
+                            <span class="align-middle">Hồ sơ</span>
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item" href="#">
                             <i class="bx bx-cog me-2"></i>
-                            <span class="align-middle">Settings</span>
+                            <span class="align-middle">Cài đặt</span>
                         </a>
                     </li>
 
@@ -93,8 +93,7 @@
                         <div class="dropdown-divider"></div>
                     </li>
                     <li>
-                        <!--                        <a href="/account/login"><i class="fa fa-user"></i>Đăng xuất</a>-->
-                        <a class="dropdown-item" href="/index">
+                         <a class="dropdown-item" href="#" onclick="confirmLogout()">
                             <i class="bx bx-power-off me-2"></i>
                             <span class="align-middle">Đăng xuất</span>
                         </a>
@@ -105,5 +104,26 @@
         </ul>
     </div>
 </nav>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<script>
+    function confirmLogout() {
+        Swal.fire({
+            title: 'Cảnh báo!',
+            text: 'Bạn có chắc muốn đăng xuất không?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Đồng ý',
+            cancelButtonText: 'Hủy'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Chuyển hướng đến trang xác nhận đăng xuất
+                window.location.href = '/admin/logout';
+            }
+        });
+    }
+</script>
+
 </body>
 </html>

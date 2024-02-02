@@ -46,6 +46,7 @@ public class LoginController {
 
                 // Lưu role vào session
                 session.setAttribute("role", role);
+                session.setAttribute("account", account);
 
                 if (role == 1) {
                     // Nếu role là 1 (admin), chuyển hướng đến trang admin
@@ -59,6 +60,16 @@ public class LoginController {
 
         // Xử lý trường hợp đăng nhập không thành công
         redirectAttributes.addFlashAttribute("error", "Tài khoản không hợp lệ");
+        return "redirect:/account/login";
+    }
+
+    @GetMapping("logout")
+    public String logout() {
+        // Xóa thông tin người dùng khỏi session
+        session.removeAttribute("username");
+        session.removeAttribute("role");
+
+        // Chuyển hướng về trang đăng nhập
         return "redirect:/account/login";
     }
 
