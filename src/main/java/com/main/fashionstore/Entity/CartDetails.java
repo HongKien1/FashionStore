@@ -21,8 +21,6 @@ public class CartDetails implements Serializable {
 
     Double total;
 
-    Double price;
-
     @ManyToOne
     @JoinColumn(name = "productdetails_id")
     ProductDetails productdetails;

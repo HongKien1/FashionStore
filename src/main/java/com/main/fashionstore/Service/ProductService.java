@@ -1,7 +1,9 @@
 package com.main.fashionstore.Service;
 
 import com.main.fashionstore.Dao.ProductDao;
+import com.main.fashionstore.Dao.ProductDetailsDao;
 import com.main.fashionstore.Entity.Product;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +15,9 @@ public class ProductService {
 
     @Autowired
     ProductDao productDao;
+
+    @Autowired
+    ProductDetailsDao productDetailsDao;
 
     // Hiển thị tất cả sản phẩm
     public List<Product> getAllProducts() {

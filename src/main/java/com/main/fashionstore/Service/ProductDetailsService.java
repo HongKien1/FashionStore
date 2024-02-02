@@ -1,8 +1,11 @@
 package com.main.fashionstore.Service;
 
+import com.main.fashionstore.Dao.ProductDao;
 import com.main.fashionstore.Dao.ProductDetailsDao;
-import com.main.fashionstore.Entity.Product;
 import com.main.fashionstore.Entity.ProductDetails;
+
+import jakarta.persistence.criteria.CriteriaBuilder.In;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,13 +18,15 @@ public class ProductDetailsService {
     @Autowired
     ProductDetailsDao productDetailsDao;
 
+    @Autowired
+    ProductDao productDao;
+
     public List<ProductDetails> getAllProductDetails() {
         return productDetailsDao.findAll();
     }
 
     public ProductDetails getProductDetailById(Integer id) {
         Optional<ProductDetails> optionalProduct = productDetailsDao.findById(id);
-        // Kiểm tra xem có sản phẩm trong Optional không, nếu không thì trả về null hoặc một giá trị mặc định khác
         return optionalProduct.orElse(null);
     }
 
@@ -31,5 +36,17 @@ public class ProductDetailsService {
 
     public void deleteProductDetails(Integer id) {
         productDetailsDao.deleteById(id);
+    }
+
+    public List<ProductDetails> findByProductId(Integer productId) {
+        return productDetailsDao.findByProductId(productId);
+    }
+
+    public ProductDetails getProductDetailsById(Integer productDetailsId) {
+        return productDetailsDao.findById(productDetailsId).orElse(null);
+    }
+
+    public ProductDetails findProductDetailsIdByColorSizeProductId(Integer colorId, Integer sizeId, Integer productId) {
+        return productDetailsDao.findProductDetailsByColorSizeProductId(colorId, sizeId, productId);
     }
 }

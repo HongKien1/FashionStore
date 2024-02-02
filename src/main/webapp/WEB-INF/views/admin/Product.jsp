@@ -30,7 +30,7 @@
             content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Quản lý tài khoản</title>
+    <title>Quản lý sản phẩm</title>
 
     <meta name="description" content=""/>
 
@@ -119,39 +119,37 @@
 
                             <table class="table">
                                 <thead>
-                                <tr>
-                                    <th>STT</th>
-                                    <th>Tên sản phẩm</th>
-                                    <th>Loại sản phẩm</th>
-                                    <th>Thương hiệu</th>
-                                    <th>Hình ảnh</th>
-                                    <th>Mô tả</th>
-                                    <th></th>
-                                </tr>
+                                    <tr>
+                                        <th>STT</th>
+                                        <th>Tên sản phẩm</th>
+                                        <th>Loại sản phẩm</th>
+                                        <th>Thương hiệu</th>
+                                        <th>Hình ảnh</th>
+                                        <th>Mô tả</th>
+                                        <th></th>
+                                    </tr>
                                 </thead>
                                 <tbody class="table-border-bottom-0">
 
-                                <c:forEach var="product" items="${products}" varStatus="loop">
-                                    <tr>
-                                        <td>${loop.index + 1}</td> <!-- Số thứ tự tăng dần -->
-                                        <td>${product.name}</td>
-                                        <td>${product.brand.brand_name}</td>
-                                        <td>${product.productType.productType_name}</td>
-                                        <td>${product.image}</td>
-                                        <td>${product.describe}</td>
-                                        <td>
-                                            <a href="/admin/Product/updateProduct/${product.product_id}">
-                                                <button type="submit" class="btn btn-warning m-2">Cập nhật</button>
-                                            </a>
+                                    <c:forEach var="product" items="${products}" varStatus="loop">
+                                        <tr>
+                                            <td>${loop.index + 1}</td> <!-- Số thứ tự tăng dần -->
+                                            <td>${product.name}</td>
+                                            <td>${product.brand.brand_name}</td>
+                                            <td>${product.productType.productType_name}</td>
+                                            <td>${product.image}</td>
+                                            <td>${product.describe}</td>
+                                            <td>
+                                                <a href="/admin/Product/updateProduct/${product.product_id}">
+                                                    <button type="submit" class="btn btn-warning m-2">Cập nhật</button>
+                                                </a>
 
-                                            <a href="/admin/Product/deleteProduct/${product.product_id}" onclick="return confirm('Bạn có chắc chắn muốn xóa sản phẩm này?')">
-                                                <button type="submit" class="btn btn-danger m-2">Xóa</button>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                </c:forEach>
-
-
+                                                <a href="/admin/Product/deleteProduct/${product.product_id}" onclick="return confirm('Bạn có chắc chắn muốn xóa sản phẩm này?')">
+                                                    <button type="submit" class="btn btn-danger m-2">Xóa</button>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </c:forEach>
                                 </tbody>
                             </table>
                         </div>

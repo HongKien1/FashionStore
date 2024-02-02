@@ -29,7 +29,7 @@
             content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Cập nhật tài khoản</title>
+    <title>Cập nhật sản phẩm chi tiết</title>
 
     <meta name="description" content=""/>
 
