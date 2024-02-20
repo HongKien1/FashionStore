@@ -25,9 +25,9 @@ public class AccountUserController {
     @GetMapping("")
     public String index(Model model) {
         // Lấy thông tin tài khoản từ cơ sở dữ liệu và đưa vào model để hiển thị
-        int accountId = 1;
-        Account account = accountDao.findById(accountId).orElse(null);
-        model.addAttribute("account", account);
+        String username = (String) session.getAttribute("account");
+        Optional<Account> accountUser = accountDao.findByUsername(username);
+        model.addAttribute("account", accountUser.get());
         return "user/account";
     }
 
@@ -35,9 +35,9 @@ public class AccountUserController {
     public String edit(Model model) {
         // Lấy thông tin tài khoản từ cơ sở dữ liệu và đưa vào model để hiển thị trong form chỉnh sửa
         // Thay vị trí này bằng cách lấy ID tài khoản của user từ phiên làm việc hoặc thông tin người dùng đã đăng nhập
-        int accountId = 1; // Ví dụ: giả sử ID tài khoản của user là 1
-        Account account = accountDao.findById(accountId).orElse(null);
-        model.addAttribute("account", account);
+        String username = (String) session.getAttribute("account");
+        Optional<Account> accountUser = accountDao.findByUsername(username);
+        model.addAttribute("account", accountUser.get());
         return "user/account_edit";
     }
 

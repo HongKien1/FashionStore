@@ -22,7 +22,12 @@ public class CartController {
     @GetMapping("")
     public String index(Model model) {
         List<CartDetails> cartDetails = cartDetailsService.getAllCartDetails();
+        double totalPrice = 0;
+        for (CartDetails cartDetail : cartDetails) {
+            totalPrice += cartDetail.getTotal();
+        }
         model.addAttribute("cartDetails", cartDetails);
+        model.addAttribute("totalPrice", totalPrice);
         return "user/shoping-cart";
     }
 

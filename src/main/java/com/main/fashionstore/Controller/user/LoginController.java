@@ -46,7 +46,7 @@ public class LoginController {
 
                 // Lưu role vào session
                 session.setAttribute("role", role);
-                session.setAttribute("account", account);
+                session.setAttribute("account", account.get().getUsername());
 
                 if (role == 1) {
                     // Nếu role là 1 (admin), chuyển hướng đến trang admin
@@ -66,7 +66,7 @@ public class LoginController {
     @GetMapping("logout")
     public String logout() {
         // Xóa thông tin người dùng khỏi session
-        session.removeAttribute("username");
+        session.removeAttribute("account");
         session.removeAttribute("role");
 
         // Chuyển hướng về trang đăng nhập

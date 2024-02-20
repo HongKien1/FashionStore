@@ -77,4 +77,9 @@ public class CartServiceImpl implements CartService {
         return cart;
     }
 
+    @Override
+    public void saveCart(Cart cart) {
+        cartDao.save(cart);
+    }
+
 }

@@ -17,4 +17,6 @@ public interface AccountDao extends JpaRepository<Account, Integer> {
 
     // Phương thức để cập nhật thông tin tài khoản
     Account save(Account account);
+
+
 }

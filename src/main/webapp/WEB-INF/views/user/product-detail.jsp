@@ -62,7 +62,7 @@
 				<section class="sec-product-detail bg0 p-t-65 p-b-60">
 					<div class="container">
 						<form action="/product/addToCart" method="post">
-							<input type="hidden" name="pro_id" value="${pro_id}">
+							<input type="hidden" name="productId" value="${pro_id}">
 							<div class="row">
 								<div class="col-md-6 col-lg-7 p-b-30">
 									<div class="p-l-25 p-r-30 p-lr-0-lg">
@@ -107,7 +107,7 @@
 
 												<div class="size-204 respon6-next">
 													<div class="form-select">
-														<select id="colorSelect">
+														<select id="colorSelect" name="colorId">
 															<c:forEach var="color" items="${colors}">
 																<option value="${color.colorId}">${color.colorName}</option>
 															</c:forEach>
@@ -124,7 +124,7 @@
 
 												<div class="size-204 respon6-next">
 													<div class="">
-														<select id="sizeSelect">
+														<select id="sizeSelect" name="sizeId">
 															<c:forEach var="size" items="${sizes}">
 																<option value="${size.sizeId}">${size.sizeName}</option>
 															</c:forEach>
@@ -142,7 +142,7 @@
 														</div>
 
 														<input class="mtext-104 cl3 txt-center num-product" type="number"
-															name="num-product" value="1">
+															name="qty" value="1">
 
 														<div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
 															<i class="fs-16 zmdi zmdi-plus"></i>
@@ -151,7 +151,7 @@
 
 													<button
 														 type="submit" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
-														<a>Add to cart</a>
+														<a>Thêm vào giỏ hàng</a>
 													</button>
 												</div>
 											</div>

@@ -22,5 +22,4 @@ public interface ProductDetailsDao extends JpaRepository<ProductDetails, Integer
             @Param("colorId") Integer colorId,
             @Param("sizeId") Integer sizeId,
             @Param("productId") Integer productId);
-    
 }
