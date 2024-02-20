@@ -21,4 +21,6 @@ public interface CartService {
     void addToCart(CartDetails cartDetails);
 
     Cart findCartIdByAccountId(Integer accountId);
+
+    void saveCart(Cart cart);
 }

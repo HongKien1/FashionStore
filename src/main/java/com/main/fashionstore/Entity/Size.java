@@ -3,9 +3,7 @@ package com.main.fashionstore.Entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.Nationalized;
 
 import java.io.Serializable;
@@ -13,7 +11,8 @@ import java.util.List;
 
 @Entity
 @Table(name = "size")
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class Size implements Serializable {

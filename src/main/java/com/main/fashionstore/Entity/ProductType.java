@@ -2,9 +2,7 @@ package com.main.fashionstore.Entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.Nationalized;
 
 import java.io.Serializable;
@@ -12,7 +10,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "productType")
-@Data
+@Setter @Getter
 @NoArgsConstructor
 @AllArgsConstructor
 public class ProductType implements Serializable {
