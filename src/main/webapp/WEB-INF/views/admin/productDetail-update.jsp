@@ -100,7 +100,7 @@
                                         <form method="post" action="/admin/productDetail/updateProduct/${productDetails.productdetails_id}">
 
                                             <div class="mt-3">
-                                                <label class="form-label">Thương hiệu</label>
+                                                <label class="form-label">Tên sản phẩm</label>
                                                 <select class="form-select" id="product" name="product.product_id" required>
                                                     <c:forEach var="product" items="${products}">
                                                         <option value="${product.product_id}" ${product.product_id eq productDetails.product.product_id ? 'selected' : ''}>${product.name}</option>
@@ -109,7 +109,7 @@
                                             </div>
 
                                             <div class="mt-3">
-                                                <label class="form-label">Thương hiệu</label>
+                                                <label class="form-label">Màu sắc</label>
                                                 <select class="form-select" id="color" name="color.color_id" required>
                                                     <c:forEach var="color" items="${colors}">
                                                         <option value="${color.color_id}" ${color.color_id eq productDetails.color.color_id ? 'selected' : ''}>${color.color}</option>
@@ -118,7 +118,7 @@
                                             </div>
 
                                             <div class="mt-3">
-                                                <label class="form-label">Thương hiệu</label>
+                                                <label class="form-label">Size</label>
                                                 <select class="form-select" id="size" name="size.size_id" required>
                                                     <c:forEach var="size" items="${sizes}">
                                                         <option value="${size.size_id}" ${size.size_id eq productDetails.size.size_id ? 'selected' : ''}>${size.size_name}</option>
@@ -127,7 +127,7 @@
                                             </div>
 
                                             <div class="mb-3">
-                                                <label for="quantity" class="form-label">Mô tả</label>
+                                                <label for="quantity" class="form-label">Số lượng</label>
                                                 <input class="form-control" type="text" id="quantity" name="quantity" value="${productDetails.quantity}" placeholder="quantity" autofocus />
                                                 <span class="text-danger"></span>
                                             </div>

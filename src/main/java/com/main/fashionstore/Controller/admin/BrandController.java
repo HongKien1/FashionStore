@@ -1,7 +1,6 @@
 package com.main.fashionstore.Controller.admin;
 
 import com.main.fashionstore.Entity.Brand;
-import com.main.fashionstore.Entity.Category;
 import com.main.fashionstore.Service.BrandService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

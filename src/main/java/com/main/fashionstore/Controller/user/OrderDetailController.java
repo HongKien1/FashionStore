@@ -10,4 +10,7 @@ public class OrderDetailController {
     public String index() {
         return "user/orderDetail";
     }
+
+
+
 }

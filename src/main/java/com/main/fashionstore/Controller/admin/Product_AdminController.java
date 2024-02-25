@@ -95,7 +95,7 @@ public class Product_AdminController {
             e.printStackTrace(); // Ghi log lỗi để phân tích thêm
         }
 
-        return "admin/product-add";
+        return "redirect:/admin/Product";
     }
 
     @GetMapping("/updateProduct/{productId}")

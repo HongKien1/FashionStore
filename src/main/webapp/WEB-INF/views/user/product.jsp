@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -104,9 +106,14 @@
                                    ${product.name}
                                 </a>
 
-                                <span class="stext-105 cl3">
-                                    ${product.price}
-                                </span>
+<%--                                <span class="stext-105 cl3">--%>
+<%--                                    ${product.price}--%>
+<%--                                </span>--%>
+
+                                <span id="totalCart">
+								<fmt:formatNumber type="number" pattern="###,###,###" value="${product.price}" /> ₫
+								</span>
+
                             </div>
 
                             <div class="block2-txt-child2 flex-r p-t-3">

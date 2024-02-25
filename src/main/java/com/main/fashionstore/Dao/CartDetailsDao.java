@@ -5,6 +5,7 @@ import com.main.fashionstore.Entity.CartDetails;
 import com.main.fashionstore.Entity.ProductDetails;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -28,8 +29,11 @@ public interface CartDetailsDao extends JpaRepository<CartDetails, Integer> {
                         @Param("productDetails") ProductDetails productDetails,
                         @Param("cart") Cart cart);
 
-        @Query("SELECT cd.cartdetails_id FROM CartDetails cd WHERE cd.cart.cart_id = :cartId AND cd.productdetails.productdetails_id = :productDetailId")
-        CartDetails findCartDetailIdByCartIdAndProductDetailId(@Param("cartId") Integer cartId,
+        @Query(value = "SELECT cd.* FROM CartDetails cd" +
+                "                        WHERE cd.cart_id = :cartId AND" +
+                "                        cd.productdetails_id = :productDetailId", nativeQuery = true)
+        Optional<CartDetails> findCartDetailIdByCartIdAndProductDetailId(@Param("cartId") Integer cartId,
                         @Param("productDetailId") Integer productDetailId);
+
 
 }

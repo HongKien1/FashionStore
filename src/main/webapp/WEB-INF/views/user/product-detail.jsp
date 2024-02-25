@@ -42,8 +42,32 @@
 
 			<!-- SweetAlert2 JS -->
 			<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.0/dist/sweetalert2.min.js"></script>
-		
+
 			<!--===============================================================================================-->
+
+
+			<style>
+				.radio-group label {
+					display: inline-block;
+					margin-right: 20px;
+					/* Khoảng cách giữa radio button và chữ */
+					vertical-align: middle;
+					/* Canh chỉnh chữ theo chiều dọc của radio button */
+				}
+
+				.form-group {
+					display: flex;
+					align-items: center;
+					margin-bottom: 10px;
+				}
+
+				.form-group label {
+					width: 100px;
+					/* Chiều rộng của nhãn */
+					margin-right: 10px;
+					/* Khoảng cách giữa nhãn và input */
+				}
+			</style>
 		</head>
 
 		<body class="animsition">
@@ -62,133 +86,41 @@
 				<section class="sec-product-detail bg0 p-t-65 p-b-60">
 					<div class="container">
 						<form action="/product/addToCart" method="post">
-							<input type="hidden" name="pro_id" value="${pro_id}">
-							<div class="row">
-								<div class="col-md-6 col-lg-7 p-b-30">
-									<div class="p-l-25 p-r-30 p-lr-0-lg">
-										<div class="wrap-slick3 flex-sb flex-w">
+							<input type="hidden" name="productId" value="${pro_id}">
 
-											<div class="slick3 gallery-lb">
-
-												<div class="wrap-pic-w pos-relative">
-													<img src="/images/${detail_image}" alt="IMG-PRODUCT">
-
-
-												</div>
-
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<div class="col-md-6 col-lg-5 p-b-30">
-									<div class="p-r-50 p-t-5 p-lr-0-lg">
-										<h4 class="mtext-105 cl2 js-name-detail p-b-14">
-											${detail_name}
-
-
-										</h4>
-
-										<span class="mtext-106 cl2">
-											${detail_price}
-										</span>
-
-										<p class="stext-102 cl3 p-t-23">
-											Nulla eget sem vitae eros pharetra viverra. Nam vitae luctus ligula. Mauris
-											consequat ornare feugiat.
-										</p>
-
-										<!--  -->
-										<div class="p-t-33">
-											<div class="flex-w flex-r-m p-b-10">
-												<div class="size-203 flex-c-m respon6">
-													Color
-												</div>
-
-												<div class="size-204 respon6-next">
-													<div class="form-select">
-														<select id="colorSelect">
-															<c:forEach var="color" items="${colors}">
-																<option value="${color.colorId}">${color.colorName}</option>
-															</c:forEach>
-														</select>
-														<div class="dropDownSelect2"></div>
-													</div>
-												</div>
-											</div>
-
-											<div class="flex-w flex-r-m p-b-10">
-												<div class="size-203 flex-c-m respon6">
-													Size
-												</div>
-
-												<div class="size-204 respon6-next">
-													<div class="">
-														<select id="sizeSelect">
-															<c:forEach var="size" items="${sizes}">
-																<option value="${size.sizeId}">${size.sizeName}</option>
-															</c:forEach>
-														</select>
-														<div class="dropDownSelect2"></div>
-													</div>
-												</div>
-											</div>
-
-											<div class="flex-w flex-r-m p-b-10">
-												<div class="size-204 flex-w flex-m respon6-next">
-													<div class="wrap-num-product flex-w m-r-20 m-tb-10">
-														<div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
-															<i class="fs-16 zmdi zmdi-minus"></i>
-														</div>
-
-														<input class="mtext-104 cl3 txt-center num-product" type="number"
-															name="num-product" value="1">
-
-														<div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
-															<i class="fs-16 zmdi zmdi-plus"></i>
-														</div>
-													</div>
-
-													<button
-														 type="submit" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
-														<a>Add to cart</a>
-													</button>
-												</div>
-											</div>
-										</div>
-
-										<!--  -->
-										<div class="flex-w flex-m p-l-100 p-t-40 respon7">
-											<div class="flex-m bor9 p-r-10 m-r-11">
-												<a href="#"
-													class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 js-addwish-detail tooltip100"
-													data-tooltip="Add to Wishlist">
-													<i class="zmdi zmdi-favorite"></i>
-												</a>
-											</div>
-
-											<a href="#"
-												class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100"
-												data-tooltip="Facebook">
-												<i class="fa fa-facebook"></i>
-											</a>
-
-											<a href="#"
-												class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100"
-												data-tooltip="Twitter">
-												<i class="fa fa-twitter"></i>
-											</a>
-
-											<a href="#"
-												class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100"
-												data-tooltip="Google Plus">
-												<i class="fa fa-google-plus"></i>
-											</a>
-										</div>
-									</div>
-								</div>
+							<div class="wrap-pic-w pos-relative">
+								<img src="/images/${detail_image}" alt="IMG-PRODUCT" style="height: 250px; width: 250px" >
 							</div>
+
+							<div class="radio-group">
+								<label for="size">Size:</label>
+								<c:forEach var="size" items="${sizes}">
+									<label>
+										<input type="radio" id="size${size.sizeId}" name="size" value="${size.sizeId}">
+										${size.sizeName}
+									</label>
+								</c:forEach>
+							</div>
+
+							<div class="radio-group">
+								<label for="size">Size:</label>
+								<c:forEach var="color" items="${colors}">
+									<label>
+										<input type="radio" id="color${color.colorId}" name="color"
+											value="${color.colorId}">
+										${color.colorName}
+									</label>
+								</c:forEach>
+							</div>
+
+							<div class="form-group">
+								<label for="qty">Quantity:</label>
+								<input type="number" id="qty" name="qty" value="1" min="1">
+							</div>
+
+							<button type="submit">Add to Cart</button>
 						</form>
+
 					</div>
 				</section>
 
@@ -306,7 +238,7 @@
 					</script>
 					<!--===============================================================================================-->
 
-					
+
 					<script src="/user/js/main.js"></script>
 
 		</body>

@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-	<%@taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
+
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 		<!DOCTYPE html>
 		<html lang="en">
 
@@ -37,6 +40,24 @@
 			<link rel="stylesheet" type="text/css" href="/user/css/util.css">
 			<link rel="stylesheet" type="text/css" href="/user/css/main.css">
 			<!--===============================================================================================-->
+			<style>
+				table {
+					border-collapse: collapse;
+					width: 100%;
+				}
+
+				th,
+				td {
+					border: 1px solid #ddd;
+					padding: 8px;
+					text-align: left;
+				}
+
+				th {
+					background-color: #f2f2f2;
+				}
+			</style>
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		</head>
 
 		<body class="animsition">
@@ -67,39 +88,51 @@
 
 					<!-- Shoping Cart -->
 					<form class="bg0 p-t-75 p-b-85">
-						<div class="container">
+
 							<div class="row">
 								<div class="col-lg-10 col-xl-7 m-lr-auto m-b-50">
 									<div class="m-l-25 m-r--38 m-lr-0-xl">
-										<div class="wrap-table-shopping-cart">													
-												<table class="table">
-													<thead>
-														<tr>
-															<th>Tên sản phẩm</th>
-															<th>Size</th>
-															<th>Màu</th>
-															<th>Số lượng</th>														
-															<th>Giá</th>
-															<th>Tổng tiền</th>
-														</tr>
-													</thead>
-													<tbody class="table-border-bottom-0">
-														<c:forEach items="${cartDetails}" var="cartDetail">
-															<tr>
-																<td>${cartDetail.productdetails.product.name}</td>
-																<td>${cartDetail.productdetails.size.size_name}</td>
-																<td>${cartDetail.productdetails.color.color}</td>
-																<td>
-																	<input type="number" value="${cartDetail.quantity}">  
-																	</input>																	
-																</td>
-																<td>${cartDetail.productdetails.product.price}</td>
-																<td>${cartDetail.quantity * cartDetail.productdetails.product.price}</td>
-															</tr>
-														</c:forEach>
-													</tbody>
-												</table>											
+										<div class="wrap-table-shopping-cart">
+											<table class="table">
+												<thead>
+												<tr>
+													<th class="text-center">Ảnh sản phẩm</th>
+													<th class="text-center">Tên sản phẩm</th>
+													<th class="text-center">Size</th>
+													<th class="text-center">Màu</th>
+													<th class="text-center">Số lượng</th>
+													<th class="text-center">Giá</th>
+													<th class="text-center">Tổng cộng</th>
+													<th class="text-center"></th>
+												</tr>
+												</thead>
+												<tbody class="table-border-bottom-0">
+												<c:forEach items="${cartDetails}" var="cartDetail">
+													<tr>
+														<td class="image" data-title="image" width="150px" height="150px"><img style="height: 100%"
+																src="images/${cartDetail.productdetails.product.image}"
+																></td>
+														<td class="text-center">${cartDetail.productdetails.product.name}</td>
+														<td class="text-center">${cartDetail.productdetails.size.size_name}</td>
+														<td class="text-center">${cartDetail.productdetails.color.color}</td>
+														<td >
+															<input type="number" class="quantity-input"
+																   value="${cartDetail.quantity}"
+																   data-cart-detail-id="${cartDetail.cartdetails_id}">
+															</input>
+														</td>
+														<td class="text-center"><fmt:formatNumber type="number" pattern="###,###,###" value="${cartDetail.productdetails.product.price}" /> ₫</td>
+														<td class="text-center"><fmt:formatNumber type="number" pattern="###,###,###" value="${cartDetail.quantity * cartDetail.productdetails.product.price}" /> ₫</td>
+														<td>
+															<button onclick="deleteCartDetail(${cartDetail.cartdetails_id})" class="btn btn-danger">Xóa</button>
+														</td> <!-- Thêm nút xóa -->
+													</tr>
+												</c:forEach>
+												</tbody>
+											</table>
+
 										</div>
+
 
 										<div class="flex-w flex-sb-m bor15 p-t-18 p-b-15 p-lr-40 p-lr-15-sm">
 											<div class="flex-w flex-m m-r-20 m-tb-5">
@@ -135,9 +168,27 @@
 
 											<div class="size-209">
 												<span class="mtext-110 cl2">
-													$79.65
+
 												</span>
 											</div>
+										</div>
+
+										<div class="flex-w flex-t bor12 p-b-13">
+											<c:forEach items="${cartDetails}" var="cartDetail">
+											<div class="size-208">
+												<span class="stext-110 cl2">
+													<td>${cartDetail.productdetails.product.name}</td>
+												</span>
+											</div>
+
+											<div class="size-209">
+												<span class="mtext-110 cl2">
+														<td class="text-center">${cartDetail.quantity}</td> x
+														<td><fmt:formatNumber type="number" pattern="###,###,###" value="${cartDetail.productdetails.product.price}" /> ₫</td>
+
+												</span>
+											</div>
+											</c:forEach>
 										</div>
 
 										<div class="flex-w flex-t bor12 p-t-15 p-b-30">
@@ -149,67 +200,37 @@
 
 											<div class="size-209 p-r-18 p-r-0-sm w-full-ssm">
 												<p class="stext-111 cl6 p-t-2">
-													There are no shipping methods available. Please double check your
-													address, or contact us if you need any help.
+													20,000 đ
 												</p>
-
-												<div class="p-t-15">
-													<span class="stext-112 cl8">
-														Calculate Shipping
-													</span>
-
-													<div class="rs1-select2 rs2-select2 bor8 bg0 m-b-12 m-t-9">
-														<select class="js-select2" name="time">
-															<option>Select a country...</option>
-															<option>USA</option>
-															<option>UK</option>
-														</select>
-														<div class="dropDownSelect2"></div>
-													</div>
-
-													<div class="bor8 bg0 m-b-12">
-														<input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text"
-															name="state" placeholder="State /  country">
-													</div>
-
-													<div class="bor8 bg0 m-b-22">
-														<input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text"
-															name="postcode" placeholder="Postcode / Zip">
-													</div>
-
-													<div class="flex-w">
-														<div
-															class="flex-c-m stext-101 cl2 size-115 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer">
-															Update Totals
-														</div>
-													</div>
 
 												</div>
 											</div>
-										</div>
 
 										<div class="flex-w flex-t p-t-27 p-b-33">
 											<div class="size-208">
-												<span class="mtext-101 cl2">
-													Total:
+												<span class="mtext-99">
+													Tổng giá trị giỏ hàng:
 												</span>
 											</div>
 
 											<div class="size-209 p-t-1">
 												<span class="mtext-110 cl2">
-													$79.65
+
 												</span>
 											</div>
 										</div>
 
+
+										</div>
+
 										<a href="/orderDetail"
-											class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">
+											class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer" style="width: 200px; float: right; margin-top: 15px; margin-right: 40px">
 											Mua hàng
 										</a>
 									</div>
 								</div>
 							</div>
-						</div>
+
 					</form>
 
 
@@ -262,7 +283,70 @@
 								})
 							});
 						</script>
-						<!--===============================================================================================-->
+
+						
+						<script>
+							$(document).ready(function () {
+								$(".quantity-input").on('input', function () {
+									var cartDetailId = $(this).data('cart-detail-id');
+									var newQuantity = $(this).val();
+									updateQuantity(cartDetailId, newQuantity);
+								});
+
+								function updateQuantity(cartDetailId, newQuantity) {
+									$.ajax({
+										url: '/cart/updateQuantity',
+										type: 'POST',
+										data: {
+											cartDetailId: cartDetailId,
+											quantity: newQuantity
+										},
+										success: function (response) {
+											if (response === "Success") {
+												console.log("Cập nhật số lượng thành công");
+												// Cập nhật giao diện người dùng tại đây nếu cần thiết
+											} else {
+												console.log("Lỗi khi cập nhật số lượng");
+											}
+										},
+										error: function (xhr, status, error) {
+											console.error("Lỗi AJAX: " + error);
+										}
+									});
+								}
+							});
+						</script>
+
+			<script>
+				function deleteCartDetail(cartDetailId) {
+					if (confirm("Bạn có chắc chắn muốn xóa sản phẩm này không?")) {
+						var xhr = new XMLHttpRequest();
+						xhr.open("POST", "/cart/deleteCartDetail?cartDetailId=" + cartDetailId, true);
+						xhr.setRequestHeader("Content-Type", "application/json"); // Thêm dòng này để xác định loại dữ liệu gửi đi
+
+						xhr.onreadystatechange = function () {
+							if (xhr.readyState == 4) {
+								if (xhr.status == 200) {
+									var response = JSON.parse(xhr.responseText); // Parse phản hồi từ máy chủ
+									if (response.status === "Success") {
+										location.reload();
+									} else {
+										alert("Đã xảy ra lỗi khi xóa sản phẩm: " + response.message); // Hiển thị thông báo lỗi từ máy chủ
+									}
+								}
+							}
+						};
+
+						xhr.send();
+					}
+				}
+
+			</script>
+
+
+
+
+			<!--===============================================================================================-->
 						<script src="/user/js/main.js"></script>
 
 		</body>

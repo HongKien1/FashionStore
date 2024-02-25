@@ -1,5 +1,6 @@
 package com.main.fashionstore.Service;
 import java.util.List;
+import java.util.Optional;
 
 import com.main.fashionstore.Entity.Account;
 import com.main.fashionstore.Entity.Cart;
@@ -20,5 +21,5 @@ public interface CartService {
 
     void addToCart(CartDetails cartDetails);
 
-    Cart findCartIdByAccountId(Integer accountId);
+    Optional<Cart> findByAccount(Account account);
 }

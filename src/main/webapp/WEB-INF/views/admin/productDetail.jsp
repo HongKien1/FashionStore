@@ -124,9 +124,10 @@
                                                 <button type="submit" class="btn btn-warning m-2">Cập nhật</button>
                                             </a>
 
-                                            <a href="/admin/productDetail/deleteProduct/${productDetail.productdetails_id}" onclick="return confirm('Bạn có chắc chắn muốn xóa sản phẩm này?')">
+                                            <a href="/admin/productDetail/deleteProductDetail/${productDetail.productdetails_id}" onclick="return confirm('Bạn có chắc chắn muốn xóa chi tiết sản phẩm này?')">
                                                 <button type="submit" class="btn btn-danger m-2">Xóa</button>
                                             </a>
+
                                         </td>
                                     </tr>
                                 </c:forEach>

@@ -1,6 +1,5 @@
 package com.main.fashionstore.Controller.user;
 
-
 import com.main.fashionstore.Dao.AccountDao;
 import com.main.fashionstore.Entity.Account;
 import jakarta.servlet.http.HttpSession;
@@ -24,7 +23,6 @@ public class LoginController {
     @Autowired
     private HttpSession session;
 
-
     @GetMapping("login")
     public String loginForm() {
         return "user/login";
@@ -34,20 +32,20 @@ public class LoginController {
     public String login(@RequestParam("username") String username,
                         @RequestParam("password") String password,
                         RedirectAttributes redirectAttributes) {
-
+    
         boolean exitByUserName = accountDao.existsByUsernameAndPassword(username, password);
-
+    
         if (exitByUserName) {
             // Lấy thông tin tài khoản từ cơ sở dữ liệu
             Optional<Account> account = accountDao.findByUsername(username);
-
+    
             if (account.isPresent()) {
                 int role = account.get().getRole().getRole_id();
-
-                // Lưu role vào session
+    
+                // Lưu thông tin tài khoản vào session
+                session.setAttribute("account", account.get());
                 session.setAttribute("role", role);
-                session.setAttribute("account", account);
-
+    
                 if (role == 1) {
                     // Nếu role là 1 (admin), chuyển hướng đến trang admin
                     return "redirect:/admin";
@@ -57,23 +55,21 @@ public class LoginController {
                 }
             }
         }
-
+    
         // Xử lý trường hợp đăng nhập không thành công
         redirectAttributes.addFlashAttribute("error", "Tài khoản không hợp lệ");
         return "redirect:/account/login";
     }
+    
 
     @GetMapping("logout")
     public String logout() {
-        // Xóa thông tin người dùng khỏi session
-        session.removeAttribute("username");
+        // Xóa thông tin tài khoản khỏi session
+        session.removeAttribute("account");
         session.removeAttribute("role");
 
         // Chuyển hướng về trang đăng nhập
         return "redirect:/account/login";
     }
 
-
 }
-
-

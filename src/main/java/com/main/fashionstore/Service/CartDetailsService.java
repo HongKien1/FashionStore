@@ -1,6 +1,7 @@
 package com.main.fashionstore.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.main.fashionstore.Entity.Cart;
 import com.main.fashionstore.Entity.CartDetails;
@@ -11,7 +12,7 @@ public interface CartDetailsService {
 
     CartDetails updateCartDetails(CartDetails cartDetails);
 
-    void deleteCartDetails(Integer cartDetailsId);
+    boolean deleteCartDetails(Integer cartDetailsId);
 
     List<CartDetails> getAllCartDetails();
 
@@ -19,5 +20,5 @@ public interface CartDetailsService {
 
     List<CartDetails> getCartDetailsByCart(Cart cart);
 
-    CartDetails findCartDetailIdByCartIdAndProductDetailId(Integer cartId, Integer productDetailId);
+    Optional<CartDetails> findCartDetailIdByCartIdAndProductDetailId(Integer cartId, Integer productDetailId);
 }

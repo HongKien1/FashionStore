@@ -54,7 +54,7 @@
                             <a href="/product">Sản phẩm</a>
                         </li>
 
-                        <li class="label1" data-label1="hot">
+                        <li>
                             <a href="/cart">Giỏ hàng</a>
                         </li>
 
@@ -70,7 +70,7 @@
                             <a href="/index">Liên hệ</a>
                         </li>
                         <li class="active-menu">
-                            <a href="">Tài khoản</a>
+                            <a href="/account/login">Tài khoản</a>
                             <ul class="sub-menu">
                                 <li><a href="/account">Thông tin cá nhân</a></li>
                                 <li><a href="/history">Lịch sử mua hàng</a></li>

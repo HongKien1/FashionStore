@@ -9,12 +9,13 @@ import com.main.fashionstore.Entity.CartDetails;
 import com.main.fashionstore.Service.CartDetailsService;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CartDetailsServiceImpl implements CartDetailsService {
 
     @Autowired
-    private CartDetailsDao cartDetailsDao;
+    CartDetailsDao cartDetailsDao;
 
     @Override
     public CartDetails addToCart(CartDetails cartDetails) {
@@ -29,9 +30,10 @@ public class CartDetailsServiceImpl implements CartDetailsService {
     }
 
     @Override
-    public void deleteCartDetails(Integer cartDetailsId) {
+    public boolean deleteCartDetails(Integer cartDetailsId) {
         // Xóa chi tiết giỏ hàng từ cơ sở dữ liệu
         cartDetailsDao.deleteById(cartDetailsId);
+        return false;
     }
 
     @Override
@@ -53,7 +55,8 @@ public class CartDetailsServiceImpl implements CartDetailsService {
     }
 
     @Override
-    public CartDetails findCartDetailIdByCartIdAndProductDetailId(Integer cartId, Integer productDetailId) {
+    public Optional<CartDetails> findCartDetailIdByCartIdAndProductDetailId(Integer cartId, Integer productDetailId) {
         return cartDetailsDao.findCartDetailIdByCartIdAndProductDetailId(cartId, productDetailId);
     }
+
 }

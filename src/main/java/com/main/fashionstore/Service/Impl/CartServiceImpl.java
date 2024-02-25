@@ -12,6 +12,7 @@ import com.main.fashionstore.Entity.ProductDetails;
 import com.main.fashionstore.Service.CartService;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CartServiceImpl implements CartService {
@@ -66,15 +67,14 @@ public class CartServiceImpl implements CartService {
             cartDetailsDao.save(existingCartDetails);
         } else {
             // Nếu sản phẩm chưa có trong giỏ hàng, thêm mới vào giỏ hàng
-            
+
             cartDetailsDao.save(cartDetails);
         }
     }
 
     @Override
-    public Cart findCartIdByAccountId(Integer accountId) {
-        Cart cart = cartDao.findByAccountAccountId(accountId);
-        return cart;
+    public Optional<Cart> findByAccount(Account account) {
+        return cartDao.findByAccount(account);
     }
 
 }

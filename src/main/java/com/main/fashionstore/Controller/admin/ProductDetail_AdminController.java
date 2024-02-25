@@ -70,9 +70,11 @@ public class ProductDetail_AdminController {
         return "redirect:/admin/productDetail";
     }
 
-    @GetMapping("/deleteProduct/{id}")
-    public String deleteProduct(@PathVariable Integer id) {
-        productService.deleteProduct(id);
+    @GetMapping("/deleteProductDetail/{id}")
+    public String deleteProductDetail(@PathVariable Integer id) {
+        // Gọi phương thức trong service để xóa sản phẩm chi tiết với ID tương ứng
+        productDetailsService.deleteProductDetails(id);
+        // Redirect về trang danh sách sản phẩm chi tiết sau khi xóa thành công
         return "redirect:/admin/productDetail";
     }
 
