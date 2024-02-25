@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-
+<%@taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,11 +41,11 @@
 
 <!-- Header -->
 <header class="header-v4">
-    <%@include file="../user/components/header.jsp"%>
+    <%@include file="../user/components/header.jsp" %>
 </header>
 
 <!-- Cart -->
-<%@include file="../user/components/miniCart.jsp"%>
+<%@include file="../user/components/miniCart.jsp" %>
 
 
 <!-- Title page -->
@@ -66,11 +66,13 @@
 
                     <label for="address">Tên</label>
                     <div class="bor8 m-b-20 how-pos4-parent">
-                        <input class="stext-111 cl2 plh3 size-116 p-l-10 p-r-30" type="text" name="email"   placeholder="Nhập tên">
+                        <input class="stext-111 cl2 plh3 size-116 p-l-10 p-r-30" type="text" name="email"
+                               placeholder="Nhập tên">
                     </div>
                     <label for="address">Số điện thoại</label>
                     <div class="bor8 m-b-20 how-pos4-parent">
-                        <input class="stext-111 cl2 plh3 size-116 p-l-10 p-r-30" type="text" name="email"   placeholder="Nhập số điện thoại">
+                        <input class="stext-111 cl2 plh3 size-116 p-l-10 p-r-30" type="text" name="email"
+                               placeholder="Nhập số điện thoại">
                     </div>
 
                     <label for="address">Chọn Tỉnh :</label>
@@ -108,66 +110,35 @@
                 <div class="flex-w flex-t bor12 p-b-13">
                     <div class="size-208">
 								<span class="stext-110 cl2">
-									Tổng phụ
+									Thành tiền
 								</span>
                     </div>
 
                     <div class="size-209">
 								<span class="mtext-110 cl2">
-									$79.65
+									${totalPrice}
 								</span>
                     </div>
                 </div>
 
                 <div class="header-cart-content flex-w js-pscroll">
                     <ul class="header-cart-wrapitem w-full">
-                        <li class="header-cart-item flex-w flex-t m-b-12">
-                            <div class="header-cart-item-img">
-                                <img src="/user/images/item-cart-01.jpg" alt="IMG">
-                            </div>
+                        <c:forEach var="cartDetail" items="${cartDetailsPayment}" >
+                            <li class="header-cart-item flex-w flex-t m-b-12">
+                                <div class="header-cart-item-img">
+                                    <img src="/images/${cartDetail.productdetails.product.image}" alt="IMG">
+                                </div>
 
-                            <div class="header-cart-item-txt p-t-8">
-                                <a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-                                    White Shirt Pleat
-                                </a>
-
-                                <span class="header-cart-item-info">
-								1 x $19.00
-							</span>
-                            </div>
-                        </li>
-
-                        <li class="header-cart-item flex-w flex-t m-b-12">
-                            <div class="header-cart-item-img">
-                                <img src="/user/images/item-cart-02.jpg" alt="IMG">
-                            </div>
-
-                            <div class="header-cart-item-txt p-t-8">
-                                <a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-                                    Converse All Star
-                                </a>
-
-                                <span class="header-cart-item-info">
-								1 x $39.00
-							</span>
-                            </div>
-                        </li>
-
-                        <li class="header-cart-item flex-w flex-t m-b-12">
-                            <div class="header-cart-item-img">
-                                <img src="/user/images/item-cart-03.jpg" alt="IMG">
-                            </div>
-
-                            <div class="header-cart-item-txt p-t-8">
-                                <a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-                                    Nixon Porter Leather
-                                </a>
-
-                                <span class="header-cart-item-info">
-								1 x $17.00
-							</span>
-                            </div>
-                        </li>
+                                <div class="header-cart-item-txt p-t-8">
+                                    <a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
+                                        ${cartDetail.productdetails.product.name},
+                                        ${cartDetail.productdetails.size.size_name} ,
+                                        ${cartDetail.productdetails.color.color}
+                                    </a>
+                                    <span class="header-cart-item-info"> ${cartDetail.quantity} x ${cartDetail.productdetails.product.price} </span>
+                                </div>
+                            </li>
+                        </c:forEach>
                     </ul>
 
                 </div>
@@ -175,19 +146,19 @@
                 <div class="flex-w flex-t p-t-27 p-b-33">
                     <div class="size-208">
 								<span class="mtext-101 cl2">
-									Total:
+									Tổng tiền:
 								</span>
                     </div>
 
                     <div class="size-209 p-t-1">
 								<span class="mtext-110 cl2">
-									$79.65
+									${totalPrice}
 								</span>
                     </div>
                 </div>
 
-                <a href="/orderDetail"
-                   class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">
+                <a href="#" onclick="handleBuyButtonClick()"
+                   class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer js-add-cart-detail">
                     Mua hàng
                 </a>
             </div>
@@ -195,7 +166,7 @@
     </div>
 </section>
 
-<%@include file="../user/components/footer.jsp"%>
+<%@include file="../user/components/footer.jsp" %>
 
 
 <!-- Back to top -->
@@ -214,6 +185,7 @@
 <script src="/user/vendor/bootstrap/js/bootstrap.min.js"></script>
 <!--===============================================================================================-->
 <script src="/user/vendor/select2/select2.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <script>
     $(".js-select2").each(function () {
         $(this).select2({
@@ -226,6 +198,7 @@
 <script src="/user/vendor/MagnificPopup/jquery.magnific-popup.min.js"></script>
 <!--===============================================================================================-->
 <script src="/user/vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+<script src="/user/vendor/sweetalert/sweetalert.min.js"></script>
 <script>
     $('.js-pscroll').each(function () {
         $(this).css('position', 'relative');
@@ -239,6 +212,30 @@
         $(window).on('resize', function () {
             ps.update();
         })
+    });
+</script>
+<script>
+
+    function handleBuyButtonClick() {
+        Swal.fire({
+            icon: 'success',
+            title: 'Mua hàng thành công!',
+            showConfirmButton: false,
+            timer: 1500
+        });
+        this.setTimeout(
+            function () {
+                window.location.href = "/index";
+            }, 1500);
+    }
+</script>
+
+<script>
+    $('.js-add-cart-detail').each(function () {
+        var nameProduct = $(this).parent().parent().parent().parent().find('.js-name-detail').html();
+        $(this).on('click', function () {
+            swal(nameProduct, "đã thêm vào giỏ hàng !", "success");
+        });
     });
 </script>
 <!--===============================================================================================-->

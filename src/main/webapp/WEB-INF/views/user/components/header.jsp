@@ -54,28 +54,37 @@
                             <a href="/product">Sản phẩm</a>
                         </li>
 
-                        <li>
+                        <li class="label1" data-label1="hot">
                             <a href="/cart">Giỏ hàng</a>
                         </li>
+<%--                        --%>
 
-                        <li>
-                            <a href="/index">Bài viết</a>
-                        </li>
-
-                        <li>
-                            <a href="/index">Giới thiệu</a>
-                        </li>
-
-                        <li>
-                            <a href="/index">Liên hệ</a>
-                        </li>
+<%--                        <li>--%>
+<%--                            <a href="/index">Liên hệ</a>--%>
+<%--                        </li>--%>
                         <li class="active-menu">
-                            <a href="/account/login">Tài khoản</a>
+                            <a href="">Tài khoản</a>
+                            <%
+                                // Kiểm tra xem session account có tồn tại không
+                                if (session.getAttribute("account") == null) {
+                            %>
+                            <!-- Nếu không có session account, hiển thị thẻ li đăng nhập và đăng kí -->
+                            <ul class="sub-menu">
+                                <li><a href="/account/login">Đăng nhập</a></li>
+                                <li><a href="/account/register">Đăng kí</a></li>
+                            </ul>
+                            <%
+                            } else {
+                            %>
+                            <!-- Nếu có session account, hiển thị menu thông tin cá nhân, lịch sử mua hàng và đăng xuất -->
                             <ul class="sub-menu">
                                 <li><a href="/account">Thông tin cá nhân</a></li>
                                 <li><a href="/history">Lịch sử mua hàng</a></li>
                                 <li><a href="#" onclick="confirmLogout()">Đăng xuất</a></li>
                             </ul>
+                            <%
+                                }
+                            %>
                         </li>
                     </ul>
                 </div>
