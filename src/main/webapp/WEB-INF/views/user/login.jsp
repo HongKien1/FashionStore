@@ -117,7 +117,7 @@
     <div class="container-fluid custom-container">
         <div class="col-12">
             <span>Không có tài khoản</span>
-            <a href="/create" class="btn-two">ĐĂNG KÝ</a>
+            <a href="/create/account" class="btn-two">ĐĂNG KÝ</a>
         </div>
         <!-- /.col-12 -->
     </div>

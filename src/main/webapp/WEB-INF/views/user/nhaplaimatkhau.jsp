@@ -71,6 +71,8 @@
 <%@include file="../user/components/cart.jsp"%>
 <%@include file="../user/components/miniCart.jsp"%>
 
+
+
 <section class="contact-area">
     <div class="container-fluid custom-container">
         <div class="section-heading pb-30">
@@ -79,16 +81,20 @@
         <div class="row justify-content-center">
             <div class="col-sm-9 col-md-8 col-lg-6 col-xl-4">
                 <div class="contact-form login-form">
-                    <form action="#">
+                    <form action="nhapmkhau" method="post">
                         <div class="row">
                             <div class="col-xl-12">
-                                <input type="text" placeholder="Mật khẩu">
+                                <input type="hidden" name="email" value="${email}" placeholder="Email">
+                                <input name="newPassword" type="password" placeholder="Mật khẩu">
                             </div>
                             <div class="col-xl-12">
-                                <input type="text" placeholder="Nhập lại mật khẩu">
+                                <input name="confirmPassword" type="password" placeholder="Nhập lại mật khẩu">
                             </div>
                             <div class="col-xl-12">
                                 <input type="submit" value="XÁC NHẬN">
+                                <span style="color: #00ad5f">${message}</span>
+                                <span style="color: red">${error}</span>
+
                             </div>
                         </div>
                     </form>
@@ -101,8 +107,10 @@
 </section>
 <!-- /.contact-area end -->
 
-<%@include file="../user/components/footer.jsp"%>
 
+<div th:replace="~{/user/components/footer}"></div>
+<!-- /.login-now -->
+<%@include file="../user/components/footer.jsp"%>
 <!-- /.login-now -->
 
 <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="dependencies/jquery/jquery.min.js"></script>

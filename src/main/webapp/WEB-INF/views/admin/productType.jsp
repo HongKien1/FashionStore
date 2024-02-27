@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 
@@ -12,7 +14,7 @@
 * Copyright ThemeSelection (https://themeselection.com)
 
 =========================================================
- -->
+-->
 <!-- beautify ignore:start -->
 <html xmlns:th="http://www.thymeleaf.org"
       lang="en"
@@ -33,6 +35,7 @@
 
     <meta name="description" content=""/>
 
+    <!-- Favicon -->
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/admin/assets/img/favicon/favicon.ico"/>
 
@@ -67,6 +70,8 @@
     <script src="/admin/assets/js/config.js"></script>
 </head>
 
+
+
 <body>
 <!-- Layout wrapper -->
 <div class="layout-wrapper layout-content-navbar">
@@ -94,9 +99,9 @@
                                 <button type="submit" class="btn btn-info float-end" style="margin-right: 70px">Thêm</button>
                             </a>
                             <h5 class="fw-bold py-3 mb-4">Danh sách loại sản phẩm</h5>
-<!--                            <div class="alert alert-success" role="alert"></div>-->
-<!--                            <div class="alert alert-success" role="alert"></div>-->
-<!--                            <div  class="alert alert-danger" role="alert"></div>-->
+                            <!--                            <div class="alert alert-success" role="alert"></div>-->
+                            <!--                            <div class="alert alert-success" role="alert"></div>-->
+                            <!--                            <div  class="alert alert-danger" role="alert"></div>-->
 
                             <table class="table">
                                 <thead>
@@ -108,21 +113,25 @@
                                 </tr>
                                 </thead>
                                 <tbody class="table-border-bottom-0">
-                                <tr >
-                                    <td >01</td>
-                                    <td>Áo sơ mi</td>
-                                    <td >Áo</td>
+                                <c:forEach var="pT" items="${listProType}"> <!-- items để lấy ánh xạ có chứa dữ liệu rồi dùng vòng lặp để hiển thị toàn bộ dữ liệu đó-->
+                                    <tr >
+                                        <td >${pT.productType_id}</td>  <!--lấy productType_id của dữ liệu ở dưới cũng thế-->
+                                        <td>${pT.productType_name}</td>
+                                        <td >${pT.category_id.category_name}</td>
 
-                                    <td  class="d-flex justify-content-end" style="margin-right:40px ">
-                                        <a href="/admin/productType/updateProductType">
-                                            <button type="submit" class="btn btn-warning m-2">Cập nhật</button>
-                                        </a>
-                                        <button class="btn btn-danger m-2 h-25">
-                                            Xoá
-                                        </button>
+                                        <td  class="d-flex justify-content-end" style="margin-right:40px ">
+                                            <a href="/admin/productType/updateProductType/${pT.productType_id}"
+                                               class="btn btn-warning m-2" >Cập nhật
+                                            </a>
+                                            <button class="btn btn-danger m-2 h-25"
+                                                    onclick="confirmDelete(${pT.productType_id})">
+                                                Xoá
+                                            </button>
 
-                                    </td>
-                                </tr>
+                                        </td>
+                                    </tr>
+                                </c:forEach>
+
 
 
                                 </tbody>
@@ -146,44 +155,46 @@
     <!-- / Layout wrapper -->
 </div>
 
-    <!-- Core JS -->
-    <!-- build:js assets/vendor/js/core.js -->
-    <script src="/admin/assets/vendor/libs/jquery/jquery.js"></script>
-    <script src="/admin/assets/vendor/libs/popper/popper.js"></script>
-    <script src="/admin/assets/vendor/js/bootstrap.js"></script>
-    <script src="/admin/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+<!-- Core JS -->
+<!-- build:js assets/vendor/js/core.js -->
+<script src="/admin/assets/vendor/libs/jquery/jquery.js"></script>
+<script src="/admin/assets/vendor/libs/popper/popper.js"></script>
+<script src="/admin/assets/vendor/js/bootstrap.js"></script>
+<script src="/admin/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
 
-    <script src="/admin/assets/vendor/js/menu.js"></script>
-    <!-- endbuild -->
+<script src="/admin/assets/vendor/js/menu.js"></script>
+<!-- endbuild -->
 
-    <!-- Vendors JS -->
+<!-- Vendors JS -->
 
-    <!-- Main JS -->
-    <script src="/admin/assets/js/main.js"></script>
+<!-- Main JS -->
+<script src="/admin/assets/js/main.js"></script>
 
-    <!-- Page JS -->
+<!-- Page JS -->
 
-    <script src="/admin/assets/js/form-basic-inputs.js"></script>
+<script src="/admin/assets/js/form-basic-inputs.js"></script>
 
-    <!-- Place this tag in your head or just before your close body tag. -->
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
-    <script>
-        function confirmDelete(productId) {
-            Swal.fire({
-                title: 'Cảnh báo !',
-                text: "Bạn có chắc muốn xóa tài khoản này không ?",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Đồng ý',
-                cancelButtonText: 'Hủy'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    window.location.href = '/admin/account/delete/' + productId;
-                }
-            })
-        }
-    </script>
+<!-- Place this tag in your head or just before your close body tag. -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    function confirmDelete(type_Id) {
+        Swal.fire({
+            title: 'Cảnh báo !',
+            text: "Bạn có chắc muốn xóa loại này không ?",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Đồng ý',
+            cancelButtonText: 'Hủy'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = '/admin/productType/delete/' + type_Id;
+            }
+        })
+    }
+</script>
 </body>
 </html>

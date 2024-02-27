@@ -75,6 +75,7 @@
 
 
 
+
 <section class="contact-area">
     <div class="container-fluid custom-container">
         <div class="section-heading pb-30">
@@ -83,14 +84,12 @@
         <div class="row justify-content-center">
             <div class="col-sm-9 col-md-8 col-lg-6 col-xl-4">
                 <div class="contact-form login-form">
-                    <form action="#">
+                    <form action="/confirmemail" method="post">
                         <div class="row">
                             <div class="col-xl-12">
-                                <input type="text" placeholder="Email*">
+                                <span style="color: #00ad5f">${message}</span>
+                                <input type="text" name="email" placeholder="Email*">
                             </div>
-<!--                            <div class="col-xl-12">-->
-<!--                                <input type="text" placeholder="Password*">-->
-<!--                            </div>-->
                             <div class="col-xl-12">
                                 <input type="submit" value="Gửi mail">
                             </div>
@@ -105,6 +104,8 @@
 </section>
 <!-- /.contact-area end -->
 
+<div th:replace="~{/user/components/footer}"></div>
+<!-- /.login-now -->
 <%@include file="../user/components/footer.jsp"%>
 <!-- /.login-now -->
 

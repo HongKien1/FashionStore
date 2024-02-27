@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 
 <!-- =========================================================
@@ -12,15 +13,15 @@
 * Copyright ThemeSelection (https://themeselection.com)
 
 =========================================================
- -->
+-->
 <!-- beautify ignore:start -->
 <html xmlns:th="http://www.thymeleaf.org"
-        lang="en"
-        class="light-style layout-menu-fixed"
-        dir="ltr"
-        data-theme="theme-default"
-        data-assets-path="/assets/"
-        data-template="vertical-menu-template-free"
+      lang="en"
+      class="light-style layout-menu-fixed"
+      dir="ltr"
+      data-theme="theme-default"
+      data-assets-path="/assets/"
+      data-template="vertical-menu-template-free"
 >
 <head>
     <meta charset="utf-8"/>
@@ -90,27 +91,21 @@
                     <h5 class="card-header">Thêm loại sản phẩm</h5>
 
                     <div class="card-body">
-                        <form  method="POST" >
+                        <form action="/admin/productType/addProductType" modelAttribute="productType" method="POST" > <!--Action để xử lý đường dẫn ở controller, modeldattribute ánh xạ các thẻ name trong form với modelAttribute đc khai báo ở controller,-->
                             <div class="row">
 
                                 <div class="mb-3">
-                                    <label for="username" class="form-label">Tên loại</label>
-                                    <input
-                                            class="form-control"
-                                            type="text"
-                                            id="username"
-                                            name="username"
-                                            value="áo sơ mi"
-                                            autofocus
-                                    />
-                                    <span class="text-danger"></span>
+                                    <label  class="form-label">Tên loại</label>
+                                    <input class="form-control" type="text" name="productType_name" placeholder="Nhập tên loại sản phẩm" required/> <!--Dùng name để ánh xạ đến các trường entity lên controller-->
+                                    <span class="text-danger">${error}</span>
 
                                 </div>
                                 <div class="mt-3">
                                     <label  class="form-label">Danh mục</label>
-                                    <select class="form-select" >
-                                        <option>Quần</option>
-                                        <option>Áo</option>
+                                    <select class="form-select" name="category_id">
+                                        <c:forEach var="cbo" items="${cboCate}">  <!--For each để dùng vòng lặp, items lấy dữ liệu Category thông qua ánh xạ nó tìm đc-->
+                                            <option value="${cbo.category_id}">${cbo.category_name}</option><!--Hiện thị tên các danh mục đó đó-->
+                                        </c:forEach>
                                     </select>
                                 </div>
 
@@ -133,8 +128,8 @@
                         <!--  start table-->
                     </div>
 
-                        <!--  end table-->
-                    </div>
+                    <!--  end table-->
+                </div>
                 <!-- / Content -->
 
 

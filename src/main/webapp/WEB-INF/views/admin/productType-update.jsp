@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 
 <!-- =========================================================
@@ -12,7 +13,7 @@
 * Copyright ThemeSelection (https://themeselection.com)
 
 =========================================================
- -->
+-->
 <!-- beautify ignore:start -->
 <html xmlns:th="http://www.thymeleaf.org"
       lang="en"
@@ -90,42 +91,44 @@
                     <h5 class="card-header">Cập nhật loại sản phẩm</h5>
 
                     <div class="card-body">
-                        <form method="POST">
+                        <form action="/admin/productType/updateProduct" modelAttribute="productType" method="POST" >
                             <div class="row">
-                                <div class="row">
-
-                                    <div class="mb-3">
-                                        <label for="username" class="form-label">Tên loại</label>
-                                        <input
-                                                class="form-control"
-                                                type="text"
-                                                id="username"
-                                                name="username"
-                                                value="áo sơ mi"
-                                                autofocus
-                                        />
-                                        <span class="text-danger"></span>
-
-                                    </div>
-                                    <div class="mt-3">
-                                        <label class="form-label">Danh mục</label>
-                                        <select class="form-select">
-                                            <option>Quần</option>
-                                            <option>Áo</option>
-                                        </select>
-                                    </div>
-
+                                <input type="hidden" name="productType_id" value="${proTypeDetail.productType_id}">
+                                <div class="mb-3">
+                                    <label  class="form-label">Tên loại</label>
+                                    <input class="form-control" type="text" name="productType_name" value="${proTypeDetail.productType_name}" placeholder="Nhập tên loại sản phẩm" required/>
+                                    <span class="text-danger">${error}</span>
 
                                 </div>
-                                <div class="row mt-3 ">
-                                    <div class="mt-3 col-md-6 d-flex justify-content-start">
-                                        <button type="submit" class="btn btn-warning m-2">Cập nhât</button>
-                                        <button type="reset" class="btn btn-outline-secondary m-2">Cancel</button>
-                                    </div>
+                                <div class="mt-3">
+                                    <label  class="form-label">Danh mục</label>
+                                    <select class="form-select" name="category_id">
+                                        <c:forEach var="cbo" items="${cboCate}">
+                                            <c:choose>
+                                                <c:when test="${cbo.category_id eq proTypeDetail.category_id.category_id}">
+                                                    <option value="${cbo.category_id}" selected>${cbo.category_name}</option>
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <option value="${cbo.category_id}">${cbo.category_name}</option>
+                                                </c:otherwise>
+                                            </c:choose>
+                                        </c:forEach>
+                                    </select>
 
-                                    <div class="mt-3 col-md-6 d-flex justify-content-end">
-                                        <a href="/admin/productType" class="btn btn-outline-danger m-2">Trở vê</a>
-                                    </div>
+                                </div>
+
+
+
+                            </div>
+
+                            <div class="row mt-3 ">
+                                <div class="mt-3 col-md-6 d-flex justify-content-start">
+                                    <button type="submit" class="btn btn-info m-2">Thêm</button>
+                                    <button type="reset" class="btn btn-outline-secondary m-2">Cancel</button>
+                                </div>
+
+                                <div class="mt-3 col-md-6 d-flex justify-content-end">
+                                    <a href="/admin/productType" class="btn btn-outline-danger m-2">Trở vê</a>
                                 </div>
                             </div>
                         </form>

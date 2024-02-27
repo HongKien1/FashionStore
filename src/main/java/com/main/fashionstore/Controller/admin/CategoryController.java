@@ -56,13 +56,20 @@ public class CategoryController {
         if (!result.hasErrors()) {
             categoryService.save(category);
             System.out.println(category.toString());
-            model.addAttribute("message", "Them thanh cong");
+            model.addAttribute("message", "Thêm thành công");
             return "redirect:/admin/category";
         } else {
-            model.addAttribute("message", "Vui long nhap du thong tin");
+            model.addAttribute("message", "Vui lòng nhập đủ thông tin");
         }
         return "/admin/category-add";
     }
+
+    /**
+     * Phương thức cập nhật category
+     * @param model dùng để truyền dữ liệu từ controller sang view
+     * @param category_id id của category
+     * @return trả về view category-update
+     */
 
     @GetMapping("/updateCategory/{category_id}")
     public String update(Model model, @PathVariable("category_id") Integer category_id) {
@@ -87,6 +94,12 @@ public class CategoryController {
 //        }
 //        return "admin/category-update";
     }
+
+    /**
+     * Phương thức xóa category
+     * @param category_id id của category
+     * @return trả về view category
+     */
 
     @GetMapping("/deleteCategory/{category_id}")
     public String delete(@PathVariable("category_id") Integer category_id) {

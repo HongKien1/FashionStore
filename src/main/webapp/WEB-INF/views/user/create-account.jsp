@@ -76,7 +76,7 @@
 
 
 
-    <section class="contact-area">
+<section class="contact-area">
     <div class="container-fluid custom-container">
         <div class="section-heading pb-30">
             <h3>ĐĂNG <span> KÝ</span></h3>
@@ -84,52 +84,63 @@
         <div class="row justify-content-center">
             <div class="col-sm-9 col-md-8 col-lg-6 col-xl-4">
                 <div class="contact-form login-form">
-                    <form action="#">
+                    <form action="/create/account" modelAttribute="account" method="post">
                         <div class="row">
                             <div class="col-xl-12">
-                                <input type="text" placeholder="Username*">
+                                <input type="text" name="fullname" placeholder="Tên*" required>
                             </div>
                             <div class="col-xl-12">
-                                <input type="text" placeholder="Họ và tên*">
+                                <input type="text" name="email" placeholder="Email*" required>
                             </div>
+                            <div class="col-xl-12">
+                                <input type="text" name="username" placeholder="Tên đăng nhập*" required>
+                            </div>
+                            <div class="col-xl-12">
+                                <input type="password"name="password" placeholder="Mật khẩu*" required>
+                            </div>
+                            <div class="col-xl-12">
+                                <div class="form-group">
+                                    <select class="form-control" id="gender" name="gender" required>
+                                        <option value="" disabled selected>-- Chọn giới tính --</option>
+                                        <option value="true">Nam</option>
+                                        <option value="false">Nữ</option>
+                                    </select>
+                                </div>
 
-                            <div class="col-xl-12">
-                                <input type="text" placeholder="Email*">
-                            </div>
-                            <div class="col-xl-12">
-                                <input type="text" placeholder="Mật khẩu*">
                             </div>
                             <div class="col-xl-12">
                                 <input type="submit" value="ĐĂNG KÝ">
+                                <span style="color: #00ad5f">${message}</span>
                             </div>
                         </div>
                     </form>
+
                 </div>
             </div>
         </div>
         <!-- /.row end -->
     </div>
-    </section>
+</section>
 
-    <!-- /.container-fluid end -->
+<!-- /.container-fluid end -->
 
 
 <!-- /.contact-area end -->
 
-        <section class="login-now">
-            <div class="container-fluid custom-container">
-                <div class="col-12">
-                    <span>Đã có tài khoản</span>
-                    <a href="/login" class="btn-two">Đăng nhập ngay bây giờ</a>
-                </div>
-                <!-- /.col-12 -->
-            </div>
-            <!-- /.container-fluid -->
-        </section>
+<section class="login-now">
+    <div class="container-fluid custom-container">
+        <div class="col-12">
+            <span>Đã có tài khoản</span>
+            <a href="/account/login" class="btn-two">Đăng nhập ngay bây giờ</a>
+        </div>
+        <!-- /.col-12 -->
+    </div>
+    <!-- /.container-fluid -->
+</section>
 
+<div th:replace="~{/user/components/footer}"></div>
+<!-- /.login-now -->
 <%@include file="../user/components/footer.jsp"%>
-
-
 
 <!-- /.login-now -->
 <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="dependencies/jquery/jquery.min.js"></script>
@@ -152,107 +163,107 @@
 <!-- Site Scripts -->
 <script src="/login/assets/js/app.js"></script>
 
-        <!--===============================================================================================-->
-        <script src="/user/vendor/jquery/jquery-3.2.1.min.js"></script>
-        <!--===============================================================================================-->
-        <script src="/user/vendor/animsition/js/animsition.min.js"></script>
-        <!--===============================================================================================-->
-        <script src="/user/vendor/bootstrap/js/popper.js"></script>
-        <script src="/user/vendor/bootstrap/js/bootstrap.min.js"></script>
-        <!--===============================================================================================-->
-        <script src="/user/vendor/select2/select2.min.js"></script>
-        <script>
-            $(".js-select2").each(function(){
-                $(this).select2({
-                    minimumResultsForSearch: 20,
-                    dropdownParent: $(this).next('.dropDownSelect2')
-                });
-            })
-        </script>
-        <!--===============================================================================================-->
-        <script src="/user/vendor/daterangepicker/moment.min.js"></script>
-        <script src="/user/vendor/daterangepicker/daterangepicker.js"></script>
-        <!--===============================================================================================-->
-        <script src="/user/vendor/slick/slick.min.js"></script>
-        <script src="/user/js/slick-custom.js"></script>
-        <!--===============================================================================================-->
-        <script src="/user/vendor/parallax100/parallax100.js"></script>
-        <script>
-            $('.parallax100').parallax100();
-        </script>
-        <!--===============================================================================================-->
-        <script src="/user/vendor/MagnificPopup/jquery.magnific-popup.min.js"></script>
-        <script>
-            $('.gallery-lb').each(function() { // the containers for all your galleries
-                $(this).magnificPopup({
-                    delegate: 'a', // the selector for gallery item
-                    type: 'image',
-                    gallery: {
-                        enabled:true
-                    },
-                    mainClass: 'mfp-fade'
-                });
-            });
-        </script>
-        <!--===============================================================================================-->
-        <script src="/user/vendor/isotope/isotope.pkgd.min.js"></script>
-        <!--===============================================================================================-->
-        <script src="/user/vendor/sweetalert/sweetalert.min.js"></script>
-        <script>
-            $('.js-addwish-b2, .js-addwish-detail').on('click', function(e){
-                e.preventDefault();
-            });
+<!--===============================================================================================-->
+<script src="/user/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+<script src="/user/vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+<script src="/user/vendor/bootstrap/js/popper.js"></script>
+<script src="/user/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+<script src="/user/vendor/select2/select2.min.js"></script>
+<script>
+    $(".js-select2").each(function(){
+        $(this).select2({
+            minimumResultsForSearch: 20,
+            dropdownParent: $(this).next('.dropDownSelect2')
+        });
+    })
+</script>
+<!--===============================================================================================-->
+<script src="/user/vendor/daterangepicker/moment.min.js"></script>
+<script src="/user/vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+<script src="/user/vendor/slick/slick.min.js"></script>
+<script src="/user/js/slick-custom.js"></script>
+<!--===============================================================================================-->
+<script src="/user/vendor/parallax100/parallax100.js"></script>
+<script>
+    $('.parallax100').parallax100();
+</script>
+<!--===============================================================================================-->
+<script src="/user/vendor/MagnificPopup/jquery.magnific-popup.min.js"></script>
+<script>
+    $('.gallery-lb').each(function() { // the containers for all your galleries
+        $(this).magnificPopup({
+            delegate: 'a', // the selector for gallery item
+            type: 'image',
+            gallery: {
+                enabled:true
+            },
+            mainClass: 'mfp-fade'
+        });
+    });
+</script>
+<!--===============================================================================================-->
+<script src="/user/vendor/isotope/isotope.pkgd.min.js"></script>
+<!--===============================================================================================-->
+<script src="/user/vendor/sweetalert/sweetalert.min.js"></script>
+<script>
+    $('.js-addwish-b2, .js-addwish-detail').on('click', function(e){
+        e.preventDefault();
+    });
 
-            $('.js-addwish-b2').each(function(){
-                var nameProduct = $(this).parent().parent().find('.js-name-b2').html();
-                $(this).on('click', function(){
-                    swal(nameProduct, "đã thêm vào danh sách yêu thích !", "success");
+    $('.js-addwish-b2').each(function(){
+        var nameProduct = $(this).parent().parent().find('.js-name-b2').html();
+        $(this).on('click', function(){
+            swal(nameProduct, "đã thêm vào danh sách yêu thích !", "success");
 
-                    $(this).addClass('js-addedwish-b2');
-                    $(this).off('click');
-                });
-            });
+            $(this).addClass('js-addedwish-b2');
+            $(this).off('click');
+        });
+    });
 
-            $('.js-addwish-detail').each(function(){
-                var nameProduct = $(this).parent().parent().parent().find('.js-name-detail').html();
+    $('.js-addwish-detail').each(function(){
+        var nameProduct = $(this).parent().parent().parent().find('.js-name-detail').html();
 
-                $(this).on('click', function(){
-                    swal(nameProduct, "đã thêm vào danh sách yêu thích !", "success");
+        $(this).on('click', function(){
+            swal(nameProduct, "đã thêm vào danh sách yêu thích !", "success");
 
-                    $(this).addClass('js-addedwish-detail');
-                    $(this).off('click');
-                });
-            });
+            $(this).addClass('js-addedwish-detail');
+            $(this).off('click');
+        });
+    });
 
-            /*---------------------------------------------*/
+    /*---------------------------------------------*/
 
-            $('.js-addcart-detail').each(function(){
-                var nameProduct = $(this).parent().parent().parent().parent().find('.js-name-detail').html();
-                $(this).on('click', function(){
-                    swal(nameProduct, "đã thêm vào giỏ hàng !", "success");
-                });
-            });
+    $('.js-addcart-detail').each(function(){
+        var nameProduct = $(this).parent().parent().parent().parent().find('.js-name-detail').html();
+        $(this).on('click', function(){
+            swal(nameProduct, "đã thêm vào giỏ hàng !", "success");
+        });
+    });
 
-        </script>
-        <!--===============================================================================================-->
-        <script src="/user/vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-        <script>
-            $('.js-pscroll').each(function(){
-                $(this).css('position','relative');
-                $(this).css('overflow','hidden');
-                var ps = new PerfectScrollbar(this, {
-                    wheelSpeed: 1,
-                    scrollingThreshold: 1000,
-                    wheelPropagation: false,
-                });
+</script>
+<!--===============================================================================================-->
+<script src="/user/vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+<script>
+    $('.js-pscroll').each(function(){
+        $(this).css('position','relative');
+        $(this).css('overflow','hidden');
+        var ps = new PerfectScrollbar(this, {
+            wheelSpeed: 1,
+            scrollingThreshold: 1000,
+            wheelPropagation: false,
+        });
 
-                $(window).on('resize', function(){
-                    ps.update();
-                })
-            });
-        </script>
-        <!--===============================================================================================-->
-        <script src="/user/js/main.js"></script>
+        $(window).on('resize', function(){
+            ps.update();
+        })
+    });
+</script>
+<!--===============================================================================================-->
+<script src="/user/js/main.js"></script>
 
 
 </body>
