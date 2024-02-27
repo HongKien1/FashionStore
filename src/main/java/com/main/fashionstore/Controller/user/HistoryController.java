@@ -1,7 +1,10 @@
 package com.main.fashionstore.Controller.user;
 
+import com.main.fashionstore.Dao.OrderDao;
+import com.main.fashionstore.Dao.OrderDetailsDao;
+import com.main.fashionstore.Dao.OrderStatusDao;
 import com.main.fashionstore.Entity.Order;
-import com.main.fashionstore.Service.OrderService;
+import com.main.fashionstore.Entity.OrderDetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,11 +17,15 @@ import java.util.List;
 @RequestMapping("history")
 public class HistoryController {
     @Autowired
-    OrderService orderService;
+    OrderDetailsDao orderDetailsDao;
+
+    @Autowired
+    OrderDao orderDao;
+
     @GetMapping("")
     public String index(Model model) {
-        List<Order> oders = orderService.getAllOrders();
-        model.addAttribute("orders", oders);
-        return "user/historyOrder";
+        List<OrderDetails> orderList = orderDetailsDao.findAll();
+        model.addAttribute("orderLists", orderList);
+        return "redirect:/history";
     }
 }

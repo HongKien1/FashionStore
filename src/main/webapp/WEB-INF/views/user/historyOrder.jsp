@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -63,30 +63,29 @@
 		<div class="container">
 			<table class="table">
 				<thead>
-				<tr>
-					<th scope="col">STT</th>
-					<th scope="col">Sản phẩm</th>
-					<th scope="col">Địa chỉ</th>
-					<th scope="col">Số lượng</th>
-					<th scope="col">Giá</th>
-					<th scope="col">Thành tiền</th>
-					<th scope="col">Trạng thái</th>
-				</tr>
+					<tr>
+						<th scope="col">STT</th>
+						<th scope="col">Product</th>
+						<th scope="col">Address</th>
+						<th scope="col">Quantity</th>
+						<th scope="col">Price</th>
+						<th scope="col">Total</th>
+						<th scope="col">Status</th>
+					</tr>
 				</thead>
 				<tbody>
-				<c:forEach var="order" items="${orders}">
-				<tr>
-					<th scope="row">${order.order_id}</th>
-					<td>Áo thun nam</td>
-					<td>${order.address}</td>
-					<td>${order.quantity}</td>
-					<td>200000</td>
-					<td>${order.total}</td>
-					<td>Đã giao</td>
-				</tr>
-				</c:forEach>
+					<c:forEach var="orderList" items="${orderLists}" varStatus="loop">
+						<tr>
+							<td class="text-center">${loop.index + 1}</td>
+							<td>${orderList.productDetail.product.name}</td>
+							<td>${orderList.order.address}</td>
+							<td>${orderList.quantity}</td>
+							<td>${orderList.productDetail.product.price}</td>
+							<td>${orderList.order.total}</td>
+							<td>${orderList.orderstatus.orderStatus_name}</td>
+						</tr>
+					</c:forEach>
 				</tbody>
-
 			</table>
 		</div>
 	</section>

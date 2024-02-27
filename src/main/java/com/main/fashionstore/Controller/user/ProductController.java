@@ -140,7 +140,7 @@ public class ProductController {
             if (productD != null) {
 
                 Double total = qty * productD.getProduct().getPrice();
-                System.out.println(total + "------------------");
+                
                 Optional<CartDetails> cartDetailEntity = cartDetailsService
                         .findCartDetailIdByCartIdAndProductDetailId(cart.get().getCart_id(),
                                 productD.getProductdetails_id());
