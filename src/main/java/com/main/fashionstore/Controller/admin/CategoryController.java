@@ -14,25 +14,42 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
-@Controller
-@RequestMapping("admin/category")
+@Controller //đánh dấu đây là một controller
+@RequestMapping("admin/category") //đường dẫn URL mà request sẽ được chuyển đến
 public class CategoryController {
-    @Autowired
+    @Autowired //đánh dấu đây là một đối tượng và sẽ được SB tiêm dữ liệu vào
     CategoryService categoryService;
 
-    @GetMapping("")
+    /**
+     * Phương thức lấy ra danh sách category
+     * @param model dùng để truyền dữ liệu từ controller sang view
+     * @return trả về view category
+     */
+    @GetMapping("")//đánh dấu đây là một phương thức xử lý request GET
     public String index(Model model) {
         List<Category> categories = categoryService.findAll();
         model.addAttribute("categories", categories);
         return "admin/category";
     }
 
+    /**
+     * Phương thức thêm mới category
+     * @param model dùng để truyền dữ liệu từ controller sang view
+     * @return trả về view category-add
+     */
     @GetMapping("/addCategory")
     public String add(Model model) {
         model.addAttribute("category", new Category());
         return "admin/category-add";
     }
 
+    /**
+     * Phương thức thêm mới category
+     * @param category dùng để truyền dữ liệu từ view sang controller
+     * @param result dùng để kiểm tra lỗi
+     * @param model dùng để truyền dữ liệu từ controller sang view
+     * @return trả về view category
+     */
     @PostMapping("/addCategory")
     public String addProduct(@Validated Category category,
                              BindingResult result, Model model) {
@@ -51,8 +68,6 @@ public class CategoryController {
     public String update(Model model, @PathVariable("category_id") Integer category_id) {
         Category category = categoryService.findById(category_id);
         model.addAttribute("category", category);
-//        List<Category> categories = categoryService.findAll();
-//        model.addAttribute("categories", categories);
         return "admin/category-update";
     }
 

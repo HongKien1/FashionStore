@@ -14,7 +14,6 @@ public class CategoryService {
     CategoryDao categoryDao;
 
     public List<Category> findAll() {
-
         return categoryDao.findAll();
     }
 
@@ -24,6 +23,7 @@ public class CategoryService {
     }
 
     public Category save(Category category) {
+
         return categoryDao.save(category);
     }
 

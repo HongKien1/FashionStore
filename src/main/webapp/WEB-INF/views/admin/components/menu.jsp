@@ -85,9 +85,11 @@
         <li class="menu-item">
             <a href="/admin/order" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-news"></i>
-                <div data-i18n="Analytics">Quản lí hóa đơn</div>
+                <div data-i18n="Analytics">Quản lí đơn hàng</div>
+
             </a>
         </li>
+
 
         <!-- Components -->
         <li class="menu-header small text-uppercase"><span class="menu-header-text">Thống kê</span></li>
@@ -95,9 +97,10 @@
         <li class="menu-item">
             <a href="/admin" class="menu-link">
                 <i class="menu-icon tf-icons  bx bx-bar-chart-alt"></i>
-                <div data-i18n="Basic">Thống kê doanh thu tháng</div>
+                <div data-i18n="Basic">Quản lý thống kê</div>
             </a>
         </li>
+
 
     </ul>
 </aside>

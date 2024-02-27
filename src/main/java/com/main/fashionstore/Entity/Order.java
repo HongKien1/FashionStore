@@ -20,7 +20,6 @@ public class Order implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer order_id;
 
-    Integer quantity;
 
     Double total;
 
