@@ -43,20 +43,12 @@ public class AccountUserController {
 
     @PostMapping("/update")
     public String updateAccountInfo(@RequestParam String fullname, Model model) {
-        // Lấy thông tin tài khoản từ cơ sở dữ liệu
-        // Thay vị trí này bằng cách lấy ID tài khoản của user từ phiên làm việc hoặc thông tin người dùng đã đăng nhập
-        int accountId = 1; // Ví dụ: giả sử ID tài khoản của user là 1
-        Account account = accountDao.findById(accountId).orElse(null);
-
-        // Cập nhật thông tin cá nhân từ dữ liệu đầu vào
-        account.setFullname(account.getFullname());
-        // Cập nhật thông tin các tham số khác
-        // Code các tham số khác cần cập nhật
-
-        // Lưu thông tin cập nhật vào cơ sở dữ liệu
-        accountDao.save(account);
-
-        // Sau khi cập nhật thành công, chuyển hướng về trang hiển thị thông tin cá nhân
+        // Cập nhật thông tin tài khoản
+        String username = (String) session.getAttribute("account");
+        Optional<Account> accountUser = accountDao.findByUsername(username);
+        accountUser.get().setFullname(fullname);
+        accountDao.save(accountUser.get());
+        model.addAttribute("account", accountUser.get());
         return "redirect:/account";
     }
 }

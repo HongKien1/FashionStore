@@ -24,6 +24,9 @@ public class OrderDetails implements Serializable {
     @JoinColumn(name = "orderstatus_id")
     OrderStatus orderstatus;
 
+
+    Integer quantity;
+
     @OneToOne
     @JoinColumn(name = "order_id")
     Order order;

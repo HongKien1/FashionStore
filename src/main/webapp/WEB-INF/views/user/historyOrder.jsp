@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -63,43 +65,28 @@
 				<thead>
 				<tr>
 					<th scope="col">STT</th>
-					<th scope="col">Product</th>
-					<th scope="col">Address</th>
-					<th scope="col">Quantity</th>
-					<th scope="col">Price</th>
-					<th scope="col">Total</th>
-					<th scope="col">Status</th>
+					<th scope="col">Sản phẩm</th>
+					<th scope="col">Địa chỉ</th>
+					<th scope="col">Số lượng</th>
+					<th scope="col">Giá</th>
+					<th scope="col">Thành tiền</th>
+					<th scope="col">Trạng thái</th>
 				</tr>
 				</thead>
 				<tbody>
+				<c:forEach var="order" items="${orders}">
 				<tr>
-					<th scope="row">1</th>
+					<th scope="row">${order.order_id}</th>
 					<td>Áo thun nam</td>
-					<td>An Giang</td>
-					<td>2</td>
-					<td>59.000 VNĐ</td>
-					<td>128.000 VNĐ</td>
+					<td>${order.address}</td>
+					<td>${order.quantity}</td>
+					<td>200000</td>
+					<td>${order.total}</td>
 					<td>Đã giao</td>
 				</tr>
-				<tr>
-					<th scope="row">2</th>
-					<td>Áo sơ mi nam</td>
-					<td>Cần Thơ</td>
-					<td>3</td>
-					<td>45.000 VNĐ</td>
-					<td>135.000 VNĐ</td>
-					<td>Đang giao hàng</td>
-				</tr>
-				<tr>
-					<th scope="row">2</th>
-					<td>Đầm nữ</td>
-					<td>Sóc Trăng</td>
-					<td>1</td>
-					<td>529.000 VNĐ</td>
-					<td>529.000 VNĐ</td>
-					<td>Đã hủy</td>
-				</tr>
+				</c:forEach>
 				</tbody>
+
 			</table>
 		</div>
 	</section>

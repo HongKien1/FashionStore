@@ -15,8 +15,11 @@ public class MainController {
 
     @GetMapping("")
     public String index() {
+        //thống kê doanh thu
+
         return "admin/index";
     }
+
 
     @GetMapping("logout")
     public String logout() {
