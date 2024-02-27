@@ -54,7 +54,7 @@
                             <a href="/product">Sản phẩm</a>
                         </li>
 
-                        <li class="label1" data-label1="hot">
+                        <li  >
                             <a href="/cart">Giỏ hàng</a>
                         </li>
 <%--                        --%>

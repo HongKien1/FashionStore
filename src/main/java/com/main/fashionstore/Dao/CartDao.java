@@ -16,6 +16,6 @@ public interface CartDao extends JpaRepository<Cart, Integer> {
     Optional<Cart> findByAccount(Account account);
 
     // Lấy tất cả các giỏ hàng của một người dùng
-    List<Cart> findByUser(Account account);
+//    List<Cart> findByUser(Account account);
     
 }

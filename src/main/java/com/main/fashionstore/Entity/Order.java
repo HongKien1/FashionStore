@@ -20,8 +20,6 @@ public class Order implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer order_id;
 
-    Integer quantity;
-
     Double total;
 
     @Nationalized
@@ -30,7 +28,7 @@ public class Order implements Serializable {
     @Nationalized
     String address;
 
-    Number phonenumber;
+    String phonenumber;
 
     @Nationalized
     String note;

@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -59,44 +61,35 @@
     <div class="container">
         <div class="flex-w flex-tr">
             <div class="size-210 bor10 p-lr-70 p-t-55 p-b-70 p-lr-15-lg w-full-md">
-                <form>
+                <form  method="post">
                     <h4 class="mtext-105 cl2 txt-center p-b-30">
                         Đặt hàng
                     </h4>
 
-                    <label for="address">Tên</label>
+                    <label >Tên</label>
                     <div class="bor8 m-b-20 how-pos4-parent">
-                        <input class="stext-111 cl2 plh3 size-116 p-l-10 p-r-30" type="text" name="email"
-                               placeholder="Nhập tên">
+                        <input class="stext-111 cl2 plh3 size-116 p-l-10 p-r-30" type="text" name="name" id="name"
+                               placeholder="Nhập tên" value="${account.fullname}" >
                     </div>
-                    <label for="address">Số điện thoại</label>
+                    <label >Số điện thoại</label>
                     <div class="bor8 m-b-20 how-pos4-parent">
-                        <input class="stext-111 cl2 plh3 size-116 p-l-10 p-r-30" type="text" name="email"
+                        <input class="stext-111 cl2 plh3 size-116 p-l-10 p-r-30" type="text" name="numberPhone" id="numberPhone" value="${numberPhone}"
                                placeholder="Nhập số điện thoại">
                     </div>
 
-                    <label for="address">Chọn Tỉnh :</label>
-                    <select class="form-control mb-4" id="address" name="address">
-                        <option value="hn">Hà Nội</option>
-                        <option value="hcm">Hồ Chí Minh</option>
-                        <option value="dn">Đà Nẵng</option>
-                    </select>
-                    <label for="address">Chọn huyện :</label>
-                    <select class="form-control mb-4" id="" name="address">
-                        <option value="hn">Ninh Kiều</option>
-                        <option value="hcm">Cái Răng</option>
-                        <option value="dn">Đà Nẵng</option>
-                    </select>
-
-                    <label for="address">Chi tiết địa chỉ</label>
+                    <label >Chi tiết địa chỉ</label>
                     <div class="bor8 m-b-20">
-                        <input class="stext-111 cl2 plh3 size-116 p-l-10 p-r-30" type="text" name="email">
+                        <input class="stext-111 cl2 plh3 size-116 p-l-10 p-r-30" type="text" name="address" id="address" value="${address}">
                     </div>
 
                     <div class="bor8 m-b-30">
-                        <textarea class="stext-111 cl2 plh3 size-120 p-lr-10 p-tb-25" name="msg"
+                        <textarea class="stext-111 cl2 plh3 size-120 p-lr-10 p-tb-25" name="note" value="${note}" id="note"
                                   placeholder="Nhập ghi chú"></textarea>
                     </div>
+
+                    <button type="submit" class="btn btn-dark btn-block btn-lg" onclick="handleBuyButtonClick()"
+                            data-mdb-ripple-color="dark" style="width: 100%;"
+                            formaction="/orderDetail/order">Đặt hàng</button>
 
 
                 </form>
@@ -116,7 +109,7 @@
 
                     <div class="size-209">
 								<span class="mtext-110 cl2">
-									${totalPrice}
+							        <td><fmt:formatNumber type="number" pattern="###,###,###" value="${totalPrice}" /> ₫</td>
 								</span>
                     </div>
                 </div>
@@ -135,7 +128,9 @@
                                         ${cartDetail.productdetails.size.size_name} ,
                                         ${cartDetail.productdetails.color.color}
                                     </a>
-                                    <span class="header-cart-item-info"> ${cartDetail.quantity} x ${cartDetail.productdetails.product.price} </span>
+                                    <td class="text-center">${cartDetail.quantity}</td> x
+                                    <td><fmt:formatNumber type="number" pattern="###,###,###" value="${cartDetail.productdetails.product.price}" /> ₫</td>
+
                                 </div>
                             </li>
                         </c:forEach>
@@ -152,15 +147,12 @@
 
                     <div class="size-209 p-t-1">
 								<span class="mtext-110 cl2">
-									${totalPrice}
+									<td><fmt:formatNumber type="number" pattern="###,###,###" value="${totalPrice}" /> ₫</td>
 								</span>
                     </div>
                 </div>
 
-                <a href="#" onclick="handleBuyButtonClick()"
-                   class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer js-add-cart-detail">
-                    Mua hàng
-                </a>
+
             </div>
         </div>
     </div>
@@ -221,13 +213,14 @@
             icon: 'success',
             title: 'Mua hàng thành công!',
             showConfirmButton: false,
-            timer: 1500
+            timer: 10000
         });
-        this.setTimeout(
-            function () {
-                window.location.href = "/index";
-            }, 1500);
+
+        setTimeout(function () {
+            window.location.href = "/history";
+        }, 1500);
     }
+
 </script>
 
 <script>

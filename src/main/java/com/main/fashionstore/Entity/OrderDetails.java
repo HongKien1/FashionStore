@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+import java.util.Optional;
 
 @Entity
 @Table(name = "orderdetail")
@@ -16,6 +17,8 @@ public class OrderDetails implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer orderdetail_id;
+
+    Integer quantity;
 
     @ManyToOne
     @JoinColumn(name = "orderstatus_id")
@@ -28,4 +31,5 @@ public class OrderDetails implements Serializable {
     @ManyToOne
     @JoinColumn(name = "productDetails")
     ProductDetails productDetail;
+
 }

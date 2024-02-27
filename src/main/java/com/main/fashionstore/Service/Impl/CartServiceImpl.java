@@ -77,9 +77,6 @@ public class CartServiceImpl implements CartService {
         return cartDao.findByAccount(account);
     }
 
-    @Override
-    public void saveCart(Cart cart) {
-        cartDao.save(cart);
-    }
+
 
 }

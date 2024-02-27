@@ -1,6 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 
 <!-- =========================================================
@@ -120,12 +121,12 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>STT</th>
-                                        <th>Tên sản phẩm</th>
-                                        <th>Loại sản phẩm</th>
-                                        <th>Thương hiệu</th>
-                                        <th>Hình ảnh</th>
-                                        <th>Mô tả</th>
+                                        <th class="text-center">STT</th>
+                                        <th class="text-center">Ảnh sản phẩm</th>
+                                        <th class="text-center">Tên sản phẩm</th>
+                                        <th class="text-center">Thương hiệu</th>
+                                        <th class="text-center">Loại sản phẩm</th>
+                                        <th class="text-center">Mô tả</th>
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -133,12 +134,14 @@
 
                                     <c:forEach var="product" items="${products}" varStatus="loop">
                                         <tr>
-                                            <td>${loop.index + 1}</td> <!-- Số thứ tự tăng dần -->
-                                            <td>${product.name}</td>
-                                            <td>${product.brand.brand_name}</td>
-                                            <td>${product.productType.productType_name}</td>
-                                            <td>${product.image}</td>
-                                            <td>${product.describe}</td>
+                                            <td class="text-center">${loop.index + 1}</td> <!-- Số thứ tự tăng dần -->
+                                            <td class="image" data-title="image" width="150px" height="150px">
+                                                <img  style="height: 100%" src="/images/${product.image}">
+                                            </td>
+                                            <td class="text-center">${product.name}</td>
+                                            <td class="text-center">${product.brand.brand_name}</td>
+                                            <td class="text-center">${product.productType.productType_name}</td>
+                                            <td class="text-center">${product.describe}</td>
                                             <td>
                                                 <a href="/admin/Product/updateProduct/${product.product_id}">
                                                     <button type="submit" class="btn btn-warning m-2">Cập nhật</button>

@@ -139,6 +139,8 @@ public class ProductController {
 
             if (productD != null) {
 
+                Double total = qty * productD.getProduct().getPrice();
+                System.out.println(total + "------------------");
                 Optional<CartDetails> cartDetailEntity = cartDetailsService
                         .findCartDetailIdByCartIdAndProductDetailId(cart.get().getCart_id(),
                                 productD.getProductdetails_id());
@@ -148,7 +150,7 @@ public class ProductController {
                     cartDetails.setQuantity(qty);
                     cartDetails.setCart(cart.get());
                     cartDetails.setProductdetails(productD);
-                    cartDetails.setTotal(qty * productD.getProduct().getPrice());
+                    cartDetails.setTotal(total);
                     cartDetailsService.addToCart(cartDetails);
 
                 } else {
@@ -157,7 +159,7 @@ public class ProductController {
                     cartDetailsService.updateCartDetails(cartDetailEntity.get());
                 }
             }
-            return "redirect:/index";
+            return "redirect:/cart";
         } else {
             // Xử lý trường hợp người dùng chưa đăng nhập vào hệ thống
             // Điều hướng hoặc hiển thị thông báo lỗi tùy thuộc vào yêu cầu của bạn
